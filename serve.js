@@ -1,3 +1,4 @@
+// start HTTP server and display index.html file
 var http = require('http'),
     fs = require('fs');
 

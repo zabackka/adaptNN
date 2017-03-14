@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.enemy{
+  background-color: #C959A7;
+  border: none;
+}
+
+#player {
+  background-color: #53B9FF;
+  border: none;
+}
+.value {
+	font-size: 50px; 
+	font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", sans-serif;
+}
+#environment_params {
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	font-size: 50px; 
+}
+
