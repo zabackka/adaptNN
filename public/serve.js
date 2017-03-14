@@ -1,9 +1,13 @@
+var express = require('express')
+var app = express()
+
 // start HTTP server and display index.html file
 var http = require('http'),
     fs = require('fs');
 
+app.use(express.static(__dirname + '/public'))
 
-fs.readFile('./game_index.html', function (err, html) {
+fs.readFile('./index.html', function (err, html) {
     if (err) {
         throw err; 
     }       
