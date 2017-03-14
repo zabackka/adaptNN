@@ -5,13 +5,16 @@
 ////////////////////////
 
 ///// PLAYGROUND /////
-var PLAYGROUND_HEIGHT = window.innerHeight - 200; 
+var PLAYGROUND_HEIGHT = window.innerHeight - 60; 
 var PLAYGROUND_WIDTH = window.innerWidth - 20; 
 var REFRESH_RATE = 10; 
 var CURRENT_TIME = 0;
 var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 1000);
 var HIGH_SCORE = 0;
+
+
+
 
 function printEnvironmentParams() {
 	$('#environment_params').html("Enemy Height: <b>" + enemyHeight + "</b>     Enemy Width: <b>" + enemyWidth + "</b>     Enemy Speed: <b>" + enemySpeed + "</b>     Enemy Spawn Rate: <b>" + enemySpawnRate + "</b>     Player Width: <b>" + playerWidth + "</b>     Player Height: <b>" + playerHeight + "</b>     Player Speed: <b>" + playerSpeed + "</b>");
@@ -48,7 +51,6 @@ var playerSpeed = 10;
 			this.value = this.value; 
 	  	};
 	};
-	
 
 function updateTime() {
 	CURRENT_TIME++; 
@@ -57,6 +59,7 @@ function updateTime() {
 function updateParams() {
 	enemySpeed++;
 }
+	
 
 //////////////////////////////
 ///// GAME FUNCTIONALITY /////
