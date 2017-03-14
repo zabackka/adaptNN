@@ -5,7 +5,7 @@
 ////////////////////////
 
 ///// PLAYGROUND /////
-var PLAYGROUND_HEIGHT = window.innerHeight - 60; 
+var PLAYGROUND_HEIGHT = window.innerHeight - 200; 
 var PLAYGROUND_WIDTH = window.innerWidth - 20; 
 var REFRESH_RATE = 10; 
 var CURRENT_TIME = 0;
