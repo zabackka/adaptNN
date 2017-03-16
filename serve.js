@@ -1,5 +1,6 @@
 var express = require('express')
 var app = express()
+var path = require('path');
 
 // new
 var http = require('http');
@@ -11,7 +12,7 @@ io = io.listen(server);
 
 
 
-// var path = require('path');
+
 
 
 // app.set('port', (process.env.PORT || 8080))
