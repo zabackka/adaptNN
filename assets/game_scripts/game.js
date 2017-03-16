@@ -15,9 +15,12 @@ var HIGH_SCORE = 0;
 
 
 
+function displayTime() {
+	$('#current_time').html("Time: <b>" + CURRENT_TIME + "</b>"); 
+}
 
 function printEnvironmentParams() {
-	$('#environment_params').html("Enemy Height: <b>" + enemyHeight + "</b>     Enemy Width: <b>" + enemyWidth + "</b>     Enemy Speed: <b>" + enemySpeed + "</b>     Enemy Spawn Rate: <b>" + enemySpawnRate + "</b>     Player Width: <b>" + playerWidth + "</b>     Player Height: <b>" + playerHeight + "</b>     Player Speed: <b>" + playerSpeed + "</b>");
+	$('#environment_params').html("Enemy Height: <b>" + enemyHeight + "</b>   |    Enemy Width: <b>" + enemyWidth + "</b>   |    Enemy Speed: <b>" + enemySpeed + "</b>   |    Enemy Spawn Rate: <b>" + enemySpawnRate + "</b>   |    Player Width: <b>" + playerWidth + "</b>   |    Player Height: <b>" + playerHeight + "</b>   |    Player Speed: <b>" + playerSpeed + "</b>");
 }
 
 
@@ -86,8 +89,11 @@ $("#playerBody").html("<span class='value'>"+$("#player")[0].player.value+"</spa
  
 // update enemies at each refresh
 $.playground().registerCallback(function() {
-	// call the update() function on each member of the enemy class
-	printEnvironmentParams(); 
+	// display/update time & environment params
+	displayTime(); 
+	printEnvironmentParams();
+	
+	// call the update() function on each member of the enemy class 
 	$(".enemy").each(function(){
 		this.enemy.update();
 		// if enemy is off screen, remove from DOM
