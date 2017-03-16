@@ -44,12 +44,12 @@ io.sockets.on("connection", function(socket) {
 		scriptExecution.stdin.write(data);
 
 		scriptExecution.stdout.on('data', (data) => {
-			console.log(String.fromCharCode.apply(null, data));
+			var msg = String.fromCharCode.apply(null, data);
 		});
 
 		// construct a reply to the client
 		var send_back = {
-			data: "ran the python process"
+			data: msg
 		}
 
 		// send reply to client
