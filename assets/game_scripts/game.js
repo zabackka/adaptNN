@@ -14,6 +14,7 @@ var PLAYGROUND_HEIGHT = window.innerHeight - 60;
 var PLAYGROUND_WIDTH = window.innerWidth - 20; 
 var REFRESH_RATE = 10; 
 var CURRENT_TIME = 0;
+var PLAYER_PERFORMANCE = 80; 
 var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 3000);
 var HIGH_SCORE = 0;
@@ -68,9 +69,12 @@ function updateTime() {
 
 }
 
+// LEARN
 function updateParams() {
 	// send a message to the server
-	var data = [2, enemySpeed, playerSpeed];
+	var params = [enemySpeed, playerSpeed];
+	var performance = PLAYER_PERFORMANCE; 
+	var data = [params, performance];
 	socket.send(JSON.stringify(data));
 
 	// triggered when a message is sent from server

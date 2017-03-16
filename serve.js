@@ -5,6 +5,7 @@ var path = require('path');
 var http = require('http');
 var io = require('socket.io');
 
+// intialize for spawning child process (python execution)
 const spawn = require('child_process').spawn;
 const scriptExecution = spawn("python", ["adaptNN.py"]);
 
@@ -35,11 +36,11 @@ io.sockets.on("connection", function(socket) {
 		// parse message & display to console
 		data = JSON.parse(data);
 
-		var dataSize = data[0];
-		for (var i = 0; i < dataSize; i++) {
-			console.log(data[i]);
-			data[i] = data[i] + 12; 
-		}
+		var x = data[0];
+		var y = data[1];
+		
+		console.log(x);
+		console.log(y);
 
 		// construct a reply to the client
 		var send_back = {
