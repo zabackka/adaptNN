@@ -57,6 +57,11 @@ var playerSpeed = 10;
 
 function updateTime() {
 	CURRENT_TIME++; 
+	// increment player value
+    $("#player")[0].player.value += 1;
+	// update value in html to reflect current score
+	$("#player .value").html($("#player")[0].player.value);
+
 }
 
 function updateParams() {
