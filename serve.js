@@ -7,7 +7,7 @@ var path = require('path');
 
 app.set('port', (process.env.PORT || 8080))
 app.use(express.static(path.join(__dirname + '/assets'))); 
-app.use('Access-Control-Allow-Origin':'*');
+// app.use('Access-Control-Allow-Origin':'*');
 
 app.get('/', function(request, response) {
 	response.sendFile(path.join(__dirname + '/index.html'));
