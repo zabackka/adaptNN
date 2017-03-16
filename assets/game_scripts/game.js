@@ -87,6 +87,7 @@ $("#playerBody").html("<span class='value'>"+$("#player")[0].player.value+"</spa
 // update enemies at each refresh
 $.playground().registerCallback(function() {
 	// call the update() function on each member of the enemy class
+	printEnvironmentParams(); 
 	$(".enemy").each(function(){
 		this.enemy.update();
 		// if enemy is off screen, remove from DOM
