@@ -7,26 +7,6 @@ var path = require('path');
 
 app.set('port', (process.env.PORT || 8080))
 app.use(express.static(path.join(__dirname + '/assets'))); 
-// app.use('Access-Control-Allow-Origin':'*');
-// Add headers
-app.use(function (req, res, next) {
-
-    // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
-    // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    // Pass to next layer of middleware
-    next();
-});
 
 
 app.get('/', function(request, response) {
@@ -45,8 +25,11 @@ app.listen(app.get('port'), function() {
 const spawn = require('child_process').spawn;
 const scriptExecution = spawn("python", ["adaptNN.py"]);
 
+var fs = require('fs');
+
 scriptExecution.stdout.on('data', (data) => {
 	console.log(String.fromCharCode.apply(null, data));
+	fs.writeFile("/assets/learn.js", "console.log('Hello!')"); 
 });
 
 var data = JSON.stringify([1,2,3,4]);
