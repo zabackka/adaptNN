@@ -184,15 +184,19 @@ $.playground().startGame();
 
 
 // server communcation
+// connect to server
 var socket = io.connect("/"); 
 
+// triggered when a message is sent from server
 socket.on("message", function(message) {
 	console.log("CLIENT: message from server received:");
+	// parse message, output to console
 	message = JSON.parse(message);
 	console.log(message);
 
 });
 
+// send a message to the server
 var data = [1, 2, 3, 4];
 socket.send(JSON.stringify(data));
 
