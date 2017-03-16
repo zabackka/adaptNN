@@ -31,10 +31,10 @@ io.sockets.on("connection", function(socket) {
 		data = JSON.parse(data);
 
 		var dataSize = data[0];
-		for (var i = 0; i < dataSize, i++) {
+		for (var i = 0; i < dataSize; i++) {
 			console.log(data[i]);
 		}
-		
+
 		// construct a reply to the client
 		var send_back = {
 			data: [12, 47]
