@@ -29,7 +29,7 @@ var fs = require('fs');
 
 scriptExecution.stdout.on('data', (data) => {
 	console.log(String.fromCharCode.apply(null, data));
-	fs.writeFile("/assets/learn.js", "console.log('Hello!')"); 
+	fs.writeFile("~/assets/learn.js", "console.log('Hello!')"); 
 });
 
 var data = JSON.stringify([1,2,3,4]);
