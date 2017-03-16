@@ -30,3 +30,10 @@ scriptExecution.stdin.write(data);
 
 scriptExecution.stdin.end();
 
+app.post("/getSum", function(request, response) {
+	var sum; 
+	sum = request.body.sum;
+	return response.json({}, 200);
+});
+
+
