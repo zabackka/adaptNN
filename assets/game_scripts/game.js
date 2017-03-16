@@ -181,17 +181,6 @@ $.playground().registerCallback(function() {
 // start the game
 $.playground().startGame();
 
-var sum = 1000; 
-$.post({
-	url: "http://localhost/getSum",
-	headers: {'Access-Control-Allow-Origin': '*'}, 
-	data: {sum: sum},
-	success: function(data) {
-		console.log("success: " + data);
-	},
-	dataType: "json"
-});
-
 
 
 
