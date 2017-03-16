@@ -33,18 +33,23 @@ io.sockets.on("connection", function(socket) {
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
-		// parse message & display to console
-		data = JSON.parse(data);
+		// // parse message & display to console
+		// data = JSON.parse(data);
 
-		var x = data[0];
-		var y = data[1];
+		// var x = data[0];
+		// var y = data[1];
 		
-		console.log(x);
-		console.log(y);
+		// console.log(x);
+		// console.log(y);
+		scriptExecution.stdin.write(data);
+
+		scriptExecution.stdout.on('data', (data) => {
+			console.log(String.fromCharCode.apply(null, data));
+		});
 
 		// construct a reply to the client
 		var send_back = {
-			data: data
+			data: "ran the python process"
 		}
 
 		// send reply to client
