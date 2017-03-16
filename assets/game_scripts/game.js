@@ -186,6 +186,17 @@ $.playground().startGame();
 // server communcation
 var socket = io.connect("/"); 
 
+socket.on("message", function(message) {
+	console.log("CLIENT: message from server received:");
+	message = JSON.parse(message);
+	console.log(message);
+
+});
+
+var data = [1, 2, 3, 4];
+socket.send(JSON.stringify(data));
+
+
 
 
 

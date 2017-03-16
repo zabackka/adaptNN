@@ -16,10 +16,11 @@ io.sockets.on("connection", function(socket) {
 	}
 
 	socket.send(JSON.stringify(msg_to_client));
-	console.log("connection established -- message sent");
+	console.log("SERVER: connection established -- message sent");
 
 	socket.on("message", function(data) {
 		data = JSON.parse(data);
+		console.log("SERVER: new message from client:")
 		console.log(data);
 
 		var send_back = {
