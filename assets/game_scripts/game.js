@@ -163,7 +163,7 @@ $.playground().registerCallback(function() {
 
 
 // start the game
-//$.playground().startGame();
+$.playground().startGame();
 
 
 
