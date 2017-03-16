@@ -18,21 +18,23 @@ io = io.listen(server);
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
 	// construct message to client
-	var msg_to_client = {
-		data:"hello?"
+	var initial_client_message = {
+		data:"Client connection established"
 	}
 
 	// send message to client
-	socket.send(JSON.stringify(msg_to_client));
-	console.log("SERVER: connection established -- message sent");
+	socket.send(JSON.stringify(initial_client_message));
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
 		// parse message & display to console
 		data = JSON.parse(data);
-		console.log("SERVER: new message from client:")
-		console.log(data);
 
+		var dataSize = data[0];
+		for (var i = 0; i < dataSize, i++) {
+			console.log(data[i]);
+		}
+		
 		// construct a reply to the client
 		var send_back = {
 			data: [12, 47]

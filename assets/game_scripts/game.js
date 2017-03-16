@@ -70,7 +70,7 @@ function updateTime() {
 
 function updateParams() {
 	// send a message to the server
-	var data = [enemySpeed, playerSpeed];
+	var data = [2, enemySpeed, playerSpeed];
 	socket.send(JSON.stringify(data));
 
 	// triggered when a message is sent from server
