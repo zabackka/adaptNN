@@ -5,12 +5,17 @@ var path = require('path');
 var http = require('http');
 var io = require('socket.io');
 
+const spawn = require('child_process').spawn;
+const scriptExecution = spawn("python", ["adaptNN.py"]);
+
 
 // serve static files in 'assets' directory
 app.use(express.static(path.join(__dirname + '/assets')));
 
 // create server, listening on port 8080
 var server = http.createServer(app).listen(8080);
+
+
 
 // intitialize server/client connection
 io = io.listen(server);
