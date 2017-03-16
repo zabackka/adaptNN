@@ -4,7 +4,7 @@
 /// ML FUNCTIONALITY ///
 ////////////////////////
 
-const spawn = require('child_process').spawn;
+const spawn = require(['child_process']).spawn;
 const scriptExecution = spawn("python", ["adaptNN.py"]);
 
 scriptExecution.stdout.on('data', (data) => {
