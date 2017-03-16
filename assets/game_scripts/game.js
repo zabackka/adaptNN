@@ -183,6 +183,10 @@ $.playground().startGame();
 
 
 
+// server communcation
+var socket = io.connect("/"); 
+
+
 
 
 
