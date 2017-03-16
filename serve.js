@@ -35,7 +35,7 @@ io.sockets.on("connection", function(socket) {
 
 		// construct a reply to the client
 		var send_back = {
-			data:"got your message!"
+			data: [12, 47];
 		}
 
 		// send reply to client

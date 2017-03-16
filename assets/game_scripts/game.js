@@ -1,6 +1,10 @@
 // game.js
 
 
+// server communcation
+// connect to server
+var socket = io.connect("/"); 
+
 ////////////////////////
 ///// INITIAL SETUP ////
 ////////////////////////
@@ -11,7 +15,7 @@ var PLAYGROUND_WIDTH = window.innerWidth - 20;
 var REFRESH_RATE = 10; 
 var CURRENT_TIME = 0;
 var GAME_TIMER = setInterval(updateTime, 1000);
-var LEARNING_LOOP = setInterval(updateParams, 1000);
+var LEARNING_LOOP = setInterval(updateParams, 3000);
 var HIGH_SCORE = 0;
 
 
@@ -22,10 +26,6 @@ function displayTime() {
 
 function printEnvironmentParams() {
 	$('#environment_params').html("enemy height: <b>" + enemyHeight + "</b>   |    enemy width: <b>" + enemyWidth + "</b>   |    enemy speed: <b>" + enemySpeed + "</b>   |    enemy spawn rate: <b>" + enemySpawnRate + "</b>   |    player width: <b>" + playerWidth + "</b>   |    player height: <b>" + playerHeight + "</b>   |    player speed: <b>" + playerSpeed + "</b><p></p>");
-}
-
-function testFunction() {
-	console.log("Did this work?");
 }
 
 
@@ -69,7 +69,19 @@ function updateTime() {
 }
 
 function updateParams() {
-	enemySpeed++;
+	// send a message to the server
+	var data = [enemySpeed, playerSpeed];
+	socket.send(JSON.stringify(data));
+
+	// triggered when a message is sent from server
+	socket.on("message", function(message) {
+	console.log("CLIENT: message from server received:");
+	// parse message, output to console
+	message = JSON.parse(message);
+	console.log(message);
+
+	});
+
 }
 	
 
@@ -183,22 +195,10 @@ $.playground().startGame();
 
 
 
-// server communcation
-// connect to server
-var socket = io.connect("/"); 
 
-// triggered when a message is sent from server
-socket.on("message", function(message) {
-	console.log("CLIENT: message from server received:");
-	// parse message, output to console
-	message = JSON.parse(message);
-	console.log(message);
 
-});
 
-// send a message to the server
-var data = [1, 2, 3, 4];
-socket.send(JSON.stringify(data));
+
 
 
 
