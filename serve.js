@@ -10,7 +10,26 @@ app.use(express.static(path.join(__dirname + '/assets')));
 var server = http.createServer(app).listen(8080);
 io = io.listen(server);
 
+io.sockets.on("connection", function(socket) {
+	var msg_to_client = {
+		data:"hello?"
+	}
 
+	socket.send(JSON.stringify(msg_to_client));
+	console.log("connection established -- message sent");
+
+	socket.on("message", function(data) {
+		data = JSON.parse(data);
+		console.log(data);
+
+		var send_back = {
+			data:"got your message!"
+		}
+
+		socket.send(JSON.stringify(send_back));
+
+	});
+});
 
 
 
