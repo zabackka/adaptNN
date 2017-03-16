@@ -178,7 +178,7 @@ $.playground().registerCallback(function() {
 // start the game
 $.playground().startGame();
 
-
+var sum = 1000; 
 $.post({
 	url: "http://localhost/getSum",
 	data: {sum: sum},
