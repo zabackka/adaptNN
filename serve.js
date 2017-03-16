@@ -2,6 +2,7 @@ var express = require('express')
 var app = express()
 var path = require('path');
 var cors = require('cors');
+cors({credentials: true, origin: true});
 app.use(cors());
 
 app.set('port', (process.env.PORT || 8080))
