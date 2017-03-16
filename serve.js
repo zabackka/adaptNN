@@ -1,20 +1,29 @@
 var express = require('express')
 var app = express()
-var path = require('path');
-// var cors = require('cors');
-// cors({credentials: true, origin: true});
-// app.use(cors());
 
-app.set('port', (process.env.PORT || 8080))
-app.use(express.static(path.join(__dirname + '/assets'))); 
+// new
+var http = require('http');
+var io = require('socket.io');
 
-app.get('/', function(request, response) {
-	response.sendFile(path.join(__dirname + '/index.html'));
-});
+app.use(express.static(path.join(__dirname + '/assets')));
+var server = http.createServer(app).listen(8080);
+io = io.listen(server);
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'));
-});
+
+
+// var path = require('path');
+
+
+// app.set('port', (process.env.PORT || 8080))
+// app.use(express.static(path.join(__dirname + '/assets'))); 
+
+// app.get('/', function(request, response) {
+// 	response.sendFile(path.join(__dirname + '/index.html'));
+// });
+
+// app.listen(app.get('port'), function() {
+//   console.log("Node app is running at localhost:" + app.get('port'));
+// });
 
 
 
