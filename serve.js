@@ -29,7 +29,7 @@ var fs = require('fs');
 
 scriptExecution.stdout.on('data', (data) => {
 	console.log(String.fromCharCode.apply(null, data));
-	fs.writeFile("~/assets/learn.js", "console.log('Hello!')", function(err) {
+	fs.writeFile(__dirname + "/assets/learn.js", "console.log('Hello!')", function(err) {
     if(err) {
         return console.log(err);
     }
