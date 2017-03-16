@@ -10,7 +10,23 @@ app.get('/', function(request, response) {
 });
 
 
-
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
 });
+
+////////////////////////
+/// ML FUNCTIONALITY ///
+////////////////////////
+
+const spawn = require(['child_process']).spawn;
+const scriptExecution = spawn("python", ["adaptNN.py"]);
+
+scriptExecution.stdout.on('data', (data) => {
+	console.log(String.fromCharCode.apply(null, data));
+});
+
+var data = JSON.stringify([1,2,3,4]);
+scriptExecution.stdin.write(data);
+
+scriptExecution.stdin.end();
+
