@@ -33,11 +33,12 @@ io.sockets.on("connection", function(socket) {
 		var dataSize = data[0];
 		for (var i = 0; i < dataSize; i++) {
 			console.log(data[i]);
+			data[i] = data[i] + 12; 
 		}
 
 		// construct a reply to the client
 		var send_back = {
-			data: [12, 47]
+			data: data
 		}
 
 		// send reply to client
