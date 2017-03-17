@@ -15,7 +15,7 @@ def read_in():
 
 def main():
 	lines = read_in()
-
+	
 	total_sum = 0
 	for item in lines: 
 		total_sum += item;

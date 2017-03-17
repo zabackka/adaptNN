@@ -36,11 +36,9 @@ io.sockets.on("connection", function(socket) {
 		// // parse message & display to console
 		// data = JSON.parse(data);
 
-		// var x = data[0];
-		// var y = data[1];
-		
-		// console.log(x);
-		// console.log(y);
+		console.log("New data received from CLIENT:");
+		data = JSON.parse(data);
+		console.log(data);
 		scriptExecution.stdin.write(data);
 
 		scriptExecution.stdout.on('data', (data) => {
