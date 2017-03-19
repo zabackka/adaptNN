@@ -25,7 +25,7 @@ io = io.listen(server);
 io.sockets.on("connection", function(socket) {
 	// construct message to client
 	var initial_client_message = {
-		data:"Client connection established"
+		data:"SERVER: Client connection established"
 	}
 
 	// send message to client

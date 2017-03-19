@@ -4,14 +4,7 @@
 // SERVER COMMUNICATION SETUP //
 // connect to server
 var socket = io.connect("/"); 
-// receive intial message that connection has been established
-socket.on("message", function(message) {
-	console.log("CLIENT: established connection with server");
-	// parse message, output to console
-	message = JSON.parse(message);
-	console.log(message);
 
-	});
 
 ////////////////////////
 ///// INITIAL SETUP ////
