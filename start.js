@@ -15,6 +15,10 @@ app.use(express.static(path.join(__dirname + '/assets')));
 // create server, listening on port 8080
 var server = http.createServer(app).listen(8080);
 
+app.get('/', function(request, response) {
+ 	response.sendFile(path.join(__dirname + '/index.html'));
+ });
+
 
 // RUN PYTHON CODE //
 // spawn child process (to run python code)
