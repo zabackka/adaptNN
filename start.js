@@ -20,6 +20,43 @@ app.get('/', function(request, response) {
  });
 
 
+// SETUP CLIENT-SERVER CONNECTION //
+// intitialize server/client connection
+io = io.listen(server);
+
+// triggered when a new client connects
+io.sockets.on("connection", function(socket) {
+	// construct message to client
+	var initial_client_message = {
+		data:"Client connection established"
+	}
+
+	// send message to client
+	socket.send(JSON.stringify(initial_client_message));
+
+	// triggered when client sends a message
+	socket.on("message", function(data) {
+		// // parse message & display to console
+		// data = JSON.parse(data);
+
+		console.log("New data received from CLIENT:");
+		datastr = JSON.parse(data);
+		console.log(datastr);
+
+
+		// // construct a reply to the client
+		// var send_back = {
+		// 	data: msg
+		// }
+
+		// // send reply to client
+		// socket.send(JSON.stringify(send_back));
+
+	});
+});
+
+
+
 // RUN PYTHON CODE //
 // spawn child process (to run python code)
 var spawn = require('child_process').spawn;
