@@ -7,7 +7,7 @@ var io = require('socket.io');
 
 // intialize for spawning child process (python execution)
 const spawn = require('child_process').spawn;
-const scriptExecution = spawn("python", ["adaptNN.py"]);
+const executePython = spawn("python", ['adaptNN.py']);
 
 
 // serve static files in 'assets' directory
@@ -40,19 +40,22 @@ io.sockets.on("connection", function(socket) {
 		datastr = JSON.parse(data);
 		console.log(datastr);
 
-		scriptExecution.stdin.write(data);
+		executePython.stdin.write(data);
 
-		scriptExecution.stdout.on('data', (data) => {
-			var msg = String.fromCharCode.apply(null, data);
+		executePython.stdout.on('data', function(data) {
+			dataString += data.toString();
 		});
 
-		// construct a reply to the client
-		var send_back = {
-			data: msg
-		}
+		console.log("Received from python script: ");
+		console.log(dataString);
 
-		// send reply to client
-		socket.send(JSON.stringify(send_back));
+		// // construct a reply to the client
+		// var send_back = {
+		// 	data: msg
+		// }
+
+		// // send reply to client
+		// socket.send(JSON.stringify(send_back));
 
 	});
 });
