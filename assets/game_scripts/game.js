@@ -1,9 +1,10 @@
 // game.js
 
 
-// server communcation
+// SERVER COMMUNICATION SETUP //
 // connect to server
 var socket = io.connect("/"); 
+// receive intial message that connection has been established
 socket.on("message", function(message) {
 	console.log("CLIENT: established connection with server");
 	// parse message, output to console
@@ -82,16 +83,16 @@ function updateParams() {
 	var params = [enemySpeed, playerSpeed];
 	var performance = PLAYER_PERFORMANCE; 
 	var data = [params, performance];
-	// socket.send(JSON.stringify(data));
+	socket.send(JSON.stringify(data));
 
-	// // triggered when a message is sent from server
-	// socket.on("message", function(message) {
-	// console.log("CLIENT: message from server received:");
-	// // parse message, output to console
-	// message = JSON.parse(message);
-	// console.log(message);
+	// triggered when a message is sent from server
+	socket.on("message", function(message) {
+	console.log("CLIENT: message from server received:");
+	// parse message, output to console
+	message = JSON.parse(message);
+	console.log(message);
 
-	// });
+	});
 
 }
 	
