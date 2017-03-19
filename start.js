@@ -8,6 +8,15 @@ var http = require('http');
 var io = require('socket.io');
 
 
+// START SERVER // 
+// serve static files in 'assets' directory
+app.use(express.static(path.join(__dirname + '/assets')));
+
+// create server, listening on port 8080
+var server = http.createServer(app).listen(8080);
+
+
+// RUN PYTHON CODE //
 // spawn child process (to run python code)
 var spawn = require('child_process').spawn;
     py    = spawn('python', ['compute_input.py']);
