@@ -15,12 +15,8 @@ def read_in():
 
 def main():
 	lines = read_in()
-	
-	total_sum = 0
-	for item in lines: 
-		total_sum += item;
-
-	print total_sum
+	print lines
+	sys.stdin.write(lines)
 
 
 # set verbosity of theano exceptions
