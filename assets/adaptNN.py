@@ -16,7 +16,7 @@ def read_in():
 def main():
 	lines = read_in()
 	print lines
-	sys.stdin.write("got your message!");
+	# sys.stdin.write("got your message!");
 
 
 # set verbosity of theano exceptions
