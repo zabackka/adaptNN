@@ -43,14 +43,15 @@ io.sockets.on("connection", function(socket) {
 		datastr = JSON.parse(data);
 		console.log(datastr);
 
+		msg = "SERVER: received new data";
 
-		// // construct a reply to the client
-		// var send_back = {
-		// 	data: msg
-		// }
+		// construct a reply to the client
+		var send_back = {
+			data: msg
+		}
 
-		// // send reply to client
-		// socket.send(JSON.stringify(send_back));
+		// send reply to client
+		socket.send(JSON.stringify(send_back));
 
 	});
 });
