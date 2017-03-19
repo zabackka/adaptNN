@@ -7,7 +7,7 @@ var io = require('socket.io');
 
 // intialize for spawning child process (python execution)
 const spawn = require('child_process').spawn;
-const executePython = spawn("python", ['adaptNN.py']);
+const executePython = spawn("python", ['/assets/adaptNN.py']);
 
 
 // serve static files in 'assets' directory
