@@ -73,6 +73,7 @@ function updateTime() {
 // LEARN
 function updateParams() {
 	// send a message to the server
+	enemySpeed++; 
 	var params = [enemySpeed, playerSpeed];
 	var performance = PLAYER_PERFORMANCE; 
 	var data = [params, performance];
