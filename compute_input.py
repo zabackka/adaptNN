@@ -18,6 +18,11 @@ def main():
     #     print (x)
     #     sys.stdout.flush()
     sys.stdout.write(str(57) + '\n')
+    sys.stdout.write(str(57) + '\n')
+    sys.stdout.write(str(57) + '\n')
+    sys.stdout.write(str(57) + '\n')
+    sys.stdout.write(str(57) + '\n')
+    sys.stdout.write(str(57) + '\n')
 
 
 
