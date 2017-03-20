@@ -25,7 +25,7 @@ app.get('/', function(request, response) {
 io = io.listen(server);
 
 // triggered when a new client connects
-io.sockets.on("connection", function(socket) {
+io.socket.on("connection", function(socket) {
 	console.log("ATTN: NEW USER CONNECTED");
 
 	// triggered when client sends a message
