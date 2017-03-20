@@ -65,7 +65,7 @@ py.stdout.on('data', (data) => {
 			console.log("Received: " + data);
 			py.stdin.write("SUCCESS -- SEND NEXT VALUE");
 		} else {
-			py.stdin.write("DONE");
+			py.stdin.write("DONE\n");
 		}
 		
 });
