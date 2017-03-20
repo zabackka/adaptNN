@@ -17,7 +17,7 @@ def main():
     currentArray = []
     num_params = int(sys.argv[1])
 
-    # serverData = sys.stdin.readLines()
+    serverData = sys.stdin.readLines()
     # for x in range(0, num_params):
     #     currentArray.push(json.loads(serverData[x]))
 
