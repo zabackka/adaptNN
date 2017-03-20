@@ -25,6 +25,8 @@ def main():
         print (x)
         sys.stdout.flush()
 
+    print ("END")
+
 
 #start process
 if __name__ == '__main__':
