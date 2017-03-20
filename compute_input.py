@@ -20,8 +20,11 @@ def main():
 
     #return the sum to the output stream
     sendBack = [1, 2, 3, 4, 5]
+    numSum = 0
     for x in sendBack:
-        print x
+        numSum = numSum + x
+
+    print numSum
 
 #start process
 if __name__ == '__main__':
