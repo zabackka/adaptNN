@@ -16,12 +16,15 @@ def main():
     learn = True
     num_params = int(sys.argv[1])
     currentArray = [2, 3, 4, 5]
+    
+    sys.stdout.write(str(num_params) + '\n');
+    sys.stdout.flush()
 
     while (learn): 
         for x in range(0, num_params):
             sys.stdout.write(str(currentArray[x]), + '\n')
             sys.stdout.flush()
-            
+
             while (sys.stdin.isatty()):
                 lines = sys.stdin.readLines()
                 if (lines == 'STOP'):
