@@ -28,7 +28,7 @@ def main():
         for x in range(0, num_params):
             while (sys.stdin.isatty()):
                 lines = sys.stdin.readLines()
-                sys.stdout.write(str(lines[0]) + '\n')
+                sys.stdout.write(str('hello?') + '\n')
                 sys.stdout.flush()
 
             # while (sys.stdin.isatty()):
