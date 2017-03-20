@@ -27,12 +27,11 @@ io = io.listen(server);
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
 	// construct message to client
-	var initial_client_message = {
-		data:"SERVER: Client connection established"
-	}
-
-	// send message to client
-	socket.send(JSON.stringify(initial_client_message));
+	// var initial_client_message = {
+	// 	data:"SERVER: Client connection established"
+	// }
+	// // send message to client
+	// socket.send(JSON.stringify(initial_client_message));
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
@@ -70,7 +69,7 @@ var spawn = require('child_process').spawn;
 // listen for python file data writes
 // parse data received from python file
 py.stdout.on('data', function(data){
-  dataString += data.toString();
+  dataString.append(data);
 });
 
 // print sum when the child process is finished

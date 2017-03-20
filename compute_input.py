@@ -19,7 +19,7 @@ def main():
     lines_sum = np.sum(np_lines)
 
     #return the sum to the output stream
-    print lines_sum
+    print [lines_sum, 27]
 
 #start process
 if __name__ == '__main__':
