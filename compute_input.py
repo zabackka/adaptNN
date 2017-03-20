@@ -10,22 +10,14 @@ def read_in():
 
 def main():
     #get our data as an array from read_in()
-    lines = read_in()
-
-    #create a numpy array
-    np_lines = np.array(lines)
-
-    #use numpys sum method to find sum of all elements in the array
-    lines_sum = np.sum(np_lines)
+    #lines = read_in()
 
     #return the sum to the output stream
     sendBack = [1, 2, 3, 4, 5]
-    numSum = 0
     for x in sendBack:
         print (x + '\n')
         sys.stdout.flush()
 
-    print ("END")
 
 
 #start process
