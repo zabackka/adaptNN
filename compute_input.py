@@ -13,7 +13,7 @@ def main():
     #lines = read_in()
 
     #return the sum to the output stream
-    sendBack = [1, 2, 3, 4, 5]
+    sendBack = [1, 3, 3, 4, 5]
     for x in sendBack:
         print (x)
         sys.stdout.flush()
