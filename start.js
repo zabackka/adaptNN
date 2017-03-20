@@ -57,7 +57,7 @@ var params = [1, 2, 3, 4];
 
 // spawn child process (to run python code)
 var spawn = require('child_process').spawnSync;
-var py = spawnSync('python', ['compute_input.py', NUM_PARAMS]);
+var py = spawn('python', ['compute_input.py', NUM_PARAMS]);
 
 
 // listen for python file data writes
