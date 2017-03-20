@@ -50,13 +50,18 @@ io.sockets.on("connection", function(socket) {
 
 
 // RUN PYTHON CODE //
+
 // define NUM_PARAMS, a constant that holds the number of params to update
 NUM_PARAMS = 4;
+params = [1, 2, 3, 4];
+
 // spawn child process (to run python code)
 var spawn = require('child_process').spawn;
 py = spawn('python', ['compute_input.py', NUM_PARAMS]);
 
-
+for (int i = 0; i < NUM_PARAMS; i++) {
+	py.stdin.write(JSON.stringify(params[0]));
+}
 
 // listen for python file data writes
 // parse data received from python file
