@@ -22,7 +22,7 @@ def main():
 
     while (sys.stdin.isatty()):
         lines = sys.stdin.readLines()
-        sys.stdout.close()
+        # sys.stdout.close()
 
     # while (learn): 
     #     for x in range(0, num_params):
