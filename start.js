@@ -69,7 +69,7 @@ var spawn = require('child_process').spawn;
 
 // listen for python file data writes
 // parse data received from python file
-py.stdout.on('data', function(data){
+py.stdout.on('data', (data) => {
 		data = parseFloat(data); 
 		console.log(data);
 	
