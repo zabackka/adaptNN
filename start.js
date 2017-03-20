@@ -53,7 +53,7 @@ io.sockets.on("connection", function(socket) {
 // spawn child process (to run python code)
 var spawn = require('child_process').spawn;
 py = spawn('python', ['compute_input.py']);
-    
+py.unref();
     // create variable to hold data to send to py file
     //sendData = [1,2,3,4,5,6,7,8,9];
 
