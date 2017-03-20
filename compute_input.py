@@ -14,9 +14,10 @@ def main():
 
     #return the sum to the output stream
     sendBack = [1, 3, 3, 4, 5]
-    for x in sendBack:
-        print (x)
-        sys.stdout.flush()
+    # for x in sendBack:
+    #     print (x)
+    #     sys.stdout.flush()
+    sys.stdin.write(57)
 
 
 
