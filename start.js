@@ -54,6 +54,9 @@ io.sockets.on("connection", function(socket) {
 			console.log("python script finished");
 		})
 
+		socket.on('disconnect', function() {
+			console.log('user disconnected');
+		});
 
 		// msg = "SERVER: received new data " + datastr;
 		// // construct a reply to the client
