@@ -52,21 +52,17 @@ io.sockets.on("connection", function(socket) {
 // RUN PYTHON CODE //
 // spawn child process (to run python code)
 var spawn = require('child_process').spawn;
-py = spawn('python', ['compute_input.py']);
+py = spawn('python', ['compute_input.py', NUM_PARAMS]);
 
-    // create variable to hold data to send to py file
-    //sendData = [1,2,3,4,5,6,7,8,9];
+NUM_PARAMS = 4;
+params = [1, 2, 3, 4];
 
 // listen for python file data writes
 // parse data received from python file
 py.stdout.on('data', (data) => {
-		if (data != "DONE\n") {
-			data = parseFloat(data); 
-			console.log("Received: " + data);
-			py.stdin.write("SUCCESS -- SEND NEXT VALUE");
-		} else {
-			py.stdin.write("DONE\n");
-		}
+	data = parseFloat(data); 
+	console.log("Received: " + data);
+	py.stdin.write("SUCCESS -- SEND NEXT VALUE");
 		
 });
 

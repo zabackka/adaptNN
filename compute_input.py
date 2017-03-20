@@ -17,7 +17,7 @@ def main():
     currentArray = [1, 2, 3, 4]
     while (learn): 
         for x in currentArray:
-            sys.stdout.write(str(x) + '\n')
+            sys.stdout.write(str(sys.argv[1]) + '\n')
             sys.stdout.flush()
 
         while (sys.stdin.isatty()):
