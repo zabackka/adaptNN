@@ -71,7 +71,8 @@ var spawn = require('child_process').spawn;
 // parse data received from python file
 py.stdout.on('data', (data) => {
 		if (data == "END") {
-			py.stdin.end()
+			console.log("ending!!");
+			py.stdin.end();
 		} else {
 			data = parseFloat(data); 
 			console.log(data);
