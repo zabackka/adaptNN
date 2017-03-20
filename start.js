@@ -32,17 +32,17 @@ io.sockets.on("connection", function(socket) {
 	socket.on("message", function(data) {
 		// parse message & display to console
 		data = JSON.parse(data);
-		console.log(datastr);
+		console.log(data);
 
-		msg = "SERVER: received new data " + datastr;
 
-		// construct a reply to the client
-		var send_back = {
-			data: msg
-		}
 
-		// send reply to client
-		socket.send(JSON.stringify(send_back));
+		// msg = "SERVER: received new data " + datastr;
+		// // construct a reply to the client
+		// var send_back = {
+		// 	data: msg
+		// }
+		// // send reply to client
+		// socket.send(JSON.stringify(send_back));
 
 	});
 });
