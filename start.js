@@ -83,7 +83,7 @@ py.stdout.on('data', (data) => {
 
 
 // send data to python file for computation
-py.stdin.write(JSON.stringify(sendData));
+//py.stdin.write(JSON.stringify(sendData));
 
 // end connection to python file
 py.stdin.end();
