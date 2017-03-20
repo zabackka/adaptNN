@@ -23,7 +23,7 @@ def main():
     numSum = 0
     for x in sendBack:
         print (x)
-        # sys.stdout.flush()
+        sys.stdout.flush()
 
 
 #start process
