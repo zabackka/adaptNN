@@ -30,6 +30,8 @@ def main():
                 learn = False
                 sys.stdout.close()
 
+        sys.stdout.write('DONE\n')
+        sys.stdout.flush()
 
 
 
