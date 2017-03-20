@@ -21,15 +21,15 @@ def main():
             sys.stdout.write(str(x) + '\n')
             sys.stdout.flush()
 
-        while (sys.stdin.isatty()):
-            serverMsg = sys.stdin.readLines()
-            if (serverMsg == 'ERROR'):
-                # do something
-                learn = False
+            while (sys.stdin.isatty()):
+                serverMsg = sys.stdin.readLines()
+            # if (serverMsg == 'ERROR'):
+            #     # do something
+            #     learn = False
         
-            if (serverMsg == 'DONE'):
-                learn = False
-                sys.stdout.close()
+            # if (serverMsg == 'DONE'):
+            #     learn = False
+            #     sys.stdout.close()
 
 
 
