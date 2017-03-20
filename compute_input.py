@@ -21,11 +21,17 @@ def main():
     #return the sum to the output stream
     sendBack = [1, 2, 3, 4, 5]
     numSum = 0
-    for x in sendBack:
-        print (x)
-        sys.stdout.flush()
+    print (sendBack[0])
+    sys.stdout.flush()
+    print (sendBack[1])
+    sys.stdout.flush()
+    print (sendBack[2])
+    sys.stdout.flush()
+    print (sendBack[3])
+    sys.stdout.flush()
 
     print ("END")
+    sys.stdout.flush()
 
 
 #start process
