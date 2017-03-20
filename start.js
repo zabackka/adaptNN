@@ -62,9 +62,10 @@ io.sockets.on("connection", function(socket) {
 var spawn = require('child_process').spawn;
     py    = spawn('python', ['compute_input.py']);
 
+    
     // create variable to hold data to send to py file
     data = [1,2,3,4,5,6,7,8,9];
-    dataString = '';
+    dataString = []
 
 // listen for python file data writes
 // parse data received from python file
