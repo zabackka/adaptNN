@@ -60,7 +60,7 @@ py = spawn('python', ['compute_input.py']);
 // listen for python file data writes
 // parse data received from python file
 py.stdout.on('data', (data) => {
-		if (data != 'END') {
+		if (data != "DONE\n") {
 			data = parseFloat(data); 
 			console.log("Received: " + data);
 			py.stdin.write("SUCCESS -- SEND NEXT VALUE");
