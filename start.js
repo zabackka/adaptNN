@@ -65,12 +65,12 @@ var spawn = require('child_process').spawn;
     
     // create variable to hold data to send to py file
     data = [1,2,3,4,5,6,7,8,9];
-    dataString = []
+    dataString = [];
 
 // listen for python file data writes
 // parse data received from python file
 py.stdout.on('data', function(data){
-  dataString.append(data);
+  dataString.push(data);
 });
 
 // print sum when the child process is finished
