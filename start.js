@@ -42,7 +42,7 @@ io.sockets.on("connection", function(socket) {
 		// console.log("params: " + params);
 		// console.log("performance: " + performance);
 
-		var sp = require('child_process').spawnSync;
+		var sp = require('child_process').spawn;
 		var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
 		py.stdout.on('data', (data) => {
