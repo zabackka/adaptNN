@@ -28,7 +28,7 @@ def main():
         for x in range(0, num_params):
             sys.stdout.write(str(currentArray[x]), + '\n')
             
-            if (sys.stdin.isatty()):
+            while (sys.stdin.isatty()):
                 lines = sys.stdin.readLines()
                 if (lines == 'STOP'):
                     learn = False
