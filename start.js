@@ -60,8 +60,8 @@ io.sockets.on("connection", function(socket) {
 // RUN PYTHON CODE //
 // spawn child process (to run python code)
 var spawn = require('child_process').spawn;
-    py    = spawn('python', ['compute_input.py']);
-
+    py = spawn('python', ['compute_input.py']);
+    py.unref();
     
     // create variable to hold data to send to py file
     sendData = [1,2,3,4,5,6,7,8,9];
@@ -75,8 +75,8 @@ py.stdout.on('data', (data) => {
 			console.log("ending!!");
 			py.stdin.end();
 		} else {
-			data = parseFloat(data); 
-			console.log(data);
+			success = parseFloat(data); 
+			console.log(success);
 		}
 		
 });
