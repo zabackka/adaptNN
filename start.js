@@ -50,6 +50,10 @@ io.sockets.on("connection", function(socket) {
 			py.stdin.write('STOP');
 		});
 
+		py.stdout.on('error', function(error) {
+			console.log(error);
+		});
+
 		py.stdout.on('end', () => {
 			console.log("python script finished");
 		})
