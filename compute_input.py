@@ -21,11 +21,11 @@ def main():
             sys.stdout.flush()
 
         while (sys.stdin.isatty()):
-
             serverMsg = sys.stdin.readLines()
             if (serverMsg == 'ERROR'):
                 # do something
                 learn = False
+        sts.stdout.close()
         learn = False
 
 
