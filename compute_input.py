@@ -26,10 +26,12 @@ def main():
     currentArray = [2, 3, 4, 5]
     while (learn): 
         for x in range(0, num_params):
-            while (sys.stdin.isatty()):
+            sys.stdout.write(str(currentArray[x]), + '\n')
+            
+            if (sys.stdin.isatty()):
                 lines = sys.stdin.readLines()
-                sys.stdout.write(str('hello?') + '\n')
-                sys.stdout.flush()
+                if (lines == 'STOP'):
+                    learn = False
 
             # while (sys.stdin.isatty()):
             #     serverMsg = sys.stdin.readLines()

@@ -7,6 +7,8 @@ var path = require('path');
 var http = require('http');
 var io = require('socket.io');
 
+var NUM_PARAMS = 4; 
+
 
 // START SERVER // 
 // serve static files in 'assets' directory
@@ -35,8 +37,18 @@ io.sockets.on("connection", function(socket) {
 		// retrieve params & performance
 		params = data[0];
 		performance = data[1];
-		console.log("params: " + params);
-		console.log("performance: " + performance);
+
+		// /** PRINT check statements */
+		// console.log("params: " + params);
+		// console.log("performance: " + performance);
+
+		var sp = require('child_process').spawnSync;
+		var py = sp('python', ['compute_input.py', NUM_PARAMS]);
+
+		py.stdout.on('data', (data) => {
+			console.log("Received: " + data);
+			py.stdin.write('STOP');
+		});
 
 
 		// msg = "SERVER: received new data " + datastr;
