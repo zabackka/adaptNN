@@ -17,7 +17,7 @@ def main():
     # for x in sendBack:
     #     print (x)
     #     sys.stdout.flush()
-    sys.stdout.write(57 + '\n')
+    sys.stdout.write(str(57) + '\n')
 
 
 
