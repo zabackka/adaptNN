@@ -20,7 +20,7 @@ def main():
             sys.stdout.write(str(x) + '\n')
             sys.stdout.flush()
 
-            while (sys.stdin.isatty()):
+        while (sys.stdin.isatty()):
             serverMsg = sys.stdin.readLines()
             if (serverMsg == 'ERROR'):
                 # do something
@@ -30,8 +30,7 @@ def main():
                 learn = False
                 sys.stdout.close()
 
-        sys.stdout.write('DONE' + '\n')
-        sys.stdout.flush()
+        learn = False
 
 
 
