@@ -13,12 +13,19 @@ def main():
     #lines = read_in()
 
     #return the sum to the output stream
-    learn = true
+    learn = True
     currentArray = [1, 2, 3, 4]
     while (learn): 
         for x in currentArray:
             sys.stdout.write(str(57) + '\n')
             sys.stdout.flush()
+
+        while (sys.stdin.isatty()):
+
+            serverMsg = sys.stdin.readLines()
+            if (serverMsg == 'ERROR'):
+                # do something
+                learn = false
 
 
 
