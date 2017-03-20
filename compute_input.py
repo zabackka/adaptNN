@@ -13,21 +13,20 @@ def main():
     #lines = read_in()
 
     #return the sum to the output stream
-    sendBack = [1, 3, 3, 4, 5]
-    # for x in sendBack:
-    #     print (x)
-    #     sys.stdout.flush()
-    sys.stdout.write(str(57) + '\n')
-    sys.stdout.flush()
-    sys.stdout.write(str(57) + '\n')
-    sys.stdout.flush()
-    sys.stdout.write(str(57) + '\n')
-    sys.stdout.flush()
-    sys.stdout.write(str(57) + '\n')
-    sys.stdout.flush()
-    sys.stdout.write(str(57) + '\n')
-    sys.stdout.flush()
-    sys.stdout.write(str(57) + '\n')
+    learn = true
+    currentArray = [1, 2, 3, 4]
+    while (learn): 
+        for x in currentArray:
+            sys.stdout.write(str(57) + '\n')
+            sys.stdout.flush()
+
+        while (sys.stdin.isatty()):
+            serverMsg = sys.stdin.readLines()
+            if (serverMsg == 'ERROR'):
+                # do something
+                learn = false
+
+
 
 
 

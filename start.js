@@ -63,6 +63,7 @@ py.stdout.on('data', (data) => {
 		console.log("processing new data!");
 		data = parseFloat(data); 
 		console.log(data);
+		py.stdin.write("SUCCESS -- SEND NEXT VALUE")
 });
 
 
