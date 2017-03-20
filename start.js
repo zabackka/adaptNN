@@ -70,7 +70,7 @@ py.stdout.on('data', (data) => {
 //py.stdin.write(JSON.stringify(sendData));
 
 // end connection to python file
-py.stdout.on( 'end', function() { 
+py.on('close', function() { 
 	console.log( 'EOF' ); 
 });
 
