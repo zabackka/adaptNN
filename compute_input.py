@@ -27,11 +27,11 @@ def main():
     while (learn): 
         for x in range(0, num_params):
             lines = sys.stdin.readLines()
-            sys.stdout.write(str(lines) + '\n')
+            sys.stdout.write(str(lines[0]) + '\n')
             sys.stdout.flush()
 
-            while (sys.stdin.isatty()):
-                serverMsg = sys.stdin.readLines()
+            # while (sys.stdin.isatty()):
+            #     serverMsg = sys.stdin.readLines()
             # if (serverMsg == 'ERROR'):
             #     # do something
             #     learn = False
