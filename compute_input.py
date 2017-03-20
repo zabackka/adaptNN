@@ -25,6 +25,7 @@ def main():
         numSum = numSum + x
 
     print (127.003)
+    sys.stdout.flush()
     print (numSum)
 
 #start process
