@@ -69,9 +69,13 @@ py.stdout.on('data', (data) => {
 // send data to python file for computation
 //py.stdin.write(JSON.stringify(sendData));
 
+py.stdout.on('error', (error) => {
+	console.log(error);
+});
+
 // end connection to python file
-py.on('close', function() { 
-	console.log( 'EOF' ); 
+py.stdout.on('end', () => { 
+	console.log( 'no more data to read' ); 
 });
 
 
