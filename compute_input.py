@@ -22,11 +22,9 @@ def main():
     sendBack = [1, 2, 3, 4, 5]
     numSum = 0
     for x in sendBack:
-        numSum = numSum + x
+        print (x)
+        sys.stdout.flush()
 
-    print (127.003)
-    sys.stdout.flush()
-    print (numSum)
 
 #start process
 if __name__ == '__main__':
