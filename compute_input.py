@@ -17,16 +17,17 @@ def main():
     currentArray = []
     num_params = int(sys.argv[1])
 
-    if (sys.stdin.isatty()):
-        serverData = sys.stdin.readLines()
-        for x in range(0, num_params):
-            # sys.stderr.write('THIS IS AN IMPORTANT EMSSAGE')
-            currentArray.push(serverData[x])
+    # if (sys.stdin.isatty()):
+    #     serverData = sys.stdin.readLines()
+    #     for x in range(0, num_params):
+    #         # sys.stderr.write('THIS IS AN IMPORTANT EMSSAGE')
+    #         currentArray.push(serverData[x])
 
     currentArray = [2, 3, 4, 5]
     while (learn): 
         for x in range(0, num_params):
-            sys.stdout.write(str(currentArray[x]) + '\n')
+            lines = sys.stdin.readLines()
+            sys.stdout.write(str(lines) + '\n')
             sys.stdout.flush()
 
             while (sys.stdin.isatty()):
