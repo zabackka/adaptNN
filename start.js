@@ -70,6 +70,7 @@ var spawn = require('child_process').spawn;
 // listen for python file data writes
 // parse data received from python file
 py.stdout.on('data', (data) => {
+		console.log("processing new data!");
 		if (data == "END") {
 			console.log("ending!!");
 			py.stdin.end();
