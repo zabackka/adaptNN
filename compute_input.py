@@ -15,8 +15,9 @@ def main():
     #return the sum to the output stream
     learn = True
     currentArray = []
+    num_params = int(sys.argv[1])
     while (learn): 
-        for x in range(0, sys.argv[1]):
+        for x in range(0, num_params):
             sys.stdout.write(str(x) + '\n')
             sys.stdout.flush()
 
