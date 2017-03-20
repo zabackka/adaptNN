@@ -26,18 +26,10 @@ io = io.listen(server);
 
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
-	// construct message to client
-	// var initial_client_message = {
-	// 	data:"SERVER: Client connection established"
-	// }
-	// // send message to client
-	// socket.send(JSON.stringify(initial_client_message));
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
 		// // parse message & display to console
-		// data = JSON.parse(data);
-
 		console.log("New data received from CLIENT:");
 		datastr = JSON.parse(data);
 		console.log(datastr);
@@ -60,25 +52,17 @@ io.sockets.on("connection", function(socket) {
 // RUN PYTHON CODE //
 // spawn child process (to run python code)
 var spawn = require('child_process').spawn;
-    py = spawn('python', ['compute_input.py']);
-    py.unref();
+py = spawn('python', ['compute_input.py']);
     
     // create variable to hold data to send to py file
-    sendData = [1,2,3,4,5,6,7,8,9];
-    dataString = [];
+    //sendData = [1,2,3,4,5,6,7,8,9];
 
 // listen for python file data writes
 // parse data received from python file
 py.stdout.on('data', (data) => {
 		console.log("processing new data!");
-		if (data == "END") {
-			console.log("ending!!");
-			py.stdin.end();
-		} else {
-			success = parseFloat(data); 
-			console.log(success);
-		}
-		
+		data = parseFloat(data); 
+		console.log(data);
 });
 
 
