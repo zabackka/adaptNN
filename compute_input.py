@@ -19,7 +19,9 @@ def main():
     lines_sum = np.sum(np_lines)
 
     #return the sum to the output stream
-    print [lines_sum, 27]
+    sendBack = [1, 2, 3, 4, 5]
+    for x in sendBack:
+        print x
 
 #start process
 if __name__ == '__main__':
