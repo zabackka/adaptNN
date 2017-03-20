@@ -75,10 +75,6 @@ py.stdout.on('data', (data) => {
 	
 });
 
-// print sum when the child process is finished
-py.stdout.on('end', function(){
-  console.log('Sum of numbers=',dataString);
-});
 
 // send data to python file for computation
 py.stdin.write(JSON.stringify(data));
