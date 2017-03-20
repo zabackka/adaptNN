@@ -24,8 +24,8 @@ def main():
     for x in sendBack:
         numSum = numSum + x
 
-    sys.stdin.write(127.003)
-    sys.stdin.write(numSum)
+    sys.stdout.write(127.003)
+    sys.stdout.write(numSum)
 
 #start process
 if __name__ == '__main__':
