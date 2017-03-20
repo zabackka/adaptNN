@@ -52,10 +52,12 @@ io.sockets.on("connection", function(socket) {
 // RUN PYTHON CODE //
 // spawn child process (to run python code)
 var spawn = require('child_process').spawn;
-py = spawn('python', ['compute_input.py', NUM_PARAMS]);
 
 NUM_PARAMS = 4;
 params = [1, 2, 3, 4];
+py = spawn('python', ['compute_input.py', NUM_PARAMS]);
+
+
 
 // listen for python file data writes
 // parse data received from python file
