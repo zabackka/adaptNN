@@ -25,8 +25,11 @@ def main():
             if (serverMsg == 'ERROR'):
                 # do something
                 learn = False
-        # sts.stdout.close()
-        # learn = False
+        
+            if (serverMsg == 'DONE'):
+                learn = False
+                sys.stdout.close()
+
 
 
 
