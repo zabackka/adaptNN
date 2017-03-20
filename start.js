@@ -59,6 +59,7 @@ var params = [1, 2, 3, 4];
 var sp = require('child_process').spawnSync;
 var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
+py.stdin.write(JSON.stringify(params));
 
 // listen for python file data writes
 // parse data received from python file
