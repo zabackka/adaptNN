@@ -21,7 +21,7 @@ def main():
     for x in range(0, num_params):
         currentArray.push(json.loads(serverData[x]))
 
-
+    currentArray = [2, 3, 4, 5]
     while (learn): 
         for x in range(0, num_params):
             sys.stdout.write(str(currentArray[x]) + '\n')
