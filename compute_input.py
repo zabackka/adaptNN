@@ -19,8 +19,8 @@ def main():
 
     if (sys.stdin.isatty()):
         serverData = sys.stdin.readLines()
-    # for x in range(0, num_params):
-    #     currentArray.push(json.loads(serverData[x]))
+        for x in range(0, num_params):
+            currentArray.push(json.loads(serverData[x]))
 
     # currentArray = [2, 3, 4, 5]
     while (learn): 
