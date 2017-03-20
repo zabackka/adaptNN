@@ -20,15 +20,19 @@ def main():
     sys.stdout.write(str(num_params) + '\n');
     sys.stdout.flush()
 
-    while (learn): 
-        for x in range(0, num_params):
-            sys.stdout.write(str(currentArray[x]), + '\n')
-            sys.stdout.flush()
+    while (sys.stdin.isatty()):
+        lines = sys.stdin.readLines()
+        sys.stdout.close()
 
-            while (sys.stdin.isatty()):
-                lines = sys.stdin.readLines()
-                if (lines == 'STOP'):
-                    learn = False
+    # while (learn): 
+    #     for x in range(0, num_params):
+    #         sys.stdout.write(str(currentArray[x]), + '\n')
+    #         sys.stdout.flush()
+
+    #         while (sys.stdin.isatty()):
+    #             lines = sys.stdin.readLines()
+    #             if (lines == 'STOP'):
+    #                 learn = False
 
             # while (sys.stdin.isatty()):
             #     serverMsg = sys.stdin.readLines()

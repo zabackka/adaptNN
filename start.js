@@ -50,6 +50,10 @@ io.sockets.on("connection", function(socket) {
 			py.stdin.write('STOP');
 		});
 
+		py.stdout.on('end', () => {
+			console.log("python script finished");
+		})
+
 
 		// msg = "SERVER: received new data " + datastr;
 		// // construct a reply to the client
