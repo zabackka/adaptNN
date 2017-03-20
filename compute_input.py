@@ -30,7 +30,7 @@ def main():
                 learn = False
                 sys.stdout.close()
 
-        learn = False
+
 
 
 
