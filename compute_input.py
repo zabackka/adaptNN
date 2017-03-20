@@ -26,9 +26,10 @@ def main():
     currentArray = [2, 3, 4, 5]
     while (learn): 
         for x in range(0, num_params):
-            lines = sys.stdin.readLines()
-            sys.stdout.write(str(lines[0]) + '\n')
-            sys.stdout.flush()
+            while (sys.stdin.isatty()):
+                lines = sys.stdin.readLines()
+                sys.stdout.write(str(lines[0]) + '\n')
+                sys.stdout.flush()
 
             # while (sys.stdin.isatty()):
             #     serverMsg = sys.stdin.readLines()
