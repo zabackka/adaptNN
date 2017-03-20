@@ -14,10 +14,10 @@ def main():
 
     #return the sum to the output stream
     learn = True
-    currentArray = [1, 2, 3, 4]
+    currentArray = []
     while (learn): 
-        for x in currentArray:
-            sys.stdout.write(str(sys.argv[1]) + '\n')
+        for x in range(0, sys.argv[1]):
+            sys.stdout.write(str(x) + '\n')
             sys.stdout.flush()
 
         while (sys.stdin.isatty()):
