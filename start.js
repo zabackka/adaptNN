@@ -66,7 +66,7 @@ for (i = 0; i < NUM_PARAMS; i++) {
 // listen for python file data writes
 // parse data received from python file
 py.stdout.on('data', (data) => {
-	data = parseFloat(data); 
+	//data = parseFloat(data); 
 	console.log("Received: " + data);
 	py.stdin.write("SUCCESS -- SEND NEXT VALUE");
 		
