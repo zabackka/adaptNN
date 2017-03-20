@@ -59,7 +59,7 @@ params = [1, 2, 3, 4];
 var spawn = require('child_process').spawn;
 py = spawn('python', ['compute_input.py', NUM_PARAMS]);
 
-for (int i = 0; i < NUM_PARAMS; i++) {
+for (i = 0; i < NUM_PARAMS; i++) {
 	py.stdin.write(JSON.stringify(params[0]));
 }
 
