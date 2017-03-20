@@ -32,8 +32,11 @@ io.sockets.on("connection", function(socket) {
 	socket.on("message", function(data) {
 		// parse message & display to console
 		data = JSON.parse(data);
-		console.log(data);
-
+		// retrieve params & performance
+		params = data[0];
+		performance = data[1];
+		console.log("params: " + params);
+		console.log("performance: " + performance);
 
 
 		// msg = "SERVER: received new data " + datastr;
