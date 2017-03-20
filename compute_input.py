@@ -23,7 +23,7 @@ def main():
             sys.stderr.write('THIS IS AN IMPORTANT EMSSAGE')
             currentArray.push(serverData[x])
 
-    # currentArray = [2, 3, 4, 5]
+    currentArray = [2, 3, 4, 5]
     while (learn): 
         for x in range(0, num_params):
             sys.stdout.write(str(currentArray[x]) + '\n')
