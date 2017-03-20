@@ -26,12 +26,12 @@ io = io.listen(server);
 
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
+	console.log("ATTN: NEW USER CONNECTED");
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
-		// // parse message & display to console
-		console.log("New data received from CLIENT:");
-		datastr = JSON.parse(data);
+		// parse message & display to console
+		data = JSON.parse(data);
 		console.log(datastr);
 
 		msg = "SERVER: received new data " + datastr;
@@ -52,16 +52,13 @@ io.sockets.on("connection", function(socket) {
 // RUN PYTHON CODE //
 
 // define NUM_PARAMS, a constant that holds the number of params to update
-NUM_PARAMS = 4;
-params = [1, 2, 3, 4];
+var NUM_PARAMS = 4;
+var params = [1, 2, 3, 4];
 
 // spawn child process (to run python code)
-var spawn = require('child_process').spawn;
-py = spawn('python', ['compute_input.py', NUM_PARAMS]);
+var spawn = require('child_process').spawnSync;
+var py = spawnSync('python', ['compute_input.py', NUM_PARAMS]);
 
-for (i = 0; i < NUM_PARAMS; i++) {
-	py.stdin.write(JSON.stringify(params[0]));
-}
 
 // listen for python file data writes
 // parse data received from python file
