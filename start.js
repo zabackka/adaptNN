@@ -64,7 +64,7 @@ var spawn = require('child_process').spawn;
 
     
     // create variable to hold data to send to py file
-    data = [1,2,3,4,5,6,7,8,9];
+    sendData = [1,2,3,4,5,6,7,8,9];
     dataString = [];
 
 // listen for python file data writes
@@ -77,7 +77,7 @@ py.stdout.on('data', (data) => {
 
 
 // send data to python file for computation
-py.stdin.write(JSON.stringify(data));
+py.stdin.write(JSON.stringify(sendData));
 
 // end connection to python file
 py.stdin.end();
