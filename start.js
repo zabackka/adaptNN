@@ -72,7 +72,7 @@ var spawn = require('child_process').spawn;
 py.stdout.on('data', function(data){
 	while (data) {
 		data = parseFloat(data); 
-		dataString.push(data);
+		console.log(data);
 	}
 	
 });
