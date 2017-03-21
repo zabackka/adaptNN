@@ -18,10 +18,15 @@ def main():
     currentArray = [2, 3, 4, 5]
     
     while (learn):
-        num_params = num_params + 1
         sys.stdout.write(str(num_params) + '\n')
         sys.stdout.flush()
-        if (num_params > 10):
+        num_params = num_params + 1
+        
+        lines = sys.stdin.readLines()
+        sys.stdout.write(str(lines) + '\n')
+        sys.stdout.flush()
+        
+        if (num_params > 9):
             learn = False
 
     # while (sys.stdin.isatty()):
