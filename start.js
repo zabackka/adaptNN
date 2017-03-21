@@ -48,15 +48,18 @@ io.sockets.on("connection", function(socket) {
 		py.stdout.on('data', (data) => {
 			console.log("Received: " + data);
 			py.stdin.write('STOP');
+
+			py.stdout.on('error', function(error) {
+				console.log(error);
+			});
+			py.stdout.on('end', () => {
+				console.log("python script finished");
+			});
 		});
 
-		py.stdout.on('error', function(error) {
-			console.log(error);
-		});
 
-		py.stdout.on('end', () => {
-			console.log("python script finished");
-		})
+
+
 
 		socket.on('disconnect', function() {
 			console.log('user disconnected');
