@@ -43,7 +43,7 @@ io.sockets.on("connection", function(socket) {
 		// console.log("performance: " + performance);
 
 		var sp = require('child_process').spawn;
-		var py = sp('python', ['compute_input.py', NUM_PARAMS], { stdio: 'inherit'});
+		var py = sp('python', ['compute_input.py', NUM_PARAMS], { stdio: 'pipe'});
 
 		py.stdout.on('data', (data) => {
 			console.log("Received: " + data);
