@@ -46,9 +46,9 @@ io.sockets.on("connection", function(socket) {
 		var sp = require('child_process').spawn;
 		var py = sp('python', ['compute_input.py', NUM_PARAMS], { 
 			stdio: [
-				0,
-				fs.openSync('err.txt', 'w'),
-				'pipe'	
+				'pipe',
+				'pipe',
+				fs.openSync('err.txt', 'w')	
 			]
 			});
 
