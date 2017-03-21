@@ -20,10 +20,10 @@ def main():
     sys.stdout.write(str(num_params) + '\n')
     sys.stdout.flush()
 
-    while (sys.stdin.isatty()):
-        lines = sys.stdin.readLines()
-        sys.stdout.write(str(lines) + '\n')
-        sys.stdout.flush()
+    # while (sys.stdin.isatty()):
+    #     lines = sys.stdin.readLines()
+    #     sys.stdout.write(str(lines) + '\n')
+    #     sys.stdout.flush()
     
     # sys.stdout.close()
 
