@@ -49,12 +49,12 @@ io.sockets.on("connection", function(socket) {
 			console.log("Received: " + data);
 			py.stdin.write('STOP');
 
-			py.stdout.on('error', function(error) {
-				console.log(error);
-			});
-			py.stdout.on('end', () => {
-				console.log("python script finished");
-			});
+			// py.stdout.on('error', function(error) {
+			// 	console.log(error);
+			// });
+			// py.stdout.on('end', () => {
+			// 	console.log("python script finished");
+			// });
 		});
 
 
