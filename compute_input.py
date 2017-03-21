@@ -25,7 +25,7 @@ def main():
         sys.stdout.write(str(lines) + '\n')
         sys.stdout.flush()
     
-    sys.stdout.close()
+    # sys.stdout.close()
 
     # while (learn): 
     #     for x in range(0, num_params):
