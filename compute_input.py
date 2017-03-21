@@ -17,8 +17,10 @@ def main():
     num_params = int(sys.argv[1])
     currentArray = [2, 3, 4, 5]
     
-    sys.stdout.write(str(num_params) + '\n')
-    sys.stdout.flush()
+    while (learn):
+        num_params = num_params + 1
+        sys.stdout.write(str(num_params) + '\n')
+        sys.stdout.flush()
 
     # while (sys.stdin.isatty()):
     #     lines = sys.stdin.readLines()
