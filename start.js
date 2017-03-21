@@ -47,7 +47,7 @@ io.sockets.on("connection", function(socket) {
 
 		py.stdout.on('data', (data) => {
 			console.log("Received: " + data);
-			py.stdin.write('GOT IT');
+			py.stdin.write('GOT IT' + '\n');
 
 			// py.stdout.on('error', function(error) {
 			// 	console.log(error);
