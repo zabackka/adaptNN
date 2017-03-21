@@ -22,7 +22,7 @@ def main():
         sys.stdout.flush()
         num_params = num_params + 1
         
-        lines = sys.stdin.readLines()
+        lines = sys.stdin.buffer.read()
         sys.stdout.write(str(lines) + '\n')
         sys.stdout.flush()
 
