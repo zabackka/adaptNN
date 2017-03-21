@@ -47,7 +47,7 @@ io.sockets.on("connection", function(socket) {
 
 		py.stdout.on('data', (data) => {
 			console.log("Received: " + data);
-			//py.stdin.write('STOP');
+			py.stdin.write('GOT IT');
 
 			// py.stdout.on('error', function(error) {
 			// 	console.log(error);
@@ -57,7 +57,6 @@ io.sockets.on("connection", function(socket) {
 			// });
 		});
 
-		console.log("read all data");
 
 
 
