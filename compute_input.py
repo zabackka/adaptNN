@@ -21,6 +21,8 @@ def main():
         num_params = num_params + 1
         sys.stdout.write(str(num_params) + '\n')
         sys.stdout.flush()
+        if (num_params > 10):
+            learn = False
 
     # while (sys.stdin.isatty()):
     #     lines = sys.stdin.readLines()
