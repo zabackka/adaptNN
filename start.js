@@ -6,6 +6,7 @@ var app = express()
 var path = require('path');
 var http = require('http');
 var io = require('socket.io');
+const fs = require('fs');
 
 var NUM_PARAMS = 4; 
 
