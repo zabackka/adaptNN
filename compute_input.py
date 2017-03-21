@@ -22,9 +22,11 @@ def main():
         sys.stdout.flush()
         num_params = num_params + 1
         
-        lines = sys.stdin.readLines()
-        sys.stdout.write(str(lines) + '\n')
-        sys.stdout.flush()
+        if (sys.stdin.isatty()):
+            lines = sys.stdin.readLines()
+            sys.stdout.write(str(lines) + '\n')
+            sys.stdout.flush()
+            sys.stdin.flush()
         
         if (num_params > 9):
             learn = False
