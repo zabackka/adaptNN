@@ -52,19 +52,19 @@ io.sockets.on("connection", function(socket) {
 			]
 			});
 
-		py.stdout.on('data', (data) => {
-			console.log("Received: " + data);
-			var msg = "hello?";
-			py.stdin.write(JSON.stringify(msg) + '\n');
-			// py.stdin.flush();
+		// py.stdout.on('data', (data) => {
+		// 	console.log("Received: " + data);
+		// 	var msg = "hello?";
+		// 	py.stdin.write(JSON.stringify(msg) + '\n');
+		// 	// py.stdin.flush();
 
-			// py.stdout.on('error', function(error) {
-			// 	console.log(error);
-			// });
-			// py.stdout.on('end', () => {
-			// 	console.log("python script finished");
-			// });
-		});
+		// 	// py.stdout.on('error', function(error) {
+		// 	// 	console.log(error);
+		// 	// });
+		// 	// py.stdout.on('end', () => {
+		// 	// 	console.log("python script finished");
+		// 	// });
+		// });
 
 
 
