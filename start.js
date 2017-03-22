@@ -47,7 +47,8 @@ io.sockets.on("connection", function(socket) {
 		var py = sp('python', ['compute_input.py', NUM_PARAMS], { 
 			stdio: [
 				'pipe',
-				fs.openSync('out.txt', 'w'),
+				//fs.openSync('out.txt', 'w'),
+				'pipe',
 				fs.openSync('err.txt', 'w')	
 			]
 			});
