@@ -53,7 +53,7 @@ io.sockets.on("connection", function(socket) {
 		// console.log("params: " + params);
 		// console.log("performance: " + performance);
 
-		py.stdin.write(JSON.stringify(performance));
+		
 
 		//py.stdin.write("hello? \n");
 		// 	var msg = "hello?";
@@ -61,6 +61,9 @@ io.sockets.on("connection", function(socket) {
 
 	});
 
+	py.stdin.write(JSON.stringify(performance));
+	console.log("performance: " + performance);
+	
 	socket.on('disconnect', function() {
 		console.log('CLIENT [' + clientID + "] DISCONNECTED");
 	});
