@@ -44,19 +44,13 @@ io.sockets.on("connection", function(socket) {
 		// console.log("performance: " + performance);
 
 		var sp = require('child_process').spawn;
-		var py = sp('python', ['compute_input.py', NUM_PARAMS], { 
-			stdio: [
-				'pipe',
-				//fs.openSync('out.txt', 'w'),
-				'pipe',
-				fs.openSync('err.txt', 'w')	
-			]
-			});
+		var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
-		py.stdin.write("hello? \n");
+		//py.stdin.write("hello? \n");
 
-		// py.stdout.on('data', (data) => {
-		// 	console.log("Received: " + data);
+		py.stdout.on('data', (data) => {
+			console.log("Received: " + data);
+		}
 		
 		// 	var msg = "hello?";
 		// 	py.stdin.write(JSON.stringify(msg) + '\n');
