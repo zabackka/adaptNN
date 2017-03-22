@@ -6,8 +6,8 @@ import random
 def main():
     num_params = int(sys.argv[1])
     
-    performance = sys.stdin.readline()
-    sys.stdout.write(str(performance) + "\n")
+    msg = sys.stdin.readline()
+    sys.stdout.write(str(msg) + "\n")
     # sys.stdout.write(str(random.random()) + "\n")
     sys.stdout.flush()
 

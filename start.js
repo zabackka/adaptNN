@@ -42,13 +42,14 @@ io.sockets.on("connection", function(socket) {
 	var sp = require('child_process').spawn;
 	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
+	py.stdin.write(JSON.stringify(5));
 	py.stdout.on('data', (data) => {
-			console.log("-->performance: " + data);
+			console.log("-->received from server: " + data);
 	});
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
-		console.log("client message RECEIVED");
+		//console.log("client message RECEIVED");
 		// parse message & display to console
 		data = JSON.parse(data);
 		// retrieve params & performance
@@ -66,9 +67,6 @@ io.sockets.on("connection", function(socket) {
 		// 	py.stdin.write(JSON.stringify(msg) + '\n');
 
 	});
-
-	// py.stdin.write(JSON.stringify(performance));
-	// console.log("performance: " + performance);
 
 	socket.on('disconnect', function() {
 		console.log('CLIENT [' + clientID + "] DISCONNECTED");
