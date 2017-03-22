@@ -53,7 +53,7 @@ io.sockets.on("connection", function(socket) {
 			});
 
 		py.stdin.write("hello? \n");
-		py.stdin.end();
+		//py.stdin.end();
 		// py.stdout.on('data', (data) => {
 		// 	console.log("Received: " + data);
 		// 	var msg = "hello?";
