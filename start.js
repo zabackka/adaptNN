@@ -37,10 +37,6 @@ io.sockets.on("connection", function(socket) {
 	var sp = require('child_process').spawn;
 	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
-	py.stdout.on('data', (data) => {
-			console.log("Received: " + data);
-	});
-
 	// triggered when client sends a message
 	socket.on("message", function(data) {
 		// parse message & display to console
@@ -50,10 +46,14 @@ io.sockets.on("connection", function(socket) {
 		performance = data[1];
 
 		/** PRINT check statements */
-		console.log("params: " + params);
-		console.log("performance: " + performance);
+		// console.log("params: " + params);
+		// console.log("performance: " + performance);
 
+		py.stdin.write(JSON.stringify(performance));
 
+		py.stdout.on('data', (data) => {
+			console.log("-->performance: " + data);
+		});
 
 		//py.stdin.write("hello? \n");
 		// 	var msg = "hello?";
