@@ -48,6 +48,7 @@ io.sockets.on("connection", function(socket) {
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
+		console.log("client message RECEIVED");
 		// parse message & display to console
 		data = JSON.parse(data);
 		// retrieve params & performance
@@ -66,8 +67,8 @@ io.sockets.on("connection", function(socket) {
 
 	});
 
-	py.stdin.write(JSON.stringify(performance));
-	console.log("performance: " + performance);
+	// py.stdin.write(JSON.stringify(performance));
+	// console.log("performance: " + performance);
 
 	socket.on('disconnect', function() {
 		console.log('CLIENT [' + clientID + "] DISCONNECTED");
