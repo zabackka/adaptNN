@@ -49,9 +49,9 @@ io.sockets.on("connection", function(socket) {
 		params = data[0];
 		performance = data[1];
 
-		// /** PRINT check statements */
-		// console.log("params: " + params);
-		// console.log("performance: " + performance);
+		/** PRINT check statements */
+		console.log("params: " + params);
+		console.log("performance: " + performance);
 
 
 
