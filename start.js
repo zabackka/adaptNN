@@ -42,7 +42,7 @@ io.sockets.on("connection", function(socket) {
 	var sp = require('child_process').spawn;
 	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
-	py.stdin.write(JSON.stringify(5));
+	py.stdin.write(JSON.stringify(5) + "\n");
 	py.stdout.on('data', (data) => {
 			console.log("-->received from server: " + data);
 	});
