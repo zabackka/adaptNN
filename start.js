@@ -31,7 +31,8 @@ io = io.listen(server);
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
 	console.log("CONNECTED CLIENT [" + CLIENT_ID + "]");
-
+	CLIENT_ID++;
+	
 	var sp = require('child_process').spawn;
 	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
