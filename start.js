@@ -54,37 +54,17 @@ io.sockets.on("connection", function(socket) {
 			});
 
 		py.stdin.write("hello? \n");
-		//py.stdin.end();
+
 		// py.stdout.on('data', (data) => {
 		// 	console.log("Received: " + data);
+		
 		// 	var msg = "hello?";
 		// 	py.stdin.write(JSON.stringify(msg) + '\n');
-		// 	// py.stdin.flush();
-
-		// 	// py.stdout.on('error', function(error) {
-		// 	// 	console.log(error);
-		// 	// });
-		// 	// py.stdout.on('end', () => {
-		// 	// 	console.log("python script finished");
-		// 	// });
-		// });
-
-
-
-
 
 
 		socket.on('disconnect', function() {
 			console.log('user disconnected');
 		});
-
-		// msg = "SERVER: received new data " + datastr;
-		// // construct a reply to the client
-		// var send_back = {
-		// 	data: msg
-		// }
-		// // send reply to client
-		// socket.send(JSON.stringify(send_back));
 
 	});
 });
