@@ -53,8 +53,8 @@ io.sockets.on("connection", function(socket) {
 		performance = data[1];
 
 		/** PRINT check statements */
-		// console.log("params: " + params);
-		// console.log("performance: " + performance);
+		console.log("params: " + params);
+		console.log("performance: " + performance);
 
 		py.stdin.write(JSON.stringify(performance) + "\n");
 		
