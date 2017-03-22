@@ -9,6 +9,7 @@ var io = require('socket.io');
 const fs = require('fs');
 
 var NUM_PARAMS = 4; 
+var CLIENT_ID = 0;
 
 
 // START SERVER // 
@@ -29,7 +30,10 @@ io = io.listen(server);
 
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
-	console.log("ATTN: NEW USER CONNECTED");
+	console.log("CONNECTED CLIENT [" + CLIENT_ID + "]");
+
+	var sp = require('child_process').spawn;
+	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
@@ -43,8 +47,7 @@ io.sockets.on("connection", function(socket) {
 		// console.log("params: " + params);
 		// console.log("performance: " + performance);
 
-		var sp = require('child_process').spawn;
-		var py = sp('python', ['compute_input.py', NUM_PARAMS]);
+
 
 		//py.stdin.write("hello? \n");
 
