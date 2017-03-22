@@ -8,7 +8,7 @@ def main():
     
     msg = sys.stdin.readline()
     sys.stdout.write(str(msg) + "\n")
-    sys.stdout.write(str(random.random()) + "\n")
+    # sys.stdout.write(str(random.random()) + "\n")
     sys.stdout.flush()
 
 
