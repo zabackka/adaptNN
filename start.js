@@ -9,7 +9,7 @@ var io = require('socket.io');
 const fs = require('fs');
 
 var NUM_PARAMS = 4; 
-var CLIENT_ID = 0;
+var NUM_CLIENTS = 0;
 
 
 // START SERVER // 
@@ -30,11 +30,16 @@ io = io.listen(server);
 
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
-	console.log("CONNECTED CLIENT [" + CLIENT_ID + "]");
-	CLIENT_ID++;
-	
+	var clientID = NUM_CLIENTS;
+	console.log("CONNECTED CLIENT [" + clientID + "]");
+	NUM_CLIENTS++;
+
 	var sp = require('child_process').spawn;
 	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
+
+	py.stdout.on('data', (data) => {
+			console.log("Received: " + data);
+	});
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
@@ -51,19 +56,13 @@ io.sockets.on("connection", function(socket) {
 
 
 		//py.stdin.write("hello? \n");
-
-		py.stdout.on('data', (data) => {
-			console.log("Received: " + data);
-		});
-
 		// 	var msg = "hello?";
 		// 	py.stdin.write(JSON.stringify(msg) + '\n');
 
+	});
 
-		socket.on('disconnect', function() {
-			console.log('user disconnected');
-		});
-
+	socket.on('disconnect', function() {
+		console.log('CLIENT [' + clientID + "] DISCONNECTED");
 	});
 });
 
