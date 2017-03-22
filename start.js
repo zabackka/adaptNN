@@ -30,10 +30,15 @@ io = io.listen(server);
 
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
+	// assign CLIENT ID
 	var clientID = NUM_CLIENTS;
 	console.log("CONNECTED CLIENT [" + clientID + "]");
 	NUM_CLIENTS++;
 
+	var params = [];
+	var performance = 0;
+
+	// spawn child process (python script)
 	var sp = require('child_process').spawn;
 	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
@@ -63,7 +68,7 @@ io.sockets.on("connection", function(socket) {
 
 	py.stdin.write(JSON.stringify(performance));
 	console.log("performance: " + performance);
-	
+
 	socket.on('disconnect', function() {
 		console.log('CLIENT [' + clientID + "] DISCONNECTED");
 	});
