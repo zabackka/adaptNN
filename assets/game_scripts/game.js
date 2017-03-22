@@ -198,6 +198,10 @@ $.playground().registerCallback(function() {
 // start the game
 $.playground().startGame();
 
+socket.on('close', function() {
+	console.log("CLIENT: CONNECTION CLOSED");
+});
+
 
 
 
