@@ -50,8 +50,8 @@ io.sockets.on("connection", function(socket) {
 
 		py.stdout.on('data', (data) => {
 			console.log("Received: " + data);
-		}
-		
+		});
+
 		// 	var msg = "hello?";
 		// 	py.stdin.write(JSON.stringify(msg) + '\n');
 
