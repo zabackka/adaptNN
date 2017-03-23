@@ -8,7 +8,7 @@ def main():
     # msg = str(random.random()) + "\n"
 
     while (True):
-        if (sys.stdin.isatty()):
+        if not sys.stdin.isatty():
             msg = sys.stdin.readline() 
             sys.stdout.write(str(msg) + "\n")
             sys.stdout.flush()
