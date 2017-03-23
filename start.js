@@ -62,6 +62,10 @@ io.sockets.on("connection", function(socket) {
 			console.log("-->received from server: " + data);
 		});
 
+		py.stdout.on('end', () => {
+			console.log("end!");
+		});
+
 	});
 
 	socket.on('disconnect', function() {
