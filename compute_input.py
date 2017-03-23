@@ -13,6 +13,7 @@ def main():
             msg = sys.stdin.readline() 
             sys.stdout.write(str(msgNum) + "\n")
             sys.stdout.flush()
+            msgNum = msgNum + 1
 
 
 #start process
