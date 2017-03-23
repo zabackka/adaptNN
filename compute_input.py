@@ -5,10 +5,11 @@ import random
 
 def main():
     num_params = int(sys.argv[1])
+    msg = str(random.random()) + "\n"
     
     while (True):
         # msg = sys.stdin.readline()
-        msg = str(random.random()) + "\n"
+        
         sys.stdout.write(str(msg) + "\n")
         sys.stdout.flush()
 
