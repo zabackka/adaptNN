@@ -7,9 +7,9 @@ def main():
     num_params = int(sys.argv[1])
     
     while (True):
-        msg = sys.stdin.readline()
+        # msg = sys.stdin.readline()
+        msg = str(random.random()) + "\n"
         sys.stdout.write(str(msg) + "\n")
-        # sys.stdout.write(str(random.random()) + "\n")
         sys.stdout.flush()
 
 
