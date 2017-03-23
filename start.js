@@ -46,6 +46,7 @@ io.sockets.on("connection", function(socket) {
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
+		var callNum = 0;
 		msgNum++;
 		// parse message & display to console
 		data = JSON.parse(data);	
@@ -62,7 +63,8 @@ io.sockets.on("connection", function(socket) {
 		py.stdin.write(JSON.stringify(performance) + "\n");
 		
 		py.stdout.on('data', (data) => {
-			console.log("-->received from server: " + data);
+			console.log("-->received from server: " + data + "call #" + callNum);
+			callNum++;
 		});
 
 		py.stdout.on('end', () => {
