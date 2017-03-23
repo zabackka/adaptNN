@@ -45,9 +45,8 @@ io.sockets.on("connection", function(socket) {
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
-		//console.log("client message RECEIVED");
 		// parse message & display to console
-		data = JSON.parse(data);
+		data = JSON.parse(data);	
 		// retrieve params & performance
 		params = data[0];
 		performance = data[1];
@@ -68,46 +67,13 @@ io.sockets.on("connection", function(socket) {
 
 	});
 
+	// handle client disconnect
 	socket.on('disconnect', function() {
 		console.log('CLIENT [' + clientID + "] DISCONNECTED");
 	});
 });
 
 
-
-// RUN PYTHON CODE //
-
-// define NUM_PARAMS, a constant that holds the number of params to update
-// var NUM_PARAMS = 4;
-// var params = [1, 2, 3, 4];
-
-// // spawn child process (to run python code)
-// var sp = require('child_process').spawnSync;
-// var py = sp('python', ['compute_input.py', NUM_PARAMS]);
-
-// py.stdin.write(JSON.stringify(params));
-
-// // listen for python file data writes
-// // parse data received from python file
-// py.stdout.on('data', (data) => {
-// 	//data = parseFloat(data); 
-// 	console.log("Received: " + data);
-// 	py.stdin.write("SUCCESS -- SEND NEXT VALUE");
-		
-// });
-
-
-// // send data to python file for computation
-// //py.stdin.write(JSON.stringify(sendData));
-
-// py.stdout.on('error', (error) => {
-// 	console.log(error);
-// });
-
-// // end connection to python file
-// py.stdout.on('end', () => { 
-// 	console.log( 'no more data to read' ); 
-// });
 
 
 
