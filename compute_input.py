@@ -5,13 +5,13 @@ import random
 
 def main():
     num_params = int(sys.argv[1])
-    msg = str(random.random()) + "\n"
-    
+    # msg = str(random.random()) + "\n"
+
     while (True):
-        # msg = sys.stdin.readline()
-        
-        sys.stdout.write(str(msg) + "\n")
-        sys.stdout.flush()
+        if (sys.stdin.isatty()):
+            msg = sys.stdin.readline() 
+            sys.stdout.write(str(msg) + "\n")
+            sys.stdout.flush()
 
 
 #start process
