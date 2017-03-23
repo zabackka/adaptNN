@@ -6,7 +6,7 @@ import random
 def main():
     num_params = int(sys.argv[1])
     
-    while (true):
+    while (True):
         msg = sys.stdin.readline()
         sys.stdout.write(str(msg) + "\n")
         # sys.stdout.write(str(random.random()) + "\n")
