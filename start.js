@@ -62,10 +62,10 @@ io.sockets.on("connection", function(socket) {
 
 		//py.stdin.write(JSON.stringify(performance) + "\n");
 		
-		py.stdout.on('data', (data) => {
-			console.log("-->received from server: " + data + "call #" + callNum + "\n\n");
-			callNum++;
-		});
+		// py.stdout.on('data', (data) => {
+		// 	console.log("-->received from server: " + data + "call #" + callNum + "\n\n");
+		// 	callNum++;
+		// });
 
 		py.stdout.on('end', () => {
 			console.log("end!");
