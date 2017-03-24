@@ -54,7 +54,7 @@ def main():
 
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
-			sys.stdout.write(str(train_x) + "\n")
+			sys.stdout.write(str(train_x.eval()) + "\n")
 			sys.stdout.flush()
 
 
