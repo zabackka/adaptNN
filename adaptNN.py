@@ -45,13 +45,13 @@ def main():
 			train_datay[0] = performance
 			
 			for x in range(0, num_params):
-				sys.stderr.write(str(x));
+				# sys.stderr.write(str(x));
 				train_datax[0][x] = params[x] 
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
 			new_params = net.train_batch(train_data, learning_rate=0.03)
-			sys.stderr.write(str(new_params.eval()))
+			sys.stderr.write("new params: " + str(new_params.eval()))
 
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
