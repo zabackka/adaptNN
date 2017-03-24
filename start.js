@@ -41,9 +41,9 @@ io.sockets.on("connection", function(socket) {
 	// spawn child process (python script)
 	const err = fs.openSync('err.txt', 'a');
 	var sp = require('child_process').spawn;
-	var py = sp('python', ['adaptNN.py', NUM_PARAMS],
+	var py = sp('python', ['adaptNN.py', NUM_PARAMS], {
 		stdio: ['pipe', 'pipe', err]
-	);
+	});
 
 	var msgNum = 0;
 	var numWrites = 0;
