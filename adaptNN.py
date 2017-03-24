@@ -30,7 +30,7 @@ def main():
 			msg = json.loads(msg) 
 
 			params = msg[0]
-			performance msg[1]
+			performance = msg[1]
 			num_params = leng(msg[0])
 
 			train_datax = numpy.empty((1, NUM_PARAMS))
