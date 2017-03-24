@@ -18,6 +18,12 @@ theano.config.floatX = 'float64'
 # called when child process is spawned from NodeJS server
 def main():
 	num_params = sys.argv[1]
+	
+	# build NN structure
+	l1 = FullyConnectedLayer(num_params, 1)
+	net = Network([l1], performance_goal=0.80)
+	net.train_batch(train_data, learning_rate=0.03)	
+	
 	# continously listen for new data from server
 	while (True):
 
@@ -223,10 +229,7 @@ class Network(object):
 # param cost will be: grad(forward_pass, wrt=input)
 # train_data = load_data()
 
-# l1 = FullyConnectedLayer(5, 1)
 
-# net = Network([l1], performance_goal=0.80)
-# net.train_batch(train_data, learning_rate=0.03)
 
 
 if __name__ == '__main__':
