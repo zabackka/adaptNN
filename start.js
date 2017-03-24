@@ -66,7 +66,7 @@ io.sockets.on("connection", function(socket) {
 		numWrites++;
 		console.log("number of writes: " + numWrites);
 		
-		py.stdout.on('data', (data) => {
+		py.stdout.once('data', (data) => {
 			//console.log("-->received from server: " + data + "call #" + callNum + "\n\n");
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
