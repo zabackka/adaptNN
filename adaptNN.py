@@ -14,14 +14,14 @@ def main():
 
 	## INITIAL THEANO CONFIG ##
 
-	# set verbosity of theano exceptions
-	theano.config.exception_verbosity = 'high'
+	# # set verbosity of theano exceptions
+	# theano.config.exception_verbosity = 'high'
 
-	# change default float type
-	theano.config.floatX = 'float64'
+	# # change default float type
+	# theano.config.floatX = 'float64'
 
-	# seed for reproducibility 
-	rand = numpy.random.seed(7)
+	# # seed for reproducibility 
+	# rand = numpy.random.seed(7)
 
 
 	## SERVER HANDLING ##
@@ -33,7 +33,7 @@ def main():
     while (True):
     	# when a new message is received, parse & execute NN functions
         if not sys.stdin.isatty():
-        	train_datax = numpy.empty((1, NUM_PARAMS))
+        	# train_datax = numpy.empty((1, NUM_PARAMS))
         	# read in line from server
             msg = sys.stdin.readline() 
             # msgOut = str(random.random()) + "\n"
