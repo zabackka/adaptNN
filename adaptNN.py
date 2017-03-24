@@ -9,29 +9,37 @@ import pickle
 import sys
 import json
 
-
+# called when child process is spawned from NodeJS server
 def main():
-    num_params = int(sys.argv[1])
-    
-    msgNum = 0
 
+	## INITIAL THEANO CONFIG ##
+
+	# set verbosity of theano exceptions
+	theano.config.exception_verbosity = 'high'
+
+	# change default float type
+	theano.config.floatX = 'float64'
+
+	# seed for reproducibility 
+	rand = numpy.random.seed(7)
+
+
+	## SERVER HANDLING ##
+	# total number of environment params to use as input
+	# provided via arguments from intial NodeJS spawn
+    NUM_PARAMS = int(sys.argv[1])
+
+    # continously listen for new data from server
     while (True):
+    	# when a new message is received, parse & execute NN functions
         if not sys.stdin.isatty():
+        	numpy.empty((1, NUM_PARAMS))
+        	# read in line from server
             msg = sys.stdin.readline() 
             # msgOut = str(random.random()) + "\n"
             sys.stdout.write(str(msg) + "\n")
             sys.stdout.flush()
-            msgNum = msgNum + 1
 
-
-# set verbosity of theano exceptions
-theano.config.exception_verbosity = 'high'
-
-# change default float type
-theano.config.floatX = 'float64'
-
-# seed for reproducibility 
-rand = numpy.random.seed(7)
 
 # structure data into a format usable for NN
 def load_data(): 
