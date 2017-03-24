@@ -38,7 +38,7 @@ def main():
 			for i in range(0, num_params-1):
 				train_datax[i] = params[1] 
 
-			sys.stdout.write(str(train_datax) + "\n")
+			sys.stdout.write(str(num_params) + "\n")
 			sys.stdout.flush()
 
 
