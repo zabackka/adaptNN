@@ -17,10 +17,11 @@ theano.config.floatX = 'float64'
 
 # called when child process is spawned from NodeJS server
 def main():
-
-	## SERVER HANDLING ##
+    num_params = sys.argv[1]
     # continously listen for new data from server
 	while (True):
+
+		## SERVER HANDLING ##
 		# when a new message is received, parse & execute NN functions
 		if not sys.stdin.isatty():
 			
@@ -29,6 +30,7 @@ def main():
 			# parse message
 			msg = json.loads(msg) 
 
+			## PARSE TRAINING DATA ##
 			params = msg[0]
 			performance = msg[1]
 			num_params = int(len(params))
@@ -43,6 +45,10 @@ def main():
 
 			train_data = load_data(train_datax, train_datay)
 
+			## LEARN FROM NEW DATA ##
+			## TO DO
+
+			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
 			sys.stdout.write(str(train_data) + "\n")
 			sys.stdout.flush()

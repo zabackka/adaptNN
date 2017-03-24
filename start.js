@@ -8,6 +8,7 @@ var http = require('http');
 var io = require('socket.io');
 const fs = require('fs');
 
+var NUM_PARAMS = 2;
 var NUM_CLIENTS = 0;
 
 
@@ -40,7 +41,7 @@ io.sockets.on("connection", function(socket) {
 	// spawn child process (python script)
 	const err = fs.openSync('err.txt', 'a');
 	var sp = require('child_process').spawn;
-	var py = sp('python', ['adaptNN.py'], {
+	var py = sp('python', ['adaptNN.py', NUM_PARAMS], {
 		stdio: ['pipe', 'pipe', err]
 	});
 
