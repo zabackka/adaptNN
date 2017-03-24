@@ -29,7 +29,8 @@ def main():
 		if not sys.stdin.isatty():
 			train_datax = numpy.empty((1, NUM_PARAMS))
 			# read in line from server
-			msg = sys.stdin.readline() 
+			msg = sys.stdin.readline()
+			msg = json.loads(msg) 
 			# msgOut = str(random.random()) + "\n"
 			sys.stdout.write(str(msg) + "\n")
 			sys.stdout.flush()
