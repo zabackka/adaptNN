@@ -62,12 +62,13 @@ io.sockets.on("connection", function(socket) {
 
 		console.log("message #" + msgNum);
 
+		performance = performance + msgNum;
 		py.stdin.write(JSON.stringify(performance) + "\n");
 		numWrites++;
 		console.log("number of writes: " + numWrites);
 		
 		py.stdout.once('data', (data) => {
-			//console.log("-->received from server: " + data + "call #" + callNum + "\n\n");
+			console.log("-->received from server: " + data "\n");
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 		});

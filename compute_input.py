@@ -11,8 +11,8 @@ def main():
     while (True):
         if not sys.stdin.isatty():
             msg = sys.stdin.readline() 
-            msgOut = str(random.random()) + "\n"
-            sys.stdout.write(str(msgOut) + "\n")
+            # msgOut = str(random.random()) + "\n"
+            sys.stdout.write(str(msg) + "\n")
             sys.stdout.flush()
             msgNum = msgNum + 1
 
