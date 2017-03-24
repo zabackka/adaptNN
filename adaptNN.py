@@ -33,7 +33,7 @@ def main():
     while (True):
     	# when a new message is received, parse & execute NN functions
         if not sys.stdin.isatty():
-        	numpy.empty((1, NUM_PARAMS))
+        	train_datax = numpy.empty((1, NUM_PARAMS))
         	# read in line from server
             msg = sys.stdin.readline() 
             # msgOut = str(random.random()) + "\n"
