@@ -40,7 +40,7 @@ io.sockets.on("connection", function(socket) {
 
 	// spawn child process (python script)
 	var sp = require('child_process').spawn;
-	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
+	var py = sp('python', ['adaptNN.py', NUM_PARAMS]);
 
 	var msgNum = 0;
 	var numWrites = 0;
@@ -68,7 +68,7 @@ io.sockets.on("connection", function(socket) {
 		console.log("number of writes: " + numWrites);
 		
 		py.stdout.once('data', (data) => {
-			console.log("-->received from server: " + data + "\n");
+			console.log("-->received from server: " + data);
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 		});

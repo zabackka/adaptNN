@@ -9,14 +9,19 @@ import pickle
 import sys
 import json
 
-def read_in():
-	lines = sys.stdin.readlines()
-	return json.loads(lines[0])
 
 def main():
-	lines = read_in()
-	print lines
-	# sys.stdin.write("got your message!");
+    num_params = int(sys.argv[1])
+    
+    msgNum = 0
+
+    while (True):
+        if not sys.stdin.isatty():
+            msg = sys.stdin.readline() 
+            # msgOut = str(random.random()) + "\n"
+            sys.stdout.write(str(msg) + "\n")
+            sys.stdout.flush()
+            msgNum = msgNum + 1
 
 
 # set verbosity of theano exceptions
