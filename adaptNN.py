@@ -31,7 +31,7 @@ def main():
 
 			params = msg[0]
 			performance = msg[1]
-			num_params = len(msg[0])
+			num_params = len(params)
 
 			train_datax = numpy.empty((1, num_params))
 			
