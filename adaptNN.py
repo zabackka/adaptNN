@@ -32,7 +32,7 @@ def main():
 			msg = sys.stdin.readline()
 			msg = json.loads(msg) 
 			# msgOut = str(random.random()) + "\n"
-			sys.stdout.write(str(msg) + "\n")
+			sys.stdout.write(str(msg[0]) + "\n")
 			sys.stdout.flush()
 
 
