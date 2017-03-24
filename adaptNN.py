@@ -19,7 +19,7 @@ theano.config.floatX = 'float64'
 def main():
 
 	# seed for reproducibility 
-	rand = numpy.random.seed(7)
+	# rand = numpy.random.seed(7)
 
 
 	## SERVER HANDLING ##
