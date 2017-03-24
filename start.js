@@ -52,20 +52,20 @@ io.sockets.on("connection", function(socket) {
 	socket.on("message", function(data) {
 		msgNum++;
 		
-		// // parse message & display to console
-		// data = JSON.parse(data);	
-		// // retrieve params & performance
-		// params = data[0];
-		// performance = data[1];
+		// parse message & display to console
+		data = JSON.parse(data);	
+		// retrieve params & performance
+		params = data[0];
+		performance = data[1];
 
 		/** PRINT check statements */
-		// console.log("params: " + params);
-		// console.log("performance: " + performance);
+		console.log("params: " + params);
+		console.log("performance: " + performance);
 
-		console.log("message #" + msgNum);
+		// console.log("message #" + msgNum);
 
 		// performance = performance + msgNum;
-		py.stdin.write(data + "\n");
+		py.stdin.write(JSON.stringify(data) + "\n");
 		numWrites++;
 		console.log("number of writes: " + numWrites);
 		
