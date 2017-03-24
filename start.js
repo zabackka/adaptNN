@@ -78,7 +78,7 @@ io.sockets.on("connection", function(socket) {
 		});
 
 		py.stderr.on('data', (data) => {
-			console.log(data);
+  			console.log("py stderr: ${data}");
 		});
 
 	});
