@@ -19,19 +19,22 @@ theano.config.floatX = 'float64'
 def main():
 
 	## SERVER HANDLING ##
-	# total number of environment params to use as input
-	# provided via arguments from intial NodeJS spawn
-	NUM_PARAMS = int(sys.argv[1])
-
     # continously listen for new data from server
 	while (True):
 		# when a new message is received, parse & execute NN functions
 		if not sys.stdin.isatty():
-			train_datax = numpy.empty((1, NUM_PARAMS))
+			
 			# read in line from server
 			msg = sys.stdin.readline()
+			# parse message
 			msg = json.loads(msg) 
-			# msgOut = str(random.random()) + "\n"
+
+			params = msg[0]
+			performance msg[1]
+			num_params = leng(msg[0])
+
+			train_datax = numpy.empty((1, NUM_PARAMS))
+
 			sys.stdout.write(str(msg[0]) + "\n")
 			sys.stdout.flush()
 
