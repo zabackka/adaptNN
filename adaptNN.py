@@ -48,11 +48,10 @@ def main():
 				sys.stderr.write(str(x));
 				train_datax[0][x] = params[x] 
 
-			train_data = load_data(train_datax, train_datay)
-			net.train_batch(train_data, learning_rate=0.03)	
-
 			## LEARN FROM NEW DATA ##
-			## TO DO
+			train_data = load_data(train_datax, train_datay)
+			new_params = net.train_batch(train_data, learning_rate=0.03)
+			sys.stderr.write(str(new_params))
 
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
@@ -215,12 +214,14 @@ class Network(object):
 				   self.y: train_y},
 			on_unused_input='ignore')
 
-		print("--->initial input values: ")
-		print(train_x.eval())
-		train(0)
-		modify_environment(0)
-		print("---> modified input values: ")
-		print(train_x.eval())	
+		# print("--->initial input values: ")
+		# print(train_x.eval())
+		# train(0)
+		# modify_environment(0)
+		# print("---> modified input values: ")
+		# print(train_x.eval())	
+
+		return train_x
 
 
 
