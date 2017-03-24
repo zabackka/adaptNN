@@ -17,8 +17,8 @@ theano.config.floatX = 'float64'
 
 # called when child process is spawned from NodeJS server
 def main():
-    num_params = sys.argv[1]
-    # continously listen for new data from server
+	num_params = sys.argv[1]
+	# continously listen for new data from server
 	while (True):
 
 		## SERVER HANDLING ##
