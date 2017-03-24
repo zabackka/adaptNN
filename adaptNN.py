@@ -35,9 +35,9 @@ def main():
 
 			train_datax = numpy.empty((1, num_params))
 			
-			for x in range(0, 2):
+			for x in range(0, num_params):
 				sys.stderr.write(str(x));
-				train_datax[x] = params[x] 
+				train_datax[1][x] = params[x] 
 
 			sys.stderr.flush()
 			sys.stdout.write(str(train_datax) + "\n")
