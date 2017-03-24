@@ -22,7 +22,6 @@ def main():
 	# build NN structure
 	l1 = FullyConnectedLayer(num_params, 1)
 	net = Network([l1], performance_goal=0.80)
-	net.train_batch(train_data, learning_rate=0.03)	
 	
 	# continously listen for new data from server
 	while (True):
@@ -50,6 +49,7 @@ def main():
 				train_datax[0][x] = params[x] 
 
 			train_data = load_data(train_datax, train_datay)
+			net.train_batch(train_data, learning_rate=0.03)	
 
 			## LEARN FROM NEW DATA ##
 			## TO DO
