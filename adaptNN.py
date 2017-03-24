@@ -21,9 +21,6 @@ rand = numpy.random.seed(7)
 # called when child process is spawned from NodeJS server
 def main():
 
-
-
-
 	## SERVER HANDLING ##
 	# total number of environment params to use as input
 	# provided via arguments from intial NodeJS spawn
@@ -33,7 +30,7 @@ def main():
     while (True):
     	# when a new message is received, parse & execute NN functions
         if not sys.stdin.isatty():
-        	# train_datax = numpy.empty((1, NUM_PARAMS))
+        	train_datax = numpy.empty((1, NUM_PARAMS))
         	# read in line from server
             msg = sys.stdin.readline() 
             # msgOut = str(random.random()) + "\n"
