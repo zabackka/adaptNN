@@ -44,11 +44,12 @@ io.sockets.on("connection", function(socket) {
 
 	var msgNum = 0;
 	var numWrites = 0;
+	var numDataReads = 0; 
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
-		var callNum = 0;
 		msgNum++;
+		
 		// parse message & display to console
 		data = JSON.parse(data);	
 		// retrieve params & performance
@@ -65,10 +66,11 @@ io.sockets.on("connection", function(socket) {
 		numWrites++;
 		console.log("number of writes: " + numWrites);
 		
-		// py.stdout.on('data', (data) => {
-		// 	console.log("-->received from server: " + data + "call #" + callNum + "\n\n");
-		// 	callNum++;
-		// });
+		py.stdout.on('data', (data) => {
+			//console.log("-->received from server: " + data + "call #" + callNum + "\n\n");
+			numDataReads++; 
+			console.log("number of data reads: " + numDataReads);
+		});
 
 		py.stdout.on('end', () => {
 			console.log("end!");
