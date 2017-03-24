@@ -35,7 +35,7 @@ def main():
 
 			train_datax = numpy.empty((1, num_params))
 			train_datay = numpy.empty(1)
-			train_datay[0] = performance[0]
+			train_datay[0] = performance
 			
 			for x in range(0, num_params):
 				sys.stderr.write(str(x));
