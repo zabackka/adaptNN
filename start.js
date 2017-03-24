@@ -43,6 +43,7 @@ io.sockets.on("connection", function(socket) {
 	var py = sp('python', ['compute_input.py', NUM_PARAMS]);
 
 	var msgNum = 0;
+	var numWrites = 0;
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
@@ -59,7 +60,10 @@ io.sockets.on("connection", function(socket) {
 		// console.log("performance: " + performance);
 
 		console.log("message #" + msgNum);
+
 		py.stdin.write(JSON.stringify(performance) + "\n");
+		numWrites++;
+		console.log("number of writes: " + numWrites);
 		
 		// py.stdout.on('data', (data) => {
 		// 	console.log("-->received from server: " + data + "call #" + callNum + "\n\n");
