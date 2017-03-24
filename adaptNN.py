@@ -41,17 +41,19 @@ def main():
 				sys.stderr.write(str(x));
 				train_datax[0][x] = params[x] 
 
+			train_data = load_data(train_datax, train_datay)
+
 			sys.stderr.flush()
-			sys.stdout.write(str(train_datax) + str(train_datay) + "\n")
+			sys.stdout.write(str(train_data) + "\n")
 			sys.stdout.flush()
 
 
 # structure data into a format usable for NN
-def load_data(): 
+def load_data(train_datax, train_datay): 
 	# temporarily create dummy vars -- will parse real data later
 	# create training data
-	train_datax = numpy.ones((30, 5))
-	train_datay = numpy.zeros(30)
+	# train_datax = numpy.ones((30, 5))
+	# train_datay = numpy.zeros(30)
 	
 	train_data = [train_datax, train_datay]
 	
