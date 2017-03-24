@@ -33,7 +33,7 @@ def main():
 			performance = msg[1]
 			num_params = len(msg[0])
 
-			train_datax = numpy.empty((1, NUM_PARAMS))
+			train_datax = numpy.empty((1, num_params))
 
 			sys.stdout.write(str(msg[0]) + "\n")
 			sys.stdout.flush()
