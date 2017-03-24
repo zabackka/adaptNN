@@ -24,18 +24,18 @@ def main():
 	## SERVER HANDLING ##
 	# total number of environment params to use as input
 	# provided via arguments from intial NodeJS spawn
-    NUM_PARAMS = int(sys.argv[1])
+	NUM_PARAMS = int(sys.argv[1])
 
     # continously listen for new data from server
-    while (True):
-    	# when a new message is received, parse & execute NN functions
-        if not sys.stdin.isatty():
-        	train_datax = numpy.empty((1, NUM_PARAMS))
-        	# read in line from server
-            msg = sys.stdin.readline() 
-            # msgOut = str(random.random()) + "\n"
-            sys.stdout.write(str(msg) + "\n")
-            sys.stdout.flush()
+	while (True):
+		# when a new message is received, parse & execute NN functions
+		if not sys.stdin.isatty():
+			train_datax = numpy.empty((1, NUM_PARAMS))
+			# read in line from server
+			msg = sys.stdin.readline() 
+			# msgOut = str(random.random()) + "\n"
+			sys.stdout.write(str(msg) + "\n")
+			sys.stdout.flush()
 
 
 # structure data into a format usable for NN
