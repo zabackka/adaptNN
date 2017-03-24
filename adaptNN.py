@@ -34,13 +34,15 @@ def main():
 			num_params = int(len(params))
 
 			train_datax = numpy.empty((1, num_params))
+			train_datay = numpy.empty(1)
+			train_datay[0] = performance[0]
 			
 			for x in range(0, num_params):
 				sys.stderr.write(str(x));
 				train_datax[0][x] = params[x] 
 
 			sys.stderr.flush()
-			sys.stdout.write(str(train_datax) + "\n")
+			sys.stdout.write(str(train_datax) + str(train_datay) + "\n")
 			sys.stdout.flush()
 
 
