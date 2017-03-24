@@ -17,7 +17,7 @@ theano.config.floatX = 'float64'
 
 # called when child process is spawned from NodeJS server
 def main():
-	num_params = sys.argv[1]
+	num_params = int(sys.argv[1])
 	
 	# build NN structure
 	l1 = FullyConnectedLayer(num_params, 1)
