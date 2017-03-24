@@ -80,9 +80,6 @@ io.sockets.on("connection", function(socket) {
 			console.log("end!");
 		});
 
-		py.stderr.on('data', (data) => {
-  			console.log("py stderr: ${data}");
-		});
 
 	});
 
