@@ -59,8 +59,7 @@ io.sockets.on("connection", function(socket) {
 		// console.log("performance: " + performance);
 
 		console.log("message #" + msgNum);
-
-		//py.stdin.write(JSON.stringify(performance) + "\n");
+		py.stdin.write(JSON.stringify(performance) + "\n");
 		
 		// py.stdout.on('data', (data) => {
 		// 	console.log("-->received from server: " + data + "call #" + callNum + "\n\n");
