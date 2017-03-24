@@ -50,8 +50,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			new_params = net.train_batch(train_data, learning_rate=0.09)
-			sys.stderr.write("new params: " + str(new_params.eval()))
+			net.train_batch(train_data, learning_rate=0.03)
 
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
@@ -221,7 +220,10 @@ class Network(object):
 		# print("---> modified input values: ")
 		# print(train_x.eval())	
 
-		return train_x
+		sys.stderr.write("initial input values: " + str(train_x.eval()) + "\n")
+		train(0)
+		modify_environment(0)
+		sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 
 
 
