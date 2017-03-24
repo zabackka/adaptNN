@@ -35,10 +35,10 @@ def main():
 
 			train_datax = numpy.empty((1, num_params))
 			
-			for i in range(0, num_params-1):
-				train_datax[i] = params[1] 
+			for x in range(0, num_params-1):
+				train_datax[x] = params[x] 
 
-			sys.stdout.write(str(num_params) + "\n")
+			sys.stdout.write(str(train_datax) + "\n")
 			sys.stdout.flush()
 
 
