@@ -15,11 +15,13 @@ theano.config.exception_verbosity = 'high'
 # change default float type
 theano.config.floatX = 'float64'
 
+# seed for reproducibility 
+rand = numpy.random.seed(7)
+
 # called when child process is spawned from NodeJS server
 def main():
 
-	# seed for reproducibility 
-	# rand = numpy.random.seed(7)
+
 
 
 	## SERVER HANDLING ##
