@@ -56,7 +56,7 @@ def main():
 			sys.stderr.write('SENDBACK')
 			
 			for x in sendBack[0]:
-				sys.stderr.write(x)
+				sys.stderr.write(str(x))
 			
 			# sys.stderr.write(str(type(testVar)))
 			## RESPOND TO SERVER WITH NEW DATA ##
