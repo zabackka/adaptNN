@@ -59,12 +59,13 @@ def main():
 			for x in sendBack:
 				testVar.append(x)
 			
+			testVar = json.dumps(testVar)
 			sys.stderr.write(str(type(testVar)))
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
 			
 
-			sys.stdout.write(json.dumps(testVar) + "\n")
+			# sys.stdout.write(json.dumps(testVar) + "\n")
 			sys.stdout.flush()
 
 
