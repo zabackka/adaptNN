@@ -58,7 +58,7 @@ def main():
 			# sys.stderr.write(str(type(testVar)))
 			for x in sendBack:
 				testVar.append(x)
-			sys.stderr.write(str(sendBack))
+			sys.stderr.write(str(type(sendBack)))
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
 			
