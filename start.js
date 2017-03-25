@@ -76,6 +76,7 @@ io.sockets.on("connection", function(socket) {
 		py.stdout.once('data', (data) => {
 			console.log("-->received from server: " + data);
 
+			var sendBack = [];
 			var sendBack = JSON.parse(data);
 			console.log(typeof data);
 			numDataReads++; 
