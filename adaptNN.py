@@ -53,7 +53,8 @@ def main():
 			train_x = net.train_batch(train_data, learning_rate=0.03)
 
 			testVar = train_x.eval()
-			sys.stderr.write("testVar:" + testVar)
+			sys.stderr.write("TESTVAR")
+			sys.stderr.write(testVar)
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
 			
