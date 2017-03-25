@@ -52,18 +52,16 @@ def main():
 			train_data = load_data(train_datax, train_datay)
 			train_x = net.train_batch(train_data, learning_rate=0.03)
 
+			# store modified input values and parse
 			store = train_x.eval()
 			sendBack = []
-			sys.stderr.write('SEND BACK')
 			
 			for x in store[0]:
 				sendBack.append(x)
-			
-			sys.stderr.write(str(sendBack))
+
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
-			
-
+			# send modified input values back to server
 			sys.stdout.write(json.dumps(sendBack) + "\n")
 			sys.stdout.flush()
 
