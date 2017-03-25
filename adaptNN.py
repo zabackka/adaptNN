@@ -52,9 +52,13 @@ def main():
 			train_data = load_data(train_datax, train_datay)
 			train_x = net.train_batch(train_data, learning_rate=0.03)
 
+			testVar = train_x.eval()
+			sys.stderr.write("testVar:" + testVar)
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
-			sys.stdout.write(json.JSONEncoder().encode(train_x.eval()) + "\n")
+			
+
+			sys.stdout.write(str(train_x.eval()) + "\n")
 			sys.stdout.flush()
 
 
