@@ -77,11 +77,11 @@ io.sockets.on("connection", function(socket) {
 			console.log("-->received from server: " + data);
 
 			data = JSON.parse(data);
-			var sendBack = [];
-			for (var i = 0; i < NUM_PARAMS; i++) {
-				sendBack.push(data[i]);
-			}
-			console.log(typeof sendBack);
+			// var sendBack = [];
+			// for (var i = 0; i < NUM_PARAMS; i++) {
+			// 	sendBack.push(data[i]);
+			// }
+			// console.log(typeof sendBack);
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 
