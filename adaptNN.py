@@ -58,12 +58,12 @@ def main():
 			# sys.stderr.write(str(type(testVar)))
 			for x in sendBack:
 				testVar.append(x)
-			sys.stderr.write(str(type(sendBack)))
+			sys.stderr.write(str(type(testVar)))
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
 			
 
-			sys.stdout.write(json.JSONEncoder().encode(sendBack) + "\n")
+			sys.stdout.write(json.JSONEncoder().encode(testVar) + "\n")
 			sys.stdout.flush()
 
 
