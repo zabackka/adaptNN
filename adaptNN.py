@@ -54,7 +54,7 @@ def main():
 
 			store = train_x.eval()
 			sendBack = []
-			sys.stderr.write('SENDBACK')
+			sys.stderr.write('SEND BACK')
 			
 			for x in store[0]:
 				sendBack.append(x)
@@ -64,7 +64,7 @@ def main():
 			sys.stderr.flush()
 			
 
-			# sys.stdout.write(json.dumps(testVar) + "\n")
+			sys.stdout.write(json.dumps(sendBack) + "\n")
 			sys.stdout.flush()
 
 
