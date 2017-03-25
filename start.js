@@ -77,17 +77,14 @@ io.sockets.on("connection", function(socket) {
 			console.log("-->received from server: " + data);
 
 			data = JSON.parse(data);
-			// var sendBack = [];
-			// for (var i = 0; i < NUM_PARAMS; i++) {
-			// 	sendBack.push(data[i]);
-			// }
-			// console.log(typeof sendBack);
+
+			// log total number of data reads
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 
-			//console.log("send back: " + sendBack);
+			// send modified input data back to client
 			clients[clientID].emit('data', data);
-			//console.log("send data back to client");
+
 		});
 
 

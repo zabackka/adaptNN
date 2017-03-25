@@ -85,7 +85,7 @@ function updateParams() {
 		// parse message, output to console
 		// message = JSON.parse(data);
 		console.log(data);
-		// console.log(data[1]);
+		console.log(data[0]);
 	});
 	
 
