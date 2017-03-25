@@ -27,11 +27,13 @@ app.get('/', function(request, response) {
 // SETUP CLIENT-SERVER CONNECTION //
 // intitialize server/client connection
 io = io.listen(server);
+var clients = [];
 
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
 	// assign CLIENT ID
 	var clientID = NUM_CLIENTS;
+	clients.push(socket);
 	console.log("CONNECTED CLIENT [" + clientID + "]");
 	NUM_CLIENTS++;
 
@@ -74,7 +76,11 @@ io.sockets.on("connection", function(socket) {
 			console.log("-->received from server: " + data);
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
+
+			clients[clientID].emit('data', data);
 		});
+
+
 
 		py.stdout.on('end', () => {
 			console.log("end!");
