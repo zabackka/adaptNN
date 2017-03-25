@@ -59,7 +59,7 @@ def main():
 			sys.stderr.flush()
 			
 
-			sys.stdout.write(str(train_x.eval()) + "\n")
+			sys.stdout.write(JSON.JSONEncoder().encode(testVar) + "\n")
 			sys.stdout.flush()
 
 
