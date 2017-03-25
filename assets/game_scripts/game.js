@@ -85,7 +85,8 @@ function updateParams() {
 		// parse message, output to console
 		// message = JSON.parse(data);
 		console.log(data);
-		console.log(data[0]);
+		enemySpeed = data[0];
+		playerSpeed = data[1];
 	});
 	
 
