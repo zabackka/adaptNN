@@ -83,8 +83,9 @@ function updateParams() {
 	socket.once("data", function(data) {
 		console.log("CLIENT: message from server received:");
 		// parse message, output to console
-		message = JSON.parse(data);
-		console.log(message);
+		// message = JSON.parse(data);
+		console.log(data[0]);
+		console.log(data[1]);
 	});
 	
 
