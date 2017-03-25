@@ -71,23 +71,19 @@ io.sockets.on("connection", function(socket) {
 		py.stdin.write(JSON.stringify(data) + "\n");
 		numWrites++;
 		console.log("number of writes: " + numWrites);
-		 
-		var sendBack = [];
+		
+		// receive output from python child process
 		py.stdout.once('data', (data) => {
 			console.log("-->received from server: " + data);
 
+			var test = JSON.parse(data);
+			console.log(test);
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 
-			var arr = $.map(data, function(el) {return el});
-			console.log("ARR:" + arr);
-
-			for (var i = 0; i < NUM_PARAMS; i++) {
-				console.log(data[i].toString());
-			}
 			//console.log("send back: " + sendBack);
-			clients[clientID].emit('data', JSON.stringify(sendBack));
-			console.log("send data back to client");
+			//clients[clientID].emit('data', JSON.stringify(sendBack));
+			//console.log("send data back to client");
 		});
 
 
