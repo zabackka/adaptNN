@@ -77,7 +77,7 @@ io.sockets.on("connection", function(socket) {
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 
-			clients[clientID].emit('data', data);
+			clients[clientID].emit('data', JSON.stringify(data));
 			console.log("send data back to client");
 		});
 
