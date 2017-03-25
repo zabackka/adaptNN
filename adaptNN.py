@@ -63,7 +63,7 @@ def main():
 			sys.stderr.flush()
 			
 
-			sys.stdout.write(str(testVar) + "\n")
+			sys.stdout.write(json.JSONEncoder().encode(sendBack) + "\n")
 			sys.stdout.flush()
 
 
