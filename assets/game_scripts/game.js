@@ -80,10 +80,10 @@ function updateParams() {
 	socket.send(JSON.stringify(data));
 
 	// triggered when a message is sent from server
-	socket.on("data", function(message) {
+	socket.once("data", function(data) {
 		console.log("CLIENT: message from server received:");
 		// parse message, output to console
-		message = JSON.parse(message);
+		message = JSON.parse(data);
 		console.log(message);
 	});
 	
