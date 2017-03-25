@@ -71,14 +71,17 @@ io.sockets.on("connection", function(socket) {
 		py.stdin.write(JSON.stringify(data) + "\n");
 		numWrites++;
 		console.log("number of writes: " + numWrites);
-		
+		 
+		var sendBack = [];
 		py.stdout.once('data', (data) => {
-			console.log("-->received from server: " + typeof data[0]);
+			console.log("-->received from server: " + data);
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 
-			var sendBack = [1, 2, 3];
-			sendBack = JSON.parse(data[0]);
+			for (var i = 0; i < NUM_PARAMS; i++) {
+				sendBack.push(data[i]);
+			}
+			console.log("send back: " + sendBack);
 			clients[clientID].emit('data', JSON.stringify(sendBack));
 			console.log("send data back to client");
 		});
