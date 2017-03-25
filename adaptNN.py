@@ -53,10 +53,10 @@ def main():
 			train_x = net.train_batch(train_data, learning_rate=0.03)
 
 			sendBack = train_x.eval()
-			sys.stderr.write(str(sendBack[0]))
+			sys.stderr.write('SENDBACK')
 			
-			# for x in sendBack:
-			# 	sys.stdout.write(json.dumps(x))
+			for x in sendBack[0]:
+				sys.stderr.write(x)
 			
 			# sys.stderr.write(str(type(testVar)))
 			## RESPOND TO SERVER WITH NEW DATA ##
