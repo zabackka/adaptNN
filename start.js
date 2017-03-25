@@ -73,7 +73,7 @@ io.sockets.on("connection", function(socket) {
 		console.log("number of writes: " + numWrites);
 		
 		py.stdout.once('data', (data) => {
-			console.log("-->received from server: " + typeof data);
+			console.log("-->received from server: " + typeof data[0]);
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 
