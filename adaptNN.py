@@ -55,9 +55,10 @@ def main():
 			sendBack = train_x.eval()
 			testVar = []
 			sys.stderr.write("SEND BACK")
-			# sys.stderr.write(str(type(testVar)))
+			
 			for x in sendBack:
 				testVar.append(x)
+			
 			sys.stderr.write(str(type(testVar)))
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
