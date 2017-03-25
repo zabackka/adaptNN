@@ -54,7 +54,7 @@ def main():
 
 			testVar = train_x.eval()
 			sys.stderr.write("TESTVAR")
-			sys.stderr.write(testVar)
+			sys.stderr.write(str(testVar))
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
 			
