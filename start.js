@@ -77,6 +77,7 @@ io.sockets.on("connection", function(socket) {
 			console.log("-->received from server: " + data);
 
 			var sendBack = JSON.parse(data);
+			console.log(typeof data);
 			numDataReads++; 
 			console.log("number of data reads: " + numDataReads);
 
