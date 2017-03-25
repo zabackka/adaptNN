@@ -79,7 +79,7 @@ io.sockets.on("connection", function(socket) {
 			console.log("number of data reads: " + numDataReads);
 
 			for (var i = 0; i < NUM_PARAMS; i++) {
-				sendBack.push(data[i]);
+				sendBack.push(parseFloat(data[i]));
 			}
 			console.log("send back: " + sendBack);
 			clients[clientID].emit('data', JSON.stringify(sendBack));
