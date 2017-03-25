@@ -52,9 +52,13 @@ def main():
 			train_data = load_data(train_datax, train_datay)
 			train_x = net.train_batch(train_data, learning_rate=0.03)
 
-			testVar = train_x.eval()
-			sys.stderr.write("TESTVAR")
-			sys.stderr.write(str(type(testVar)))
+			sendBack = train_x.eval()
+			testVar = []
+			sys.stderr.write("SEND BACK")
+			# sys.stderr.write(str(type(testVar)))
+			for x in sendBack:
+				testVar.append(x)
+			sys.stderr.write(str(sendBack))
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
 			
