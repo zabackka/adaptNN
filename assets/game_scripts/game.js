@@ -79,16 +79,18 @@ function updateParams() {
 	var data = [params, performance];
 	socket.send(JSON.stringify(data));
 
-}
-
-// triggered when a message is sent from server
-	socket.on("message", function(message) {
+	// triggered when a message is sent from server
+	socket.on("data", function(message) {
 		console.log("CLIENT: message from server received:");
 		// parse message, output to console
 		message = JSON.parse(message);
 		console.log(message);
 	});
 	
+
+}
+
+
 
 //////////////////////////////
 ///// GAME FUNCTIONALITY /////
