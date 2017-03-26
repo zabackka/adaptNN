@@ -3,9 +3,6 @@ import theano.tensor as T
 import theano.tensor.nnet as nnet
 
 import numpy
-import gzip
-import pickle
-
 import sys
 import json
 
@@ -15,7 +12,8 @@ theano.config.exception_verbosity = 'high'
 # change default float type
 theano.config.floatX = 'float64'
 
-# called when child process is spawned from NodeJS server
+## NodeJS PROCESS HANDLING ##
+# main() is called when Node spawns new child
 def main():
 	num_params = int(sys.argv[1])
 	
