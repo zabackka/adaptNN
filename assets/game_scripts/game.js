@@ -17,7 +17,7 @@ var REFRESH_RATE = 10;
 var CURRENT_TIME = 0;
 
 var numCollisions = 0; 
-var PLAYER_PERFORMANCE = (3 - numCollisions) / 3 * 100;
+var PLAYER_PERFORMANCE = (CURRENT_TIME - numCollisions) / CURRENT_TIME;
 
 var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 3000);
@@ -79,7 +79,7 @@ function updateParams() {
 	enemySpeed++; 
 	var params = [enemySpeed, playerSpeed];
 	var performance = PLAYER_PERFORMANCE; 
-	numCollisions = 0;
+
 	var data = [params, performance];
 	socket.send(JSON.stringify(data));
 
