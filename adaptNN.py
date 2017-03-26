@@ -49,6 +49,8 @@ def main():
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
 			train_x = net.train_batch(train_data, learning_rate=0.03)
+			sys.stderr.write("PREDICTION: ")
+			sys.stderr.write(net.output)
 
 			# store modified input values and parse
 			store = train_x.eval()
@@ -226,10 +228,10 @@ class Network(object):
 		# print("---> modified input values: ")
 		# print(train_x.eval())	
 
-		sys.stderr.write("initial input values: " + str(train_x.eval()) + "\n")
+		# sys.stderr.write("initial input values: " + str(train_x.eval()) + "\n")
 		train(0)
-		modify_environment(0)
-		sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
+		# modify_environment(0)
+		# sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 
 		return train_x
 
