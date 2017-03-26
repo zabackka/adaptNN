@@ -137,6 +137,7 @@ $.playground().registerCallback(function() {
       		var collided = $(this).collision("#playerBody,."+$.gQ.groupCssClass);
       		if(collided.length > 0){
       			numCollisions++;
+      			console.log("player performance: " + PLAYER_PERFORMANCE);
 				// decrement player value
         		$("#player")[0].player.value -= 1;
 				// update value in html to reflect current score
