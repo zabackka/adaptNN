@@ -50,7 +50,7 @@ def main():
 			train_data = load_data(train_datax, train_datay)
 			train_x = net.train_batch(train_data, learning_rate=0.03)
 			sys.stderr.write("PREDICTION: ")
-			sys.stderr.write(str(net.output.eval()))
+			# sys.stderr.write(str(net.output.eval()))
 
 			# store modified input values and parse
 			store = train_x.eval()
@@ -221,9 +221,10 @@ class Network(object):
 				   self.y: train_y},
 			on_unused_input='ignore')
 
-		retrieve_prediction = theano.function([self.output],
-			[self.output])
-		
+		retrieve_prediction = theano.function([i],
+			[self.output],
+			on_unused_input = 'ignore')
+
 		# print("--->initial input values: ")
 		# print(train_x.eval())
 		# train(0)
