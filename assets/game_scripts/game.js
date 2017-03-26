@@ -30,7 +30,7 @@ function displayTime() {
 }
 
 function printEnvironmentParams() {
-	$('#environment_params').html("PERFORMANCE: " + PLAYER_PERFORMANCE + "   |   enemy height: <b>" + enemyHeight + "</b>   |    enemy width: <b>" + enemyWidth + "</b>   |    enemy speed: <b>" + enemySpeed + "</b>   |    enemy spawn rate: <b>" + enemySpawnRate + "</b>   |    player width: <b>" + playerWidth + "</b>   |    player height: <b>" + playerHeight + "</b>   |    player speed: <b>" + playerSpeed + "</b><p></p>");
+	$('#environment_params').html("PERFORMANCE: " + PLAYER_PERFORMANCE + "   |   NUM COLLISIONS: " + numCollisions + "   |   enemy height: <b>" + enemyHeight + "</b>   |    enemy width: <b>" + enemyWidth + "</b>   |    enemy speed: <b>" + enemySpeed + "</b>   |    enemy spawn rate: <b>" + enemySpawnRate + "</b>   |    player width: <b>" + playerWidth + "</b>   |    player height: <b>" + playerHeight + "</b>   |    player speed: <b>" + playerSpeed + "</b><p></p>");
 }
 
 
