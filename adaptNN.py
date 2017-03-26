@@ -18,8 +18,12 @@ def main():
 	num_params = int(sys.argv[1])
 	
 	# build NN structure
-	l1 = FullyConnectedLayer(num_params, 1)
-	net = Network([l1], performance_goal=0.80)
+	input_layer = FullyConnectedLayer(num_params, num_params)
+	h1 = FullyConnectedLayer(num_params, 50)
+	h2 = FullyConnectedLayer(50, 50)
+	h3 = FullyConnectedLayer(50, num_params)
+	output_layer = FullyConnectedLayer(num_params, 1)
+	net = Network([input_layer, h1, h2, h3, output_layer], performance_goal=0.80)
 	
 	# continously listen for new data from server
 	while (True):
@@ -49,7 +53,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction = net.train_batch(train_data, learning_rate=0.02)
+			train_x, prediction = net.train_batch(train_data, learning_rate=0.03)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
