@@ -221,9 +221,9 @@ class Network(object):
 				   self.y: train_y},
 			on_unused_input='ignore')
 
-		# retrieve_prediction = theano.function([i],
-		# 	[self.output],
-		# 	on_unused_input = 'ignore')
+		predict = theano.function([i],
+			[self.output * i],
+			on_unused_input = 'ignore')
 
 		# print("--->initial input values: ")
 		# print(train_x.eval())
