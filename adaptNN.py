@@ -225,7 +225,7 @@ class Network(object):
 
 		predict = theano.function([i],
 			[self.predict],
-			givens= {self.predict = self.output}
+			givens= {self.predict: self.output}
 			on_unused_input = 'ignore')
 
 		# print("--->initial input values: ")
