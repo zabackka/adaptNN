@@ -224,10 +224,11 @@ class Network(object):
 				   self.y: train_y},
 			on_unused_input='ignore')
 
-		pred = self.layers[-1].output
+		pred = self.output
 		predict = theano.function([i],
 			[pred],
-			givens={self.predict: self.output},
+			givens={self.x: train_x,
+					self.y: train_y},
 			on_unused_input= 'ignore')
 
 		# print("--->initial input values: ")
