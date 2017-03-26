@@ -17,7 +17,7 @@ var REFRESH_RATE = 10;
 var CURRENT_TIME = 0;
 
 var numCollisions = 0; 
-var PLAYER_PERFORMANCE = ((3000 - numCollisions * 1000) / 3000) * 100;
+var PLAYER_PERFORMANCE = numCollisions / 5 * 100;
 
 var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 3000);
