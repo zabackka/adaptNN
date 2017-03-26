@@ -49,14 +49,15 @@ def main():
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
 			train_x, prediction = net.train_batch(train_data, learning_rate=0.03)
-			sys.stderr.write("PREDICTION: ")
-			# sys.stderr.write(str(net.output.eval()))
+			sys.stderr.write("SEND BACK: ")
 
 			# store modified input values and parse
-			store = train_x.eval()
+			storeTrain = train_x.eval()
 			sendBack = []
 			
-			for x in store[0]:
+			sendBack.append(prediction[0])
+			
+			for x in storeTrain[0]:
 				sendBack.append(x)
 
 			## RESPOND TO SERVER WITH NEW DATA ##
@@ -162,8 +163,6 @@ class Network(object):
 		# symbolic variables that will be set during SGD
 		self.x = T.matrix("x")
 		self.y = T.dvector("y")
-		
-		self.predict = T.dscalar("predict")
 
 		# store the parameters of each layer in the network
 		# create a list of all shared variables in the network [all W/b variables]
@@ -243,8 +242,7 @@ class Network(object):
 		# modify_environment(0)
 		# sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 		prediction = predict(0)
-		sys.stderr.write("PREDICTION: ")
-		sys.stderr.write(str(predict(0)))
+
 
 		return [train_x, prediction]
 
