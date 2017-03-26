@@ -71,7 +71,7 @@ function updateTime() {
 	// update value in html to reflect current score
 	$("#player .value").html($("#player")[0].player.value);
 
-	PLAYER_PERFORMANCE = (CURRENT_TIME - numCollisions);
+	PLAYER_PERFORMANCE = (CURRENT_TIME - numCollisions) / CURRENT_TIME;
 
 }
 
