@@ -214,7 +214,7 @@ class Network(object):
 					self.y: train_y},
 			on_unused_input='ignore')
 
-		prediction = self.predict
+		
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
 		modify_environment = theano.function([i],
@@ -224,9 +224,10 @@ class Network(object):
 				   self.y: train_y},
 			on_unused_input='ignore')
 
+		pred = self.layers[-1].output
 		predict = theano.function([i],
 			[prediction],
-			givens= {self.predict: self.output},
+			givens={self.predict: self.output},
 			on_unused_input= 'ignore')
 
 		# print("--->initial input values: ")
