@@ -19,9 +19,9 @@ def main():
 	
 	# build NN structure
 	input_layer = FullyConnectedLayer(num_params, num_params)
-	h1 = FullyConnectedLayer(num_params, 50)
-	h2 = FullyConnectedLayer(50, 50)
-	h3 = FullyConnectedLayer(50, num_params)
+	h1 = FullyConnectedLayer(num_params, num_params)
+	h2 = FullyConnectedLayer(num_params, num_params)
+	h3 = FullyConnectedLayer(num_params, num_params)
 	output_layer = FullyConnectedLayer(num_params, 1)
 	net = Network([input_layer, h1, h2, h3, output_layer], performance_goal=0.80)
 	
