@@ -38,6 +38,7 @@ def main():
 			performance = msg[1]
 			num_params = int(len(params))
 
+			# create new storage vars for training data
 			train_datax = numpy.empty((1, num_params))
 			train_datay = numpy.empty(1)
 			train_datay[0] = performance

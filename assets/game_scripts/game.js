@@ -21,7 +21,7 @@ var PLAYER_PERFORMANCE = 0.0;
 var NNprediction = 0.0;
 
 var GAME_TIMER = setInterval(updateTime, 1000);
-var LEARNING_LOOP = setInterval(updateParams, 3000);
+var LEARNING_LOOP = setInterval(updateParams, 1000);
 var HIGH_SCORE = 0;
 
 
@@ -79,7 +79,7 @@ function updateTime() {
 // LEARN
 function updateParams() {
 	// send a message to the server
-	enemySpeed++; 
+	//enemySpeed++; 
 	var params = [enemySpeed, playerSpeed];
 	var performance = PLAYER_PERFORMANCE; 
 
@@ -88,10 +88,10 @@ function updateParams() {
 
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
-		console.log("CLIENT: message from server received:");
-		// parse message, output to console
-		// message = JSON.parse(data);
-		console.log(data);
+		/** PRINT check statments **/
+		// console.log("CLIENT: message from server received:");
+		// console.log(data);
+
 		NNprediction = data[0];
 		// enemySpeed = data[1];
 		// playerSpeed = data[2];

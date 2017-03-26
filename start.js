@@ -33,12 +33,11 @@ var clients = [];
 io.sockets.on("connection", function(socket) {
 	// assign CLIENT ID
 	var clientID = NUM_CLIENTS;
+	// add new client to list of clients
 	clients.push(socket);
-	console.log("CONNECTED CLIENT [" + clientID + "]");
 	NUM_CLIENTS++;
-
-	var params = [];
-	var performance = 0;
+	// log new client connection to terminal
+	console.log("CONNECTED CLIENT [" + clientID + "]");
 
 	// spawn child process (python script)
 	const err = fs.openSync('err.txt', 'a');
@@ -46,61 +45,50 @@ io.sockets.on("connection", function(socket) {
 	var py = sp('python', ['adaptNN.py', NUM_PARAMS], {
 		stdio: ['pipe', 'pipe', err]
 	});
-
-	var msgNum = 0;
-	var numWrites = 0;
-	var numDataReads = 0; 
+ 
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
-		msgNum++;
-		
 		// parse message & display to console
 		data = JSON.parse(data);	
 		// retrieve params & performance
-		params = data[0];
-		performance = data[1];
 
 		/** PRINT check statements */
-		console.log("params: " + params);
-		console.log("performance: " + performance);
+		// var params = data[0];
+		// var performance = data[1];
+		// console.log("params: " + params);
+		// console.log("performance: " + performance);
 
-		// console.log("message #" + msgNum);
-
-		// performance = performance + msgNum;
+		// send data from client to python child process
 		py.stdin.write(JSON.stringify(data) + "\n");
-		numWrites++;
-		console.log("number of writes: " + numWrites);
 		
 		// receive output from python child process
 		py.stdout.once('data', (data) => {
-			console.log("-->received from server: " + data);
-
+			/** PRINT check statement **/
+			//console.log("-->received from server: " + data);
+			
+			// parse data
 			data = JSON.parse(data);
-
-			// log total number of data reads
-			numDataReads++; 
-			console.log("number of data reads: " + numDataReads);
-
 			// send modified input data back to client
 			clients[clientID].emit('data', data);
-
 		});
 
-
-
+		// handle end of python child process
+		// should only be triggered in error 
+		// --> [check 'err.txt' for details]
 		py.stdout.on('end', () => {
 			console.log("end!");
 		});
-
-
 	});
 
-	// handle client disconnect
+	// handle CLIENT disconnect
 	socket.on('disconnect', function() {
 		console.log('CLIENT [' + clientID + "] DISCONNECTED");
 	});
 });
+
+
+
 
 
 
