@@ -223,11 +223,10 @@ class Network(object):
 				   self.y: train_y},
 			on_unused_input='ignore')
 
-		prediction = self.output
 		predict = theano.function([i],
 			[self.predict],
-			givens= {self.predict: prediction}
-			on_unused_input = 'ignore')
+			givens= {self.predict: self.output},
+			on_unused_input= 'ignore')
 
 		# print("--->initial input values: ")
 		# print(train_x.eval())
