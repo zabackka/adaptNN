@@ -49,13 +49,15 @@ def main():
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
 			train_x, prediction = net.train_batch(train_data, learning_rate=0.03)
-			sys.stderr.write("SEND BACK: ")
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
 			sendBack = []
 			
 			sendBack.append(prediction[0][0][0])
+
+			sys.stderr.write("PREDICTION: ")
+			sys.stderr.write(str(sendBack))
 			
 			for x in storeTrain[0]:
 				sendBack.append(x)
