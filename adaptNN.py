@@ -226,7 +226,7 @@ class Network(object):
 
 		pred = self.layers[-1].output
 		predict = theano.function([i],
-			[prediction],
+			[pred],
 			givens={self.predict: self.output},
 			on_unused_input= 'ignore')
 
