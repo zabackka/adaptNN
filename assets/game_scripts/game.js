@@ -93,8 +93,8 @@ function updateParams() {
 		// message = JSON.parse(data);
 		console.log(data);
 		NNprediction = data[0];
-		enemySpeed = data[1];
-		playerSpeed = data[2];
+		// enemySpeed = data[1];
+		// playerSpeed = data[2];
 	});
 	
 
