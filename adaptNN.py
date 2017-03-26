@@ -52,13 +52,13 @@ def main():
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
+			# intialize message array to send back to server
 			sendBack = []
 			
+			# append the net's predicted output to message array
 			sendBack.append(prediction[0][0][0])
-
-			sys.stderr.write("PREDICTION: ")
-			sys.stderr.write(str(sendBack))
 			
+			# append all modified enviroment params to message array
 			for x in storeTrain[0]:
 				sendBack.append(x)
 

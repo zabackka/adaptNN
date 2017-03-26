@@ -17,7 +17,8 @@ var REFRESH_RATE = 10;
 var CURRENT_TIME = 0;
 
 var numCollisions = 0; 
-var PLAYER_PERFORMANCE = 0;
+var PLAYER_PERFORMANCE = 0.0;
+var NNprediction = 0.0;
 
 var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 3000);
@@ -91,8 +92,9 @@ function updateParams() {
 		// parse message, output to console
 		// message = JSON.parse(data);
 		console.log(data);
-		enemySpeed = data[0];
-		playerSpeed = data[1];
+		NNprediction = data[0];
+		enemySpeed = data[1];
+		playerSpeed = data[2];
 	});
 	
 
