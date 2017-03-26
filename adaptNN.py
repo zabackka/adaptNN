@@ -55,7 +55,7 @@ def main():
 			storeTrain = train_x.eval()
 			sendBack = []
 			
-			sendBack.append(prediction[0])
+			sendBack.append(prediction[0][0])
 			
 			for x in storeTrain[0]:
 				sendBack.append(x)
