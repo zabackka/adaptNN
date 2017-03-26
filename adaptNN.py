@@ -243,6 +243,9 @@ class Network(object):
 		# modify_environment(0)
 		# sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 
+		sys.stderr.write("PREDICTION: ")
+		sys.stderr.write(str(predict(0)))
+
 		return train_x
 
 
