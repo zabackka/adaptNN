@@ -163,6 +163,8 @@ class Network(object):
 		self.x = T.matrix("x")
 		self.y = T.dvector("y")
 		
+		self.predict = T.dscalar("predict")
+
 		# store the parameters of each layer in the network
 		# create a list of all shared variables in the network [all W/b variables]
 		self.params = [param for layer in self.layers for param in layer.params]
@@ -222,7 +224,8 @@ class Network(object):
 			on_unused_input='ignore')
 
 		predict = theano.function([i],
-			[self.output * i],
+			[self.predict],
+			givens= {self.predict = self.output}
 			on_unused_input = 'ignore')
 
 		# print("--->initial input values: ")
