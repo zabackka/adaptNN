@@ -67,7 +67,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction = net.train_batch(train_data, learning_rate=0.03)
+			train_x, prediction = net.train_batch(shared_constraints, train_data, learning_rate=0.03)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
@@ -200,7 +200,7 @@ class Network(object):
 		# 	the output of the last layer in the net
 		self.output = layers[-1].output
 
-	def train_batch(self, train_data, learning_rate):
+	def train_batch(self, shared_constraints, train_data, learning_rate):
 		# separate training data into x & y
 		train_x, train_y = train_data
 
