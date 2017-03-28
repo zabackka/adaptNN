@@ -18,7 +18,7 @@ def main():
 	num_params = int(sys.argv[1])
 	
 	# build NN structure
-	input_layer = FullyConnectedLayer(num_params, 1)
+	input_layer = FullyConnectedLayer(5, 1)
 	h1 = FullyConnectedLayer(num_params, num_params)
 	h2 = FullyConnectedLayer(num_params, num_params)
 	h3 = FullyConnectedLayer(num_params, num_params)
