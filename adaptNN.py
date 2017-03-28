@@ -50,7 +50,7 @@ def main():
 			
 			for x in range(0, num_params):
 				# sys.stderr.write(str(x));
-				train_datax[0][x] = params[x]
+				train_datax[0][x] = params[x]/100
 
 			# train_datax = numpy.ones((30, 2))
 			# train_datay = numpy.zeros(30) 
