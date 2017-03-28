@@ -250,7 +250,7 @@ class Network(object):
 
 		# sys.stderr.write("initial input values: " + str(train_x.eval()) + "\n")
 		train(0)
-		# modify_environment(0)
+		modify_environment(0)
 		# sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 		prediction = predict(0)
 
