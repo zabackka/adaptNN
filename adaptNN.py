@@ -52,8 +52,8 @@ def main():
 				# sys.stderr.write(str(x));
 				train_datax[0][x] = params[x]
 
-			train_datax = numpy.ones((30, 2))
-			train_datay = numpy.zeros(30) 
+			# train_datax = numpy.ones((30, 2))
+			# train_datay = numpy.zeros(30) 
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
