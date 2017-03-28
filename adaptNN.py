@@ -18,11 +18,11 @@ def main():
 	num_params = int(sys.argv[1])
 	
 	# build NN structure
-	input_layer = FullyConnectedLayer(num_params, num_params)
+	input_layer = FullyConnectedLayer(num_params, 4)
 	h1 = FullyConnectedLayer(num_params, num_params)
 	h2 = FullyConnectedLayer(num_params, num_params)
 	h3 = FullyConnectedLayer(num_params, num_params)
-	output_layer = FullyConnectedLayer(num_params, 1)
+	output_layer = FullyConnectedLayer(4, 1)
 	net = Network([input_layer, output_layer], performance_goal=0.80)
 	
 	# continously listen for new data from server
