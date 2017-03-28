@@ -43,13 +43,17 @@ def main():
 			num_params = int(len(params))
 
 			# create new storage vars for training data
-			train_datax = numpy.empty((1, num_params))
-			train_datay = numpy.empty(1)
-			train_datay[0] = performance
+			# train_datax = numpy.empty((1, num_params))
+			# train_datay = numpy.empty(1)
+			# train_datay[0] = performance
+
 			
-			for x in range(0, num_params):
-				# sys.stderr.write(str(x));
-				train_datax[0][x] = params[x] 
+			# for x in range(0, num_params):
+			# 	# sys.stderr.write(str(x));
+			# 	train_datax[0][x] = params[x]
+
+			train_datax = numpy.ones((30, 5))
+			train_datay = numpy.zeros(30) 
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
