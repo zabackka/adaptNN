@@ -142,7 +142,7 @@ class FullyConnectedLayer(object):
 		# feed forward
 		#	multiply the input values by their corresponding weights (& add bias)
 		output = (T.dot(self.input, self.W) + self.b)
-		output = output.T
+		# output = output.T
 
 		# apply activation function (if applicable)
 		self.output = (
