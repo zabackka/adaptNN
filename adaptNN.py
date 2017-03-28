@@ -24,6 +24,16 @@ def main():
 	h3 = FullyConnectedLayer(num_params, num_params)
 	output_layer = FullyConnectedLayer(num_params, 1)
 	net = Network([input_layer, h1, h2, h3, output_layer], performance_goal=0.80)
+
+	constraints = numpy.empty(num_params, 2)
+	constraints[0][0] = 2
+	constraints[0][1] = 10
+	constraints[1][0] = 10
+	constraints[1][1] = 50
+
+	shared_constraints = theano.shared(numpy.asarray(constraints, dtype=theano.config.floatX), borrow=True)
+
+
 	
 	# continously listen for new data from server
 	while (True):
@@ -108,9 +118,6 @@ class FullyConnectedLayer(object):
 			# initialize W_values to hold random weight values
 			W_values = numpy.array(numpy.random.rand(n_input, n_output), dtype=theano.config.floatX)
 
-			# print("weight values:")
-			# print(W_values)
-
 			# create W, a shared variable that holds the weight values for this layer
 			W = theano.shared(value=W_values, name='W', borrow=True)
 		
@@ -174,6 +181,8 @@ class Network(object):
 		# symbolic variables that will be set during SGD
 		self.x = T.matrix("x")
 		self.y = T.dvector("y")
+
+		self.constraint = T.matrix("constraint")
 
 		# store the parameters of each layer in the network
 		# create a list of all shared variables in the network [all W/b variables]
