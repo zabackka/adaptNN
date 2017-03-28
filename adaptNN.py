@@ -25,7 +25,7 @@ def main():
 	output_layer = FullyConnectedLayer(num_params, 1)
 	net = Network([input_layer, h1, h2, h3, output_layer], performance_goal=0.80)
 
-	constraints = numpy.empty(num_params, 2)
+	constraints = numpy.empty((num_params, 2))
 	constraints[0][0] = 2
 	constraints[0][1] = 10
 	constraints[1][0] = 10
