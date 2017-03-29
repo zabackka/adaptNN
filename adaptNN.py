@@ -162,7 +162,7 @@ class FullyConnectedLayer(object):
 	def input_cost(self, net, shared_constraints, train_x):
 		for i in range(0, self.n_input):
 			for j in range(0, 2):
-				if shared_constraints[i][j] < train_x[i][j]:
+				if T.le(shared_constraints[i][j], train_x[i][j]):
 					return 500
 
 		return T.mean((self.output - net.performance_goal))
