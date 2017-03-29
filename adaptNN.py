@@ -160,7 +160,7 @@ class FullyConnectedLayer(object):
 		)
 	# define the cost of these input (environment) params
 	def input_cost(self, net, shared_constraints, train_x):
-		for i in range(0, n_input):
+		for i in range(0, self.n_input):
 			for j in range(0, 2):
 				if train_x[i][j] < shared_constraints[i][j]:
 					return 500
