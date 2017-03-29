@@ -164,9 +164,10 @@ class FullyConnectedLayer(object):
 	def input_cost(self, net, l_cons, u_cons, train_x):
 		for i in range(0, self.n_input):
 			if T.le(train_x.T[i], l_cons[i]) or T.gt(train_x.T[i], u_cons[i]):
-				sys.stderr.write("OUT OF BOUNDS")
+				sys.stderr.write("OUT OF BOUNDS \n")
 				return T.pow(T.mean((self.output - net.performance_goal)), 10)
 
+		sys.stderr(write("NOT \n"))
 		return T.mean((self.output - net.performance_goal))
 
 	# define the cost of this layer
