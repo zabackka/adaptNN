@@ -163,7 +163,7 @@ class FullyConnectedLayer(object):
 	# define the cost of these input (environment) params
 	def input_cost(self, net, l_cons, u_cons, train_x):
 		for i in range(0, self.n_input):
-			if T.le(T.train_x[i], l_cons[i]) or T.gt(T.train_x[i], u_cons[i]):
+			if T.le(train_x.T[i], l_cons[i]) or T.gt(train_x.T[i], u_cons[i]):
 				return T.mean((self.output - net.performance_goal)) * 100
 
 		return T.mean((self.output - net.performance_goal))
