@@ -163,7 +163,8 @@ class FullyConnectedLayer(object):
 		for i in range(0, self.n_input):
 			for j in range(0, 2):
 				if T.le(shared_constraints[i][j], train_x[i][j]):
-					return 500
+					x = T.scalar('x', dtype='float64')
+					return x
 
 		return T.mean((self.output - net.performance_goal))
 
