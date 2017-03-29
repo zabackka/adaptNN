@@ -25,13 +25,15 @@ def main():
 	output_layer = FullyConnectedLayer(num_params, 1)
 	net = Network([input_layer, h1, h2, h3, output_layer], performance_goal=0.80)
 
-	constraints = numpy.empty((num_params, 2))
-	constraints[0][0] = 2
-	constraints[0][1] = 10
-	constraints[1][0] = 10
-	constraints[1][1] = 50
+	l_constraints = numpy.empty(num_params)
+	u_constraints = numpy.empty(num_params)
+	l_constraints[0] = 2
+	l_constraints[1] = 10
+	u_constraints[0] = 10
+	u_constraints[1] = 50
 
-	shared_constraints = theano.shared(numpy.asarray(constraints, dtype=theano.config.floatX), borrow=True)
+	l_const, u_const = load_data(l_constraints, u_constraints)
+	shared_constraints = [l_const, u_const]
 
 
 	
@@ -159,11 +161,10 @@ class FullyConnectedLayer(object):
 			else self.activation(output)
 		)
 	# define the cost of these input (environment) params
-	def input_cost(self, net, shared_constraints, train_x):
+	def input_cost(self, net, l_cons, u_cons, train_x):
 		for i in range(0, self.n_input):
-			for j in range(0, 2):
-				if T.le(shared_constraints[i][j], train_x[i][j]) or T.gt(shared_constraints[i][j], train_x[i][j]):
-					return T.mean((self.output - net.performance_goal)) * 100
+			if T.le(T.train_x[i], l_cons[i]) or T.gt(T.train_x[i], u_cons[i]):
+				return T.mean((self.output - net.performance_goal)) * 100
 
 		return T.mean((self.output - net.performance_goal))
 
@@ -209,6 +210,8 @@ class Network(object):
 		# separate training data into x & y
 		train_x, train_y = train_data
 
+		l_cons, u_cons = shared_constraints
+
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
 		network_cost = self.layers[-1].network_cost(self)
@@ -221,7 +224,7 @@ class Network(object):
 		network_updates = [(param, param-learning_rate*grad) for param, grad in zip(self.params, layer_gradients)]
 
 		### INPUT updates ###
-		input_cost = self.layers[-1].input_cost(self, shared_constraints, train_x)
+		input_cost = self.layers[-1].input_cost(self, l_cons, u_cons, train_x)
 
 		input_gradients = T.grad(input_cost, self.x)
 		environment_updates = [(train_x, train_x-learning_rate*input_gradients)]
