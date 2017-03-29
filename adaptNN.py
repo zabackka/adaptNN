@@ -158,8 +158,13 @@ class FullyConnectedLayer(object):
 			# apply activation function and store values in self.output
 			else self.activation(output)
 		)
+	# define the cost of these input (environment) params
+	def input_cost(self, net, shared_constraints, train_x):
+		for i in range(0, n_input):
+			for j in range(0, 2):
+				if train_x[i][j] < shared_constraints[i][j]:
+					return 500
 
-	def input_cost(self, net):
 		return T.mean((self.output - net.performance_goal))
 
 	# define the cost of this layer
@@ -216,7 +221,7 @@ class Network(object):
 		network_updates = [(param, param-learning_rate*grad) for param, grad in zip(self.params, layer_gradients)]
 
 		### INPUT updates ###
-		input_cost = self.layers[-1].input_cost(self)
+		input_cost = self.layers[-1].input_cost(self, shared_constraints, train_x)
 
 		input_gradients = T.grad(input_cost, self.x)
 		environment_updates = [(train_x, train_x-learning_rate*input_gradients)]
