@@ -247,7 +247,7 @@ class Network(object):
 			on_unused_input='ignore')
 
 		environment_cost = theano.function([i], [input_cost],
-			givens: {self.x: train_x,
+			givens = {self.x: train_x,
 					self.y: train_y},
 			on_unused_input='ignore')
 		
