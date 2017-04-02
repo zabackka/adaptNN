@@ -85,7 +85,7 @@ def main():
 				sendBack.append(x)
 
 			# param_cost = param_cost[0]
-			sendBack.append(type(param_cost))
+			sendBack.append(param_cost[0])
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
