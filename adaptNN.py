@@ -84,7 +84,7 @@ def main():
 			for x in storeTrain[0]:
 				sendBack.append(x)
 
-			param_cost = param_cost[0]
+			# param_cost = param_cost[0]
 			sendBack.append(type(param_cost[0]))
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
@@ -247,7 +247,7 @@ class Network(object):
 					self.y: train_y},
 			on_unused_input='ignore')
 
-		environment_cost = theano.function([i], [input_cost],
+		environment_cost = theano.function([i], input_cost,
 			givens = {self.x: train_x,
 					self.y: train_y},
 			on_unused_input='ignore')
