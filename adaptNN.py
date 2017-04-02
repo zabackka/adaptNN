@@ -76,6 +76,9 @@ def main():
 			# intialize message array to send back to server
 			sendBack = []
 			
+			sys.stderr.write("PARAM COST: ")
+			sys.stderr.write(param_cost)
+
 			# append the net's predicted output to message array
 			sendBack.append(prediction[0][0][0])
 
@@ -85,7 +88,7 @@ def main():
 				sendBack.append(x)
 
 			# param_cost = param_cost[0]
-			sendBack.append(param_cost[0])
+			sendBack.append(100)
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
