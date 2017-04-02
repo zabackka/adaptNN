@@ -173,7 +173,7 @@ class FullyConnectedLayer(object):
 			if T.le(train_x.T[i], l_cons[i]) or T.gt(train_x.T[i], u_cons[i]):
 				# sys.stderr.write("OUT OF BOUNDS \n")
 				# return T.pow(T.mean(T.pow((self.output - net.performance_goal), 2)), 10)
-				return 100
+				return T.mean((self.output - net.performance_goal)) * 100
 
 		# sys.stderr(write("NOT \n"))
 		return T.mean((self.output - net.performance_goal))
