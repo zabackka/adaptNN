@@ -84,6 +84,7 @@ def main():
 			for x in storeTrain[0]:
 				sendBack.append(x)
 
+			param_cost = param_cost[0]
 			sendBack.append(type(param_cost[0]))
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
