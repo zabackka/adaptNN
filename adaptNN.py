@@ -84,7 +84,7 @@ def main():
 			for x in storeTrain[0]:
 				sendBack.append(x)
 
-			sendBack.append(param_cost[0][0][0])
+			sendBack.append(param_cost[0][0])
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
