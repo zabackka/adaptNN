@@ -19,6 +19,8 @@ var CURRENT_TIME = 0;
 var numCollisions = 0; 
 var PLAYER_PERFORMANCE = 0.0;
 var NNprediction = 0.0;
+var paramCost = 0.0;
+
 
 var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 1000);
@@ -31,7 +33,7 @@ function displayTime() {
 }
 
 function printEnvironmentParams() {
-	$('#environment_params').html("PERFORMANCE: " + PLAYER_PERFORMANCE + "NN PREDICTION: " + NNprediction + "   |   NUM COLLISIONS: " + numCollisions + "   |   enemy height: <b>" + enemyHeight + "</b>   |    enemy width: <b>" + enemyWidth + "</b>   |    enemy speed: <b>" + enemySpeed + "</b>   |    enemy spawn rate: <b>" + enemySpawnRate + "</b>   |    player width: <b>" + playerWidth + "</b>   |    player height: <b>" + playerHeight + "</b>   |    player speed: <b>" + playerSpeed + "</b><p></p>");
+	$('#environment_params').html("PERFORMANCE: " + PLAYER_PERFORMANCE + "NN PREDICTION: " + NNprediction + "   |   PARAM COST: " + paramCost + "   |   NUM COLLISIONS: " + numCollisions + "   |   enemy height: <b>" + enemyHeight + "</b>   |    enemy width: <b>" + enemyWidth + "</b>   |    enemy speed: <b>" + enemySpeed + "</b>   |    enemy spawn rate: <b>" + enemySpawnRate + "</b>   |    player width: <b>" + playerWidth + "</b>   |    player height: <b>" + playerHeight + "</b>   |    player speed: <b>" + playerSpeed + "</b><p></p>");
 }
 
 
@@ -95,6 +97,7 @@ function updateParams() {
 		NNprediction = data[0];
 		enemySpeed = data[1] * 100;
 		playerSpeed = data[2] * 100;
+		paramCost = data[3];
 	});
 	
 

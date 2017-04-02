@@ -69,7 +69,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction = net.train_batch(shared_constraints, train_data, learning_rate=0.03)
+			train_x, prediction, param_cost = net.train_batch(shared_constraints, train_data, learning_rate=0.03)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
@@ -78,11 +78,14 @@ def main():
 			
 			# append the net's predicted output to message array
 			sendBack.append(prediction[0][0][0])
+
 			
 			# append all modified enviroment params to message array
 			for x in storeTrain[0]:
 				sendBack.append(x)
 
+			sendBack.append(param_cost)
+			
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
 			# send modified input values back to server
@@ -243,6 +246,10 @@ class Network(object):
 					self.y: train_y},
 			on_unused_input='ignore')
 
+		environment_cost = theano.function([i], [input_cost],
+			givens: {self.x: train_x,
+					self.y: train_y},
+			on_unused_input='ignore')
 		
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
@@ -269,12 +276,13 @@ class Network(object):
 
 		# sys.stderr.write("initial input values: " + str(train_x.eval()) + "\n")
 		train(0)
+		param_cost = environment_cost(0)
 		modify_environment(0)
 		# sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 		prediction = predict(0)
 
 
-		return [train_x, prediction]
+		return [train_x, prediction, param_cost]
 
 
 
