@@ -80,7 +80,7 @@ def main():
 			sys.stderr.write(str(type(param_cost)))
 
 			# append the net's predicted output to message array
-			sendBack.append(prediction[0][0][0])
+			sendBack.append(float(prediction[0][0]))
 
 			
 			# append all modified enviroment params to message array
@@ -262,7 +262,7 @@ class Network(object):
 
 		pred = self.output
 		predict = theano.function([i],
-			[pred],
+			pred,
 			givens={self.x: train_x,
 					self.y: train_y},
 			on_unused_input= 'ignore')
