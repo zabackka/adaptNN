@@ -27,10 +27,10 @@ def main():
 
 	l_constraints = numpy.empty(num_params)
 	u_constraints = numpy.empty(num_params)
-	l_constraints[0] = 2/100
-	l_constraints[1] = 10/100
-	u_constraints[0] = 10/100
-	u_constraints[1] = 50/100
+	l_constraints[0] = 2/10
+	l_constraints[1] = 10/10
+	u_constraints[0] = 10/10
+	u_constraints[1] = 50/10
 
 	l_const, u_const = load_data(l_constraints, u_constraints)
 	shared_constraints = [l_const, u_const]
@@ -197,8 +197,6 @@ class Network(object):
 		# symbolic variables that will be set during SGD
 		self.x = T.matrix("x")
 		self.y = T.dvector("y")
-
-		# self.constraint = T.matrix("constraint")
 
 		# store the parameters of each layer in the network
 		# create a list of all shared variables in the network [all W/b variables]
