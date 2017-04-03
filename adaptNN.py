@@ -27,10 +27,10 @@ def main():
 
 	l_constraints = numpy.empty(num_params)
 	u_constraints = numpy.empty(num_params)
-	l_constraints[0] = 2/10
-	l_constraints[1] = 10/10
-	u_constraints[0] = 10/10
-	u_constraints[1] = 50/10
+	l_constraints[0] = 2/1000
+	l_constraints[1] = 10/1000
+	u_constraints[0] = 10/1000
+	u_constraints[1] = 50/1000
 
 	l_const, u_const = load_data(l_constraints, u_constraints)
 	shared_constraints = [l_const, u_const]
