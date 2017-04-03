@@ -274,11 +274,11 @@ class Network(object):
 
 		# sys.stderr.write("initial input values: " + str(train_x.eval()) + "\n")
 		train(0)
-		param_cost = modify_environment(0)
+		# param_cost = modify_environment(0)
 		# sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 		prediction = predict(0)
 
-
+		return [train_x, prediction, 0.0]
 		return [train_x, prediction, param_cost]
 
 
