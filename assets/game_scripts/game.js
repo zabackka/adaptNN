@@ -95,8 +95,8 @@ function updateParams() {
 		// console.log(data);
 
 		NNprediction = data[0];
-		enemySpeed = data[1] * 100;
-		playerSpeed = data[2] * 100;
+		enemySpeed = data[1] * 1000;
+		playerSpeed = data[2] * 1000;
 		paramCost = data[3];
 	});
 	

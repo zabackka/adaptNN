@@ -76,8 +76,8 @@ def main():
 			# intialize message array to send back to server
 			sendBack = []
 			
-			sys.stderr.write("PARAM COST: ")
-			sys.stderr.write(str(type(param_cost)))
+			# sys.stderr.write("PARAM COST: ")
+			# sys.stderr.write(str(type(param_cost)))
 
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
@@ -172,8 +172,8 @@ class FullyConnectedLayer(object):
 		for i in range(0, self.n_input):
 			if T.le(train_x.T[i], l_cons[i]) or T.gt(train_x.T[i], u_cons[i]):
 				sys.stderr.write("OUT OF BOUNDS \n")
-				# return T.pow(T.mean(T.pow((self.output - net.performance_goal), 2)), 10)
-				return T.mean((self.output - net.performance_goal)) * 100
+				return T.pow(T.mean(T.pow((self.output - net.performance_goal), 2)), 10)
+				# return T.mean((self.output - net.performance_goal)) * 100
 
 		sys.stderr(write("NOT \n"))
 		return T.mean((self.output - net.performance_goal))
