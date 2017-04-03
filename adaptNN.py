@@ -198,7 +198,7 @@ class Network(object):
 		self.x = T.matrix("x")
 		self.y = T.dvector("y")
 
-		self.constraint = T.matrix("constraint")
+		# self.constraint = T.matrix("constraint")
 
 		# store the parameters of each layer in the network
 		# create a list of all shared variables in the network [all W/b variables]
