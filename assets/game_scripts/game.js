@@ -26,7 +26,9 @@ var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 1000);
 var HIGH_SCORE = 0;
 
-
+function intervalMap(value, x, y, a, b) {
+	return ((value-x) * (b-a) / (y-x) + a)
+}
 
 function displayTime() {
 	$('#current_time').html("Time: <b>" + CURRENT_TIME + "</b>"); 
@@ -95,8 +97,8 @@ function updateParams() {
 		// console.log(data);
 
 		NNprediction = data[0];
-		enemySpeed = data[1] * 1000;
-		playerSpeed = data[2] * 1000;
+		enemySpeed = intervalMap(data[1], -1000, 1000, 2, 10);
+		playerSpeed = intervalMap(data[2], -1000, 1000, 2, 10);
 		paramCost = data[3];
 	});
 	
