@@ -169,14 +169,13 @@ class FullyConnectedLayer(object):
 		)
 	# define the cost of these input (environment) params
 	def input_cost(self, net, l_cons, u_cons, train_x):
-		for i in range(0, self.n_input):
-			if T.le(train_x.T[i], l_cons[i]) or T.gt(train_x.T[i], u_cons[i]):
-				sys.stderr.write("OUT OF BOUNDS")
-				sys.stderr.write(str(T.pow(T.mean(T.pow((self.output - net.performance_goal), 2)), 10).eval())
-				return T.pow(T.mean(T.pow((self.output - net.performance_goal), 2)), 10)
-				# return T.mean((self.output - net.performance_goal)) * 100
+		# for i in range(0, self.n_input):
+		# 	if T.le(train_x.T[i], l_cons[i]) or T.gt(train_x.T[i], u_cons[i]):
+		# 		sys.stderr.write("OUT OF BOUNDS \n")
+		# 		return T.pow(T.mean(T.pow((self.output - net.performance_goal), 2)), 10)
+		# 		# return T.mean((self.output - net.performance_goal)) * 100
 
-		sys.stderr(write("NOT \n"))
+		# sys.stderr(write("NOT \n"))
 		return T.mean(T.pow((self.output - net.performance_goal), 2))
 
 	# define the cost of this layer
