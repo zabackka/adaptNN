@@ -77,7 +77,7 @@ def main():
 			sendBack = []
 			
 			sys.stderr.write("PARAM COST: ")
-			sys.stderr.write(param_cost)
+			sys.stderr.write(str(param_cost))
 
 			# append the net's predicted output to message array
 			sendBack.append(prediction[0][0][0])
