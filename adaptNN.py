@@ -12,6 +12,10 @@ theano.config.exception_verbosity = 'high'
 # change default float type
 theano.config.floatX = 'float64'
 
+def interval_map(value, x, y, a, b):
+	return ((value-x) * (b-a) / (y-x) + a)
+
+
 ## NodeJS PROCESS HANDLING ##
 # main() is called when Node spawns new child
 def main():
@@ -62,7 +66,7 @@ def main():
 			
 			for x in range(0, num_params):
 				# sys.stderr.write(str(x));
-				train_datax[0][x] = params[x]/100
+				train_datax[0][x] = interval_map(params[x], 2, 10, sys.minint, sys.maxint) 
 
 			# train_datax = numpy.ones((30, 2))
 			# train_datay = numpy.zeros(30) 
