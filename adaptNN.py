@@ -250,11 +250,6 @@ class Network(object):
 			givens={self.x: train_x,
 					self.y: train_y},
 			on_unused_input='ignore')
-
-		environment_cost = theano.function([i], input_cost,
-			givens = {self.x: train_x,
-					self.y: train_y},
-			on_unused_input='ignore')
 		
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
@@ -281,8 +276,7 @@ class Network(object):
 
 		# sys.stderr.write("initial input values: " + str(train_x.eval()) + "\n")
 		train(0)
-		param_cost = environment_cost(0)
-		modify_environment(0)
+		param_cost = modify_environment(0)
 		# sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 		prediction = predict(0)
 
