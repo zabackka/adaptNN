@@ -176,7 +176,7 @@ class FullyConnectedLayer(object):
 				# return T.mean((self.output - net.performance_goal)) * 100
 
 		sys.stderr(write("NOT \n"))
-		return T.mean((self.output - net.performance_goal))
+		return T.mean(T.pow((self.output - net.performance_goal), 2))
 
 	# define the cost of this layer
 	def network_cost(self, net):
