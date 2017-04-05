@@ -83,13 +83,13 @@ function updateTime() {
 // LEARN
 function updateParams() {
 	// send a message to the server
-	p1 = intervalMap(enemyHeight, 10, 50, 0, 10);
-	p2 = intervalMap(enemyWidth, 40, 80, 0, 10);
-	p3 = intervalMap(enemySpeed, 2, 10, 0, 10);
-	p4 = intervalMap(enemySpawnRate, 1000, 5000, 0, 10);
-	p5 = intervalMap(playerHeight, 40, 80, 0, 10);
-	p6 = intervalMap(playerWidth, 40, 80, 0, 10);
-	p7 = intervalMap(playerSpeed, 5, 10, 0, 10);
+	p1 = intervalMap(enemyHeight, 10, 50, 0, 100);
+	p2 = intervalMap(enemyWidth, 40, 80, 0, 100);
+	p3 = intervalMap(enemySpeed, 2, 10, 0, 100);
+	p4 = intervalMap(enemySpawnRate, 1000, 5000, 0, 100);
+	p5 = intervalMap(playerHeight, 40, 80, 0, 100);
+	p6 = intervalMap(playerWidth, 40, 80, 0, 100);
+	p7 = intervalMap(playerSpeed, 5, 10, 0, 100);
 
 	
 	var params = [p1, p2, p3, p4, p5, p6, p7];
@@ -107,13 +107,13 @@ function updateParams() {
 		console.log(data);
 		NNprediction = data[0];
 		
-		enemyHeight = intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 10.0, 50);
-		enemyWidth = intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 40, 80.0);
-		enemySpeed = intervalMap(data[3], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
-		enemySpawnRate = intervalMap(data[4], -Number.MAX_VALUE, Number.MAX_VALUE, 1000.0, 5000.0);
-		playerHeight = intervalMap(data[5], -Number.MAX_VALUE, Number.MAX_VALUE, 40.0, 80.0);
-		playerWidth = intervalMap(data[6], -Number.MAX_VALUE, Number.MAX_VALUE, 40.0, 40.0);
-		playerSpeed = intervalMap(data[7], -Number.MAX_VALUE, Number.MAX_VALUE, 5.0, 10.0);
+		enemyHeight = intervalMap(data[1], 0, 1, 10.0, 50);
+		enemyWidth = intervalMap(data[2], 0, 1, 40, 80.0);
+		enemySpeed = intervalMap(data[3], 0, 1, 2.0, 10.0);
+		enemySpawnRate = intervalMap(data[4], 0, 1, 1000.0, 5000.0);
+		playerHeight = intervalMap(data[5], 0, 1, 40.0, 80.0);
+		playerWidth = intervalMap(data[6], 0, 1, 40.0, 40.0);
+		playerSpeed = intervalMap(data[7], 0, 1, 5.0, 10.0);
 
 		paramCost = data[8];
 	});
