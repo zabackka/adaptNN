@@ -83,13 +83,13 @@ function updateTime() {
 // LEARN
 function updateParams() {
 	// send a message to the server
-	p1 = intervalMap(enemyHeight, 10, 50, 0, 1);
-	p2 = intervalMap(enemyWidth, 40, 80, 0, 1);
-	p3 = intervalMap(enemySpeed, 2, 10, 0, 1);
-	p4 = intervalMap(enemySpawnRate, 1000, 5000, 0, 1);
-	p5 = intervalMap(playerHeight, 40, 80, 0, 1);
-	p6 = intervalMap(playerWidth, 40, 80, 0, 1);
-	p7 = intervalMap(playerSpeed, 5, 10, 0, 1);
+	p1 = intervalMap(enemyHeight, 10, 50, 0, 100);
+	p2 = intervalMap(enemyWidth, 40, 80, 0, 100);
+	p3 = intervalMap(enemySpeed, 2, 10, 0, 100);
+	p4 = intervalMap(enemySpawnRate, 1000, 5000, 0, 100);
+	p5 = intervalMap(playerHeight, 40, 80, 0, 100);
+	p6 = intervalMap(playerWidth, 40, 80, 0, 100);
+	p7 = intervalMap(playerSpeed, 5, 10, 0, 100);
 
 	var params = [p1, p2, p3, p4, p5, p6, p7];
 	var performance = PLAYER_PERFORMANCE; 
