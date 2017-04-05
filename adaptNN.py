@@ -72,7 +72,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate=0.01)
+			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate=0.0003)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
