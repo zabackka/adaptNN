@@ -105,7 +105,7 @@ function updateParams() {
 
 	
 	var params = [p1, p2, p3, p4, p5, p6, p7];
-	console.log("PARAMS: " + params);
+
 	var performance = PLAYER_PERFORMANCE; 
 
 	var data = [params, performance];
@@ -116,7 +116,7 @@ function updateParams() {
 		/** PRINT check statments **/
 		// console.log("CLIENT: message from server received:");
 		// console.log(data);
-		console.log(data);
+
 		NNprediction = data[0];
 		
 		enemyHeight = intervalMap(data[1], 0, 1, 10.0, 50);
@@ -174,7 +174,7 @@ $.playground().registerCallback(function() {
       		var collided = $(this).collision("#playerBody,."+$.gQ.groupCssClass);
       		if(collided.length > 0){
       			numCollisions++;
-      			console.log("player performance: " + PLAYER_PERFORMANCE);
+
 				// decrement player value
         		$("#player")[0].player.value -= 1;
 				// update value in html to reflect current score

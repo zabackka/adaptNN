@@ -87,11 +87,8 @@ def main():
 			
 			# append all modified enviroment params to message array
 			for x in storeTrain[0]:
-				sys.stderr.write(str("PARAM: "))
-				sys.stderr.write(str(x))
 				sendBack.append(x)
 
-			sys.stderr.write("DONE WITH MESSAGE END \n")
 			sendBack.append(float(param_cost))
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
