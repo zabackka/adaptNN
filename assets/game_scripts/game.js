@@ -94,28 +94,27 @@ function updateTime() {
 
 // LEARN
 function updateParams() {
-	// send a message to the server
-	p1 = intervalMap(enemyHeight, 10, 50, 0, 100);
-	p2 = intervalMap(enemyWidth, 40, 80, 0, 100);
-	p3 = intervalMap(enemySpeed, 2, 10, 0, 100);
-	p4 = intervalMap(enemySpawnRate, 1000, 5000, 0, 100);
-	p5 = intervalMap(playerHeight, 40, 80, 0, 100);
-	p6 = intervalMap(playerWidth, 40, 80, 0, 100);
-	p7 = intervalMap(playerSpeed, 5, 10, 0, 100);
+	// map environment params to the same interval
+	p1 = intervalMap(enemyHeight, 10, 50, 0, 10);
+	p2 = intervalMap(enemyWidth, 40, 80, 0, 10);
+	p3 = intervalMap(enemySpeed, 2, 10, 0, 10);
+	p4 = intervalMap(enemySpawnRate, 1000, 5000, 0, 10);
+	p5 = intervalMap(playerHeight, 40, 80, 0, 10);
+	p6 = intervalMap(playerWidth, 40, 80, 0, 10);
+	p7 = intervalMap(playerSpeed, 5, 10, 0, 10);
 
-	
+	// all params stored in array to be sent to server
 	var params = [p1, p2, p3, p4, p5, p6, p7];
 
+	// store player performance to send to server
 	var performance = PLAYER_PERFORMANCE; 
 
+	// send message to the server
 	var data = [params, performance];
 	socket.send(JSON.stringify(data));
 
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
-		/** PRINT check statments **/
-		// console.log("CLIENT: message from server received:");
-		// console.log(data);
 
 		NNprediction = data[0];
 		
