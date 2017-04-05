@@ -19,7 +19,7 @@ var CURRENT_TIME = 0;
 var numCollisions = 0; 
 var PLAYER_PERFORMANCE = 0.0;
 var NNprediction = 0.0;
-var paramCost;
+var paramCost = 0.0;
 
 
 var GAME_TIMER = setInterval(updateTime, 1000);
@@ -39,7 +39,7 @@ function printEnvironmentParams() {
 		("PERFORMANCE: " + PLAYER_PERFORMANCE.toFixed(4) 
 			+ "NN PREDICTION: " + NNprediction.toFixed(4) 
 			+ "   |   PARAM COST: " + paramCost.toFixed(4) 
-			+ "   |   NUM COLLISIONS: " + numCollisions 
+			+ "   |   NUM COLLISIONS: " + numCollisions
 			+ "   |   enemy height: <b>" + enemyHeight.toFixed(4) 
 			+ "</b>   |    enemy width: <b>" + enemyWidth.toFixed(4) 
 			+ "</b>   |    enemy speed: <b>" + enemySpeed.toFixed(4) 
