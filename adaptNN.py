@@ -74,6 +74,8 @@ def main():
 			train_data = load_data(train_datax, train_datay)
 			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate=0.0003)
 
+			train_x = nnet.sigmoid(train_x)
+			
 			# store modified input values and parse
 			storeTrain = train_x.eval()
 			# intialize message array to send back to server
