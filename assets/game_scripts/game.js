@@ -99,8 +99,8 @@ function updateParams() {
 		// console.log(data);
 
 		NNprediction = data[0];
-		enemySpeed = intervalMap(data[1], -1000000, 1000000, 2, 10);
-		playerSpeed = intervalMap(data[2], -1000000, 1000000, 2, 10);
+		console.log("enemy speed: " + intervalMap(data[1], -1000000, 1000000, 2, 10));
+		console.log("player speed: " + intervalMap(data[2], -1000000, 1000000, 2, 10));
 		paramCost = data[3];
 	});
 	
