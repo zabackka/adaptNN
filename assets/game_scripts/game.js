@@ -104,10 +104,9 @@ function updateParams() {
 		/** PRINT check statments **/
 		// console.log("CLIENT: message from server received:");
 		// console.log(data);
-
+		console.log(data);
 		NNprediction = data[0];
-		// console.log("enemy speed: " + intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10));
-		// console.log("player speed: " + intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10));
+		
 		enemyHeight = intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 10.0, 50);
 		enemyWidth = intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 40, 80.0);
 		enemySpeed = intervalMap(data[3], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
