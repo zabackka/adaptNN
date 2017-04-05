@@ -24,6 +24,7 @@ def main():
 	# build NN structure
 	layers = []
 	input_layer = FullyConnectedLayer(num_params, num_params)
+	layers.append(input_layer)
 	for i in range(0, num_params):
 		temp = FullyConnectedLayer(num_params, num_params)
 		layers.append(temp)
@@ -33,7 +34,8 @@ def main():
 	# h3 = FullyConnectedLayer(num_params, num_params)
 	
 	output_layer = FullyConnectedLayer(num_params, 1)
-	net = Network([input_layer, h1, h2, h3, output_layer], performance_goal=0.80)
+	layers.append(output_layer)
+	net = Network(layers, performance_goal=0.80)
 
 
 	
