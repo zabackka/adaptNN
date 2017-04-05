@@ -97,10 +97,8 @@ function updateParams() {
 		// console.log(data);
 
 		NNprediction = data[0];
-		// enemySpeed = intervalMap(data[1], -1000, 1000, 2, 10);
-		console.log(intervalMap(data[1], -1000, 1000, 2, 10));
-		console.log(intervalMap(data[2], -1000, 1000, 2, 10));
-		// playerSpeed = intervalMap(data[2], -1000, 1000, 2, 10);
+		enemySpeed = intervalMap(data[1], -1000, 1000, 2, 10);
+		playerSpeed = intervalMap(data[2], -1000, 1000, 2, 10);
 		paramCost = data[3];
 	});
 	
@@ -214,8 +212,6 @@ $.playground().registerCallback(function() {
 		}	
 }, REFRESH_RATE); 
 
-
-console.log('INTERVAL MAP' + intervalMap(5, 0, 10, 100, 200));
 
 // start the game
 $.playground().startGame();
