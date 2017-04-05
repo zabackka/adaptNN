@@ -91,8 +91,9 @@ function updateParams() {
 	p6 = intervalMap(playerWidth, 40, 80, 0, 10);
 	p7 = intervalMap(playerSpeed, 5, 10, 0, 10);
 
-	console.log("PARAMS: " + params);
+	
 	var params = [p1, p2, p3, p4, p5, p6, p7];
+	console.log("PARAMS: " + params);
 	var performance = PLAYER_PERFORMANCE; 
 
 	var data = [params, performance];
@@ -228,9 +229,6 @@ $.playground().registerCallback(function() {
 		}	
 }, REFRESH_RATE); 
 
-
-console.log(intervalMap(enemyHeight, 10, 50, 0, 10));
-console.log(intervalMap(enemyWidth, 40, 80, 0, 10));
 
 // start the game
 $.playground().startGame();
