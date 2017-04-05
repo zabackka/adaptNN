@@ -120,9 +120,6 @@ class FullyConnectedLayer(object):
 		if W is None:
 			# initialize W_values to hold random weight values
 			W_values = numpy.array(numpy.random.rand(n_input, n_output), dtype=theano.config.floatX)
-			for x in W_values: 
-				x = interval_map(x, 0, 1, -10, 10)
-				print(str(x))
 
 			# create W, a shared variable that holds the weight values for this layer
 			W = theano.shared(value=W_values, name='W', borrow=True)
@@ -272,8 +269,8 @@ class Network(object):
 
 
 if __name__ == '__main__':
-    # main()
-    layer = FullyConnectedLayer(2, 1)
+    main()
+    # layer = FullyConnectedLayer(2, 1)
 
 
 
