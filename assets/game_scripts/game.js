@@ -86,6 +86,7 @@ function updateParams() {
 	p1 = intervalMap(enemySpeed, 2, 10, -1000000, 1000000);
 	p2 = intervalMap(playerSpeed, 2, 10, -1000000, 1000000);
 	var params = [p1, p2];
+	console.log("params: " + params);
 	var performance = PLAYER_PERFORMANCE; 
 
 	var data = [params, performance];
