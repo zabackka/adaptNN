@@ -91,6 +91,7 @@ function updateParams() {
 	p6 = intervalMap(playerWidth, 40, 80, 0, 10);
 	p7 = intervalMap(playerSpeed, 5, 10, 0, 10);
 
+	console.log("PARAMS: " + params);
 	var params = [p1, p2, p3, p4, p5, p6, p7];
 	var performance = PLAYER_PERFORMANCE; 
 
