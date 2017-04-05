@@ -86,7 +86,6 @@ function updateParams() {
 	p1 = intervalMap(enemySpeed, 2, 10, 0, 1);
 	p2 = intervalMap(playerSpeed, 5, 10, 0, 1);
 	var params = [p1, p2];
-	console.log("params: " + params);
 	var performance = PLAYER_PERFORMANCE; 
 
 	var data = [params, performance];
@@ -102,7 +101,9 @@ function updateParams() {
 		// console.log("enemy speed: " + intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10));
 		// console.log("player speed: " + intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10));
 		enemySpeed = intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10);
+		console.log("enemy speed: " + enemySpeed + "  |  " + data[1]);
 		playerSpeed = intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10);
+		console.log("player speed: " + playerSpeed + "  |  " + data[2]);
 		paramCost = data[3];
 	});
 	
