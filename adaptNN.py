@@ -23,17 +23,17 @@ def main():
 	
 	# build NN structure
 	layers = []
-	input_layer = FullyConnectedLayer(num_params, num_params, activation=sigmoid)
+	input_layer = FullyConnectedLayer(num_params, num_params, activation=T.sigmoid)
 	layers.append(input_layer)
 	for i in range(0, num_params):
-		temp = FullyConnectedLayer(num_params, num_params, activation=sigmoid)
+		temp = FullyConnectedLayer(num_params, num_params, activation=T.sigmoid)
 		layers.append(temp)
 	
 	# h1 = FullyConnectedLayer(num_params, num_params)
 	# h2 = FullyConnectedLayer(num_params, num_params)
 	# h3 = FullyConnectedLayer(num_params, num_params)
 	
-	output_layer = FullyConnectedLayer(num_params, 1, activation=sigmoid)
+	output_layer = FullyConnectedLayer(num_params, 1, activation=T.sigmoid)
 	layers.append(output_layer)
 	net = Network(layers, performance_goal=0.80)
 
