@@ -70,9 +70,6 @@ def main():
 			storeTrain = train_x.eval()
 			# intialize message array to send back to server
 			sendBack = []
-			
-			# sys.stderr.write("PARAM COST: ")
-			# sys.stderr.write(str(type(param_cost)))
 
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
@@ -80,9 +77,11 @@ def main():
 			
 			# append all modified enviroment params to message array
 			for x in storeTrain[0]:
+				sys.stderr.write(str("PARAM: "))
+				sys.stderr.write(str(x))
 				sendBack.append(x)
 
-			# param_cost = param_cost[0]
+			sys.stderr.write("DONE WITH MESSAGE END \n")
 			sendBack.append(float(param_cost))
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
