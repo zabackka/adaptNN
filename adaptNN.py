@@ -287,16 +287,24 @@ class Network(object):
 
 
 
-
-
-# param cost will be: grad(forward_pass, wrt=input)
-# train_data = load_data()
-
-
-
-
 if __name__ == '__main__':
     main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
