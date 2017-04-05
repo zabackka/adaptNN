@@ -289,8 +289,8 @@ class Network(object):
 
 
 if __name__ == '__main__':
-    # main()
-    print (str(interval_map(5, 0, 10, 100, 200)))
+    main()
+    # print (str(interval_map(5, 0, 10, 100, 200)))
 
 
 

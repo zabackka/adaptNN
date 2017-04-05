@@ -26,8 +26,8 @@ var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 1000);
 var HIGH_SCORE = 0;
 
-function intervalMap(value, x, y, a, b) {
-	return ((value-x) * (b-a) / (y-x) + a)
+function intervalMap(value, fromLow, fromHigh, toLow, toHigh) {
+	return (value - fromLow)*((toHigh - toLow) / (fromHigh - fromLow)) + toLow
 }
 
 function displayTime() {
@@ -215,6 +215,7 @@ $.playground().registerCallback(function() {
 }, REFRESH_RATE); 
 
 
+console.log('INTERVAL MAP' + intervalMap(5, 0, 10, 100, 200));
 
 // start the game
 $.playground().startGame();
@@ -222,6 +223,8 @@ $.playground().startGame();
 socket.on('close', function() {
 	console.log("CLIENT: CONNECTION CLOSED");
 });
+
+
 
 
 
