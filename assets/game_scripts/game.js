@@ -106,13 +106,13 @@ function updateParams() {
 		NNprediction = data[0];
 		// console.log("enemy speed: " + intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10));
 		// console.log("player speed: " + intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10));
-		enemyHeight = intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
-		enemyWidth = intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
+		enemyHeight = intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 10.0, 50);
+		enemyWidth = intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 40, 80.0);
 		enemySpeed = intervalMap(data[3], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
-		enemySpawnRate = intervalMap(data[4], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
-		playerHeight = intervalMap(data[5], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
-		playerWidth = intervalMap(data[6], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
-		playerSpeed = intervalMap(data[7], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
+		enemySpawnRate = intervalMap(data[4], -Number.MAX_VALUE, Number.MAX_VALUE, 1000.0, 5000.0);
+		playerHeight = intervalMap(data[5], -Number.MAX_VALUE, Number.MAX_VALUE, 40.0, 80.0);
+		playerWidth = intervalMap(data[6], -Number.MAX_VALUE, Number.MAX_VALUE, 40.0, 40.0);
+		playerSpeed = intervalMap(data[7], -Number.MAX_VALUE, Number.MAX_VALUE, 5.0, 10.0);
 
 		paramCost = data[8];
 	});
