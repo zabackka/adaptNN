@@ -83,8 +83,8 @@ function updateTime() {
 // LEARN
 function updateParams() {
 	// send a message to the server
-	p1 = intervalMap(enemySpeed, 2, 10, -1000000, 1000000);
-	p2 = intervalMap(playerSpeed, 2, 10, -1000000, 1000000);
+	p1 = intervalMap(enemySpeed, 2, 10, -100, 100);
+	p2 = intervalMap(playerSpeed, 2, 10, -100, 100);
 	var params = [p1, p2];
 	console.log("params: " + params);
 	var performance = PLAYER_PERFORMANCE; 
