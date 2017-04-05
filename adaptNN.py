@@ -29,16 +29,6 @@ def main():
 	output_layer = FullyConnectedLayer(num_params, 1)
 	net = Network([input_layer, h1, h2, h3, output_layer], performance_goal=0.80)
 
-	l_constraints = numpy.empty(num_params)
-	u_constraints = numpy.empty(num_params)
-	l_constraints[0] = 2/1000
-	l_constraints[1] = 10/1000
-	u_constraints[0] = 10/1000
-	u_constraints[1] = 50/1000
-
-	l_const, u_const = load_data(l_constraints, u_constraints)
-	shared_constraints = [l_const, u_const]
-
 
 	
 	# continously listen for new data from server
@@ -66,7 +56,7 @@ def main():
 			
 			for x in range(0, num_params):
 				# sys.stderr.write(str(x));
-				train_datax[0][x] = interval_map(params[x], 2, 10, -1000, 1000);
+				train_datax[0][x] = params[x]
 				# sys.stderr.write(str(interval_map(params[x], 2, 10, -1000, 1000))) 
 
 			# train_datax = numpy.ones((30, 2))
@@ -74,7 +64,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, param_cost = net.train_batch(shared_constraints, train_data, learning_rate=0.03)
+			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate=0.03)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
@@ -173,14 +163,7 @@ class FullyConnectedLayer(object):
 			else self.activation(output)
 		)
 	# define the cost of these input (environment) params
-	def input_cost(self, net, l_cons, u_cons, train_x):
-		# for i in range(0, self.n_input):
-		# 	if T.le(train_x.T[i], l_cons[i]) or T.gt(train_x.T[i], u_cons[i]):
-		# 		sys.stderr.write("OUT OF BOUNDS \n")
-		# 		return T.pow(T.mean(T.pow((self.output - net.performance_goal), 2)), 10)
-		# 		# return T.mean((self.output - net.performance_goal)) * 100
-
-		# sys.stderr(write("NOT \n"))
+	def input_cost(self, net):
 		return T.mean(T.pow((self.output - net.performance_goal), 2))
 
 	# define the cost of this layer
@@ -219,11 +202,9 @@ class Network(object):
 		# 	the output of the last layer in the net
 		self.output = layers[-1].output
 
-	def train_batch(self, shared_constraints, train_data, learning_rate):
+	def train_batch(self, train_data, learning_rate):
 		# separate training data into x & y
 		train_x, train_y = train_data
-
-		l_cons, u_cons = shared_constraints
 
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
@@ -237,7 +218,7 @@ class Network(object):
 		network_updates = [(param, param-learning_rate*grad) for param, grad in zip(self.params, layer_gradients)]
 
 		### INPUT updates ###
-		input_cost = self.layers[-1].input_cost(self, l_cons, u_cons, train_x)
+		input_cost = self.layers[-1].input_cost(self)
 
 		input_gradients = T.grad(input_cost, self.x)
 		environment_updates = [(train_x, train_x-learning_rate*input_gradients)]

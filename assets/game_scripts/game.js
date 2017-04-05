@@ -83,8 +83,9 @@ function updateTime() {
 // LEARN
 function updateParams() {
 	// send a message to the server
-	//enemySpeed++; 
-	var params = [enemySpeed, playerSpeed];
+	p1 = intervalMap(enemySpeed, 2, 10, -1000000, 1000000);
+	p2 = intervalMap(playerSpeed, 2, 10, -1000000, 1000000);
+	var params = [p1, p2];
 	var performance = PLAYER_PERFORMANCE; 
 
 	var data = [params, performance];
@@ -97,8 +98,8 @@ function updateParams() {
 		// console.log(data);
 
 		NNprediction = data[0];
-		enemySpeed = intervalMap(data[1], -1000, 1000, 2, 10);
-		playerSpeed = intervalMap(data[2], -1000, 1000, 2, 10);
+		enemySpeed = intervalMap(data[1], -1000000, 1000000, 2, 10);
+		playerSpeed = intervalMap(data[2], -1000000, 1000000, 2, 10);
 		paramCost = data[3];
 	});
 	
