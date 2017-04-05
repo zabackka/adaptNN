@@ -100,9 +100,9 @@ function updateParams() {
 		NNprediction = data[0];
 		// console.log("enemy speed: " + intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10));
 		// console.log("player speed: " + intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10));
-		enemySpeed = intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10);
+		enemySpeed = intervalMap(data[1], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
 		console.log("enemy speed: " + enemySpeed + "  |  " + data[1]);
-		playerSpeed = intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 2, 10);
+		playerSpeed = intervalMap(data[2], -Number.MAX_VALUE, Number.MAX_VALUE, 2.0, 10.0);
 		console.log("player speed: " + playerSpeed + "  |  " + data[2]);
 		paramCost = data[3];
 	});
