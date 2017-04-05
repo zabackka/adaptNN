@@ -12,8 +12,8 @@ theano.config.exception_verbosity = 'high'
 # change default float type
 theano.config.floatX = 'float64'
 
-def interval_map(value, x, y, a, b):
-	return ((value-x) * (b-a) / (y-x) + a)
+def interval_map(value, from_low, from_high, to_low, to_high):
+	return (value - from_low)(to_high - to_low / from_high - from_low) + to_low
 
 
 ## NodeJS PROCESS HANDLING ##
@@ -289,7 +289,9 @@ class Network(object):
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    print (str(interval_map(5, 1, 10, 100, 200)))
+
 
 
 
