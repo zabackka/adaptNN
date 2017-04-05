@@ -229,6 +229,9 @@ $.playground().registerCallback(function() {
 }, REFRESH_RATE); 
 
 
+console.log(intervalMap(enemyHeight, 10, 50, 0, 10));
+console.log(intervalMap(enemyWidth, 40, 80, 0, 10));
+
 // start the game
 $.playground().startGame();
 
