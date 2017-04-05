@@ -8,7 +8,7 @@ var http = require('http');
 var io = require('socket.io');
 const fs = require('fs');
 
-var NUM_PARAMS = 2;
+var NUM_PARAMS = 7;
 var NUM_CLIENTS = 0;
 
 
