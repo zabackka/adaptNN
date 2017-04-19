@@ -34,9 +34,11 @@ var clients = [];
 io.sockets.on("connection", function(socket) {
 	// assign CLIENT ID
 	var clientID = NUM_CLIENTS;
+	
 	// add new client to list of clients
 	clients.push(socket);
 	NUM_CLIENTS++;
+	
 	// log new client connection to terminal
 	console.log("CONNECTED CLIENT [" + clientID + "]");
 
@@ -52,6 +54,7 @@ io.sockets.on("connection", function(socket) {
 	socket.on("message", function(data) {
 		// parse message & display to console
 		data = JSON.parse(data);	
+		
 		// retrieve params & performance
 
 		/** PRINT check statements */
@@ -65,6 +68,7 @@ io.sockets.on("connection", function(socket) {
 		
 		// receive output from python child process
 		py.stdout.once('data', (data) => {
+			
 			/** PRINT check statement **/
 			//console.log("-->received from server: " + data);
 			

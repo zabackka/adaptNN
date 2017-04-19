@@ -29,16 +29,11 @@ def main():
 		temp = FullyConnectedLayer(num_params, num_params, activation=nnet.sigmoid)
 		layers.append(temp)
 	
-	# h1 = FullyConnectedLayer(num_params, num_params)
-	# h2 = FullyConnectedLayer(num_params, num_params)
-	# h3 = FullyConnectedLayer(num_params, num_params)
-	
 	output_layer = FullyConnectedLayer(num_params, 1, activation=nnet.sigmoid)
 	layers.append(output_layer)
 	net = Network(layers, performance_goal=0.80)
 
 
-	
 	# continously listen for new data from server
 	while (True):
 
@@ -60,15 +55,9 @@ def main():
 			train_datax = numpy.empty((1, num_params))
 			train_datay = numpy.empty(1)
 			train_datay[0] = performance
-
-			
+		
 			for x in range(0, num_params):
-				# sys.stderr.write(str(x));
 				train_datax[0][x] = params[x]
-				# sys.stderr.write(str(interval_map(params[x], 2, 10, -1000, 1000))) 
-
-			# train_datax = numpy.ones((30, 2))
-			# train_datay = numpy.zeros(30) 
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
@@ -83,7 +72,6 @@ def main():
 
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
-
 			
 			# append all modified enviroment params to message array
 			for x in storeTrain[0]:
@@ -100,11 +88,7 @@ def main():
 
 # structure data into a format usable for NN
 def load_data(train_datax, train_datay): 
-	# temporarily create dummy vars -- will parse real data later
 	# create training data
-	# train_datax = numpy.ones((30, 5))
-	# train_datay = numpy.zeros(30)
-	
 	train_data = [train_datax, train_datay]
 	
 	# define shared(), which turns x & y data to shared variables
@@ -257,6 +241,7 @@ class Network(object):
 					self.y: train_y},
 			on_unused_input= 'ignore')
 
+		#** PRINT CHECK STATEMENTS **#
 		# print("--->initial input values: ")
 		# print(train_x.eval())
 		# train(0)
@@ -264,20 +249,18 @@ class Network(object):
 		# print("---> modified input values: ")
 		# print(train_x.eval())	
 
-		# sys.stderr.write("initial input values: " + str(train_x.eval()) + "\n")
+		# train the network, modify the environment params & predict performance
 		train(0)
 		param_cost = modify_environment(0)
-		# sys.stderr.write("modified input values: " + str(train_x.eval()) + "\n")
 		prediction = predict(0)
 
-		# return [train_x, prediction, 0.0]
 		return [train_x, prediction, param_cost]
 
 
 
 if __name__ == '__main__':
     main()
-    # layer = FullyConnectedLayer(2, 1)
+
 
 
 
