@@ -21,7 +21,8 @@ var server = http.createServer(app).listen(8080);
 
 app.get('/', function(request, response) {
  	response.sendFile(path.join(__dirname + '/index.html'));
- });
+});
+
 
 
 // SETUP CLIENT-SERVER CONNECTION //
