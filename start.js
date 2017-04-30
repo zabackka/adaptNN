@@ -56,7 +56,13 @@ io.sockets.on("connection", function(socket) {
 		data = JSON.parse(data);	
 		
 		// retrieve params & performance
+		fs.writeFile("test.csv", data[0] + "," + data[1] + "\n", function(err) {
+			if (err) {
+				return console.log(err);
+			}
 
+			console.log("success!");
+		})
 		/** PRINT check statements */
 		// var params = data[0];
 		// var performance = data[1];
