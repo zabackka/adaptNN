@@ -1,9 +1,16 @@
 // game.js
-
+import System.IO;
+import System;
 
 // SERVER COMMUNICATION SETUP //
 // connect to server
 var socket = io.connect("/"); 
+
+var fileName = Math.floor((Math.random() * 150) + 1) + ".csv";
+sw = new StreamWriter(fileName);
+sw.write("testing...");
+console.log(fileName + "???");
+sw.close();
 
 
 ////////////////////////
