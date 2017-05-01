@@ -49,12 +49,13 @@ io.sockets.on("connection", function(socket) {
 		stdio: ['pipe', 'pipe', err]
 	});
  
+	var writeStream = fs.createWriteStream("test1.csv", {flags: 'a'});
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
 		// parse message & display to console
 		data = JSON.parse(data);	
-		var writeStream = fs.createWriteStream("test1.csv", {flags: 'a'});
+		
 
 		writeStream.write("hello?" + date.getTime() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
 		// retrieve params & performance
@@ -97,6 +98,8 @@ io.sockets.on("connection", function(socket) {
 	// handle CLIENT disconnect
 	socket.on('disconnect', function() {
 		console.log('CLIENT [' + clientID + "] DISCONNECTED");
+		writeStream.end();
+
 	});
 });
 
