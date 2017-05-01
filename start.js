@@ -56,7 +56,7 @@ io.sockets.on("connection", function(socket) {
 		data = JSON.parse(data);	
 		var writeStream = fs.createWriteStream("test1.csv", {flags: 'a'});
 
-		writeStream.write("hello?" + date.getSeconds() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
+		writeStream.write("hello?" + date.getTime() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
 		// retrieve params & performance
 		fs.writeFile("test.csv", "HELLO??" + date.getSeconds() + "," + data[0] + "," + data[1] + "\n" + "fish", function(err) {
 			if (err) {
