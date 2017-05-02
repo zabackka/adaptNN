@@ -90,9 +90,9 @@ io.sockets.on("connection", function(socket) {
 		// handle end of python child process
 		// should only be triggered in error 
 		// --> [check 'err.txt' for details]
-		py.stdout.once('end', () => {
-			console.log("end!");
-		});
+		// py.stdout.once('end', () => {
+		// 	console.log("end!");
+		// });
 	});
 
 	// handle CLIENT disconnect
