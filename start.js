@@ -58,22 +58,22 @@ io.sockets.on("connection", function(socket) {
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
-		// // parse message & display to console
-		// data = JSON.parse(data);	
+		// parse message & display to console
+		data = JSON.parse(data);	
 		
-		// var date = new Date();
-		// writeStream.write(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "," + data[0] + "," + data[1] + "\n");
-		// //console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "\n");
-		// // retrieve params & performance
+		var date = new Date();
+		writeStream.write(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "," + data[0] + "," + data[1] + "\n");
+		//console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "\n");
+		// retrieve params & performance
 
-		// /** PRINT check statements */
-		// // var params = data[0];
-		// // var performance = data[1];
-		// // console.log("params: " + params);
-		// // console.log("performance: " + performance);
+		/** PRINT check statements */
+		// var params = data[0];
+		// var performance = data[1];
+		// console.log("params: " + params);
+		// console.log("performance: " + performance);
 
-		// // send data from client to python child process
-		// py.stdin.write(JSON.stringify(data) + "\n");
+		// send data from client to python child process
+		py.stdin.write(JSON.stringify(data) + "\n");
 		
 		// // receive output from python child process
 		// py.stdout.once('data', (data) => {
