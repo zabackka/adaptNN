@@ -34,7 +34,7 @@ var clients = [];
 // triggered when a new client connects
 io.sockets.on("connection", function(socket) {
 	socket.setMaxListeners(Infinity);
-	py.setMaxListeners(Infinity);
+
 	// assign CLIENT ID
 	var clientID = NUM_CLIENTS;
 	
@@ -51,6 +51,8 @@ io.sockets.on("connection", function(socket) {
 	var py = sp('python', ['adaptNN.py', NUM_PARAMS], {
 		stdio: ['pipe', 'pipe', err]
 	});
+
+	py.setMaxListeners(Infinity);
  
 	var writeStream = fs.createWriteStream(SESSION_ID + "-" + clientID + ".csv", {flags: 'a'});
 
