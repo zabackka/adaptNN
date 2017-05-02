@@ -1,5 +1,7 @@
 //start.js
 
+
+try {
 // initial setup for serving webpage to browser
 var express = require('express')
 var app = express()
@@ -102,6 +104,10 @@ io.sockets.on("connection", function(socket) {
 
 	});
 });
+
+} catch (e) {
+	console.log(e);
+}
 
 
 
