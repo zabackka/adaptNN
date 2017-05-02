@@ -50,7 +50,7 @@ io.sockets.on("connection", function(socket) {
 		stdio: ['pipe', 'pipe', err]
 	});
  
-	var writeStream = fs.createWriteStream("test1.csv", {flags: 'a'});
+	var writeStream = fs.createWriteStream(SESSION_ID + "-" + clientID + ".csv", {flags: 'a'});
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
