@@ -31,7 +31,7 @@ def main():
 	
 	output_layer = FullyConnectedLayer(num_params, 1, activation=nnet.sigmoid)
 	layers.append(output_layer)
-	net = Network(layers, performance_goal=0.80)
+	net = Network(layers, performance_goal=0.50)
 
 
 	# continously listen for new data from server
