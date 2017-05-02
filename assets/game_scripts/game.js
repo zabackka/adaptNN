@@ -126,8 +126,8 @@ function updateParams() {
 		playerWidth = intervalMap(data[6] * 10, 0, 100, 40.0, 80.0);
 		playerSpeed = intervalMap(data[7] * 10, 0, 100, 5.0, 10.0);
 
-		console.log("enemy height mod BEFORE: " + data[1]);
-		console.log("AFTER: " + (data[1] * 10));
+		// console.log("enemy height mod BEFORE: " + data[1]);
+		// console.log("AFTER: " + (data[1] * 10));
 
 		// enemyHeight = data[1] * 10;
 		// enemyWidth = data[2] * 40; 
