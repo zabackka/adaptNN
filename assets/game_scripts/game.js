@@ -20,6 +20,7 @@ var numCollisions = 0;
 var PLAYER_PERFORMANCE = 0.0;
 var NNprediction = 0.0;
 var paramCost = 0.0;
+var i = 0;
 
 
 var GAME_TIMER = setInterval(updateTime, 1000);
@@ -115,7 +116,8 @@ function updateParams() {
 
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
-
+		console.log('new data received: ' + i);
+		i++;
 		NNprediction = data[0];
 		
 		enemyHeight = intervalMap(data[1], 0, 1, 10.0, 50);
