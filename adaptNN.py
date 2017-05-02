@@ -154,7 +154,7 @@ class FullyConnectedLayer(object):
 		)
 	# define the cost of these input (environment) params
 	def input_cost(self, net):
-		return T.abs(T.mean((net.performance_goal - self.output)))
+		return T.abs_(T.mean((net.performance_goal - self.output)))
 
 	# define the cost of this layer
 	def network_cost(self, net):
