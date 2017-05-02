@@ -118,13 +118,13 @@ function updateParams() {
 	socket.once("data", function(data) {
 		NNprediction = data[0];
 		
-		enemyHeight = intervalMap(data[1], 0, 1, 10.0, 50);
-		enemyWidth = intervalMap(data[2], 0, 1, 40, 80.0);
-		enemySpeed = intervalMap(data[3], 0, 1, 2.0, 10.0);
-		enemySpawnRate = intervalMap(data[4], 0, 1, 1000.0, 5000.0);
-		playerHeight = intervalMap(data[5], 0, 1, 40.0, 80.0);
-		playerWidth = intervalMap(data[6], 0, 1, 40.0, 40.0);
-		playerSpeed = intervalMap(data[7], 0, 1, 5.0, 10.0);
+		enemyHeight = intervalMap(data[1] * 100, 0, 100, 10.0, 50);
+		enemyWidth = intervalMap(data[2] * 100, 0, 100, 40, 80.0);
+		enemySpeed = intervalMap(data[3] * 100, 0, 100, 2.0, 10.0);
+		enemySpawnRate = intervalMap(data[4] * 100, 0, 100, 1000.0, 5000.0);
+		playerHeight = intervalMap(data[5] * 100, 0, 100, 40.0, 80.0);
+		playerWidth = intervalMap(data[6] * 100, 0, 100, 40.0, 40.0);
+		playerSpeed = intervalMap(data[7] * 100, 0, 100, 5.0, 10.0);
 
 		paramCost = data[8];
 
