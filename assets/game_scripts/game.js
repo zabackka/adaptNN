@@ -126,6 +126,14 @@ function updateParams() {
 		playerWidth = intervalMap(data[6] * 100, 0, 100, 40.0, 40.0);
 		playerSpeed = intervalMap(data[7] * 100, 0, 100, 5.0, 10.0);
 
+		enemyHeight = data[1] * 10;
+		enemyWidth = data[2] * 10; 
+		enemySpeed = data[3] * 10; 
+		enemySpawnRate = data[4] * 10; 
+		playerHeight = data[5] * 10; 
+		playerWidth = data[6] * 10; 
+		playerSpeed = data[7] * 10; 
+
 		paramCost = data[8];
 
 		console.log(i + 'new data received: ' + data);
