@@ -61,7 +61,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate=2.3)
+			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=2.3, learning_rate2=5.5)
 
 			train_x = nnet.sigmoid(train_x)
 			
@@ -192,7 +192,7 @@ class Network(object):
 		# 	the output of the last layer in the net
 		self.output = layers[-1].output
 
-	def train_batch(self, train_data, learning_rate):
+	def train_batch(self, train_data, learning_rate1, learning_rate2):
 		# separate training data into x & y
 		train_x, train_y = train_data
 
@@ -205,13 +205,13 @@ class Network(object):
 		layer_gradients = T.grad(network_cost, self.params)
 
 		# define how to update the network weights & biases after the forward pass
-		network_updates = [(param, param-learning_rate*grad) for param, grad in zip(self.params, layer_gradients)]
+		network_updates = [(param, param-learning_rate1*grad) for param, grad in zip(self.params, layer_gradients)]
 
 		### INPUT updates ###
 		input_cost = self.layers[-1].input_cost(self)
 
 		input_gradients = T.grad(input_cost, self.x)
-		environment_updates = [(train_x, train_x-learning_rate*input_gradients)]
+		environment_updates = [(train_x, train_x-learning_rate2*input_gradients)]
 
 		# holds a dummy variable for input
 		i = T.lscalar()
