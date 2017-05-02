@@ -56,7 +56,7 @@ io.sockets.on("connection", function(socket) {
 		// parse message & display to console
 		data = JSON.parse(data);	
 		
-		var date = new Date();
+		var date = new Date(milliseconds);
 		writeStream.write("hello?" + date.getTime() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
 		console.log(date.toString());
 		// retrieve params & performance
