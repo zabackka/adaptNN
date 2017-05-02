@@ -11,6 +11,7 @@ const fs = require('fs');
 var NUM_PARAMS = 7;
 var NUM_CLIENTS = 0;
 
+var SESSION_ID = Math.floor((Math.random() * 1000) + 1);
 
 // START SERVER // 
 // serve static files in 'assets' directory
