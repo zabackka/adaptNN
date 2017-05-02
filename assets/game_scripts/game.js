@@ -116,8 +116,6 @@ function updateParams() {
 
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
-		console.log('new data received: ' + i);
-		i++;
 		NNprediction = data[0];
 		
 		enemyHeight = intervalMap(data[1], 0, 1, 10.0, 50);
@@ -129,6 +127,9 @@ function updateParams() {
 		playerSpeed = intervalMap(data[7], 0, 1, 5.0, 10.0);
 
 		paramCost = data[8];
+
+		console.log(i + 'new data received: ' + data);
+		i++;
 	});
 	
 
