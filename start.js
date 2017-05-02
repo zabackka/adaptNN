@@ -10,7 +10,7 @@ const fs = require('fs');
 
 var NUM_PARAMS = 7;
 var NUM_CLIENTS = 0;
-var date = new Date();
+
 
 // START SERVER // 
 // serve static files in 'assets' directory
@@ -56,7 +56,7 @@ io.sockets.on("connection", function(socket) {
 		// parse message & display to console
 		data = JSON.parse(data);	
 		
-
+		var date = new Date();
 		writeStream.write("hello?" + date.getTime() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
 		console.log(date.toString());
 		// retrieve params & performance
