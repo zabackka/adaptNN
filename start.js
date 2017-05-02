@@ -58,14 +58,9 @@ io.sockets.on("connection", function(socket) {
 		
 
 		writeStream.write("hello?" + date.getTime() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
+		console.log(data.getTime());
 		// retrieve params & performance
-		fs.writeFile("test.csv", "HELLO??" + date.getSeconds() + "," + data[0] + "," + data[1] + "\n" + "fish", function(err) {
-			if (err) {
-				return console.log(err);
-			}
 
-			console.log("success!");
-		})
 		/** PRINT check statements */
 		// var params = data[0];
 		// var performance = data[1];
