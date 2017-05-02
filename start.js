@@ -57,8 +57,8 @@ io.sockets.on("connection", function(socket) {
 		data = JSON.parse(data);	
 		
 		var date = new Date();
-		writeStream.write("hello?" + date.getTime() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
-		console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "\n");
+		writeStream.write(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
+		//console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "\n");
 		// retrieve params & performance
 
 		/** PRINT check statements */
