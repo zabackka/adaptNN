@@ -126,6 +126,9 @@ function updateParams() {
 		// playerWidth = intervalMap(data[6] * 10, 0, 100, 40.0, 40.0);
 		// playerSpeed = intervalMap(data[7] * 10, 0, 100, 5.0, 10.0);
 
+		console.log("enemy height mod BEFORE: " + data[1]);
+		console.log("AFTER: " + (data[1] * 10));
+
 		enemyHeight = data[1] * 10;
 		enemyWidth = data[2] * 40; 
 		enemySpeed = data[3] * 2; 
@@ -136,8 +139,6 @@ function updateParams() {
 
 		paramCost = data[8];
 
-		console.log(i + 'new data received: ' + data);
-		i++;
 	});
 	
 
