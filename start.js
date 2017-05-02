@@ -87,6 +87,12 @@ io.sockets.on("connection", function(socket) {
 			clients[clientID].emit('data', data);
 		});
 
+		// handle end of python child process
+		// should only be triggered in error 
+		// --> [check 'err.txt' for details]
+		py.stdout.on('end', () => {
+			console.log("end!");
+		});
 	});
 
 	// handle CLIENT disconnect
