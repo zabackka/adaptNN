@@ -31,7 +31,7 @@ def main():
 	
 	output_layer = FullyConnectedLayer(num_params, 1, activation=nnet.sigmoid)
 	layers.append(output_layer)
-	net = Network(layers, performance_goal=0.50)
+	net = Network(layers)
 
 
 	# continously listen for new data from server
@@ -167,10 +167,10 @@ class FullyConnectedLayer(object):
 
 
 class Network(object):
-	def __init__(self, layers, performance_goal):
+	def __init__(self, layers):
 		# store list of layers for this net & performance goal for this environment
 		self.layers = layers
-		self.performance_goal = performance_goal
+		self.performance_goal = 500
 
 		# symbolic variables that will be set during SGD
 		self.x = T.matrix("x")
