@@ -75,17 +75,17 @@ io.sockets.on("connection", function(socket) {
 		// send data from client to python child process
 		py.stdin.write(JSON.stringify(data) + "\n");
 		
-		// // receive output from python child process
-		// py.stdout.once('data', (data) => {
+		// receive output from python child process
+		py.stdout.once('data', (data) => {
 			
-		// 	/** PRINT check statement **/
-		// 	//console.log("-->received from server: " + data);
+			/** PRINT check statement **/
+			//console.log("-->received from server: " + data);
 			
-		// 	// parse data
-		// 	data = JSON.parse(data);
-		// 	// send modified input data back to client
-		// 	clients[clientID].emit('data', data);
-		// });
+			// parse data
+			data = JSON.parse(data);
+			// send modified input data back to client
+			clients[clientID].emit('data', data);
+		});
 
 		// // handle end of python child process
 		// // should only be triggered in error 
