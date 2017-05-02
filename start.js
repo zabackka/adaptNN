@@ -8,7 +8,7 @@ var http = require('http');
 var io = require('socket.io');
 const fs = require('fs');
 
-var NUM_PARAMS = 1;
+var NUM_PARAMS = 2;
 var NUM_CLIENTS = 0;
 
 var SESSION_ID = Math.floor((Math.random() * 1000) + 1);

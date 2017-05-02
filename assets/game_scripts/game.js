@@ -105,7 +105,7 @@ function updateParams() {
 	p7 = intervalMap(playerSpeed, 5, 10, 0, 10);
 
 	// all params stored in array to be sent to server
-	var params = [p1];
+	var params = [p1, p2];
 
 	// store player performance to send to server
 	var performance = PLAYER_PERFORMANCE; 
@@ -119,7 +119,7 @@ function updateParams() {
 		NNprediction = data[0];
 		
 		// enemyHeight = intervalMap(data[1] * 1000000000000, 0, 10000000000000, 80, 200);
-		// enemyWidth = intervalMap(data[2] * 1000000000000, 0, 100000000000000, 40, 80.0);
+		enemyWidth = intervalMap(data[2] * 1000000000000, 0, 100000000000000, 40, 80.0);
 		// enemySpeed = intervalMap(data[3] * 1000000000000, 0, 1000000000000, 10.0, 20.0);
 		enemySpawnRate = intervalMap(data[4] * 1000000000000, 0, 1000000000000, 500.0, 5000.0);
 		// playerHeight = intervalMap(data[5] * 1000000000000, 0, 1000000000000, 80.0, 150.0);
