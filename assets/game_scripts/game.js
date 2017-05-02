@@ -213,7 +213,7 @@ $.playground().registerCallback(function() {
 	enemyElement.addClass("enemy");
 	// spawn new enemy off enemy node
 	enemyElement[0].enemy = new Enemy(enemyElement);
-}, 1000000); 
+}, 10); 
 
 
 
