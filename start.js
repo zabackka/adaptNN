@@ -32,7 +32,9 @@ io = io.listen(server);
 var clients = [];
 
 // triggered when a new client connects
-io.sockets.once("connection", function(socket) {
+io.sockets.on("connection", function(socket) {
+	socket.setMaxListeners(Infinity);
+	
 	// assign CLIENT ID
 	var clientID = NUM_CLIENTS;
 	
