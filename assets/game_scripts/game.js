@@ -118,21 +118,21 @@ function updateParams() {
 	socket.once("data", function(data) {
 		NNprediction = data[0];
 		
-		// enemyHeight = intervalMap(data[1] * 100, 0, 100, 10.0, 50);
-		// enemyWidth = intervalMap(data[2] * 100, 0, 100, 40, 80.0);
-		// enemySpeed = intervalMap(data[3] * 100, 0, 100, 2.0, 10.0);
-		// enemySpawnRate = intervalMap(data[4] * 100, 0, 100, 1000.0, 5000.0);
-		// playerHeight = intervalMap(data[5] * 100, 0, 100, 40.0, 80.0);
-		// playerWidth = intervalMap(data[6] * 100, 0, 100, 40.0, 40.0);
-		// playerSpeed = intervalMap(data[7] * 100, 0, 100, 5.0, 10.0);
+		enemyHeight = intervalMap(data[1] * 10, 0, 100, 10.0, 50);
+		enemyWidth = intervalMap(data[2] * 10, 0, 100, 40, 80.0);
+		enemySpeed = intervalMap(data[3] * 10, 0, 100, 2.0, 10.0);
+		enemySpawnRate = intervalMap(data[4] * 10, 0, 100, 1000.0, 5000.0);
+		playerHeight = intervalMap(data[5] * 10, 0, 100, 40.0, 80.0);
+		playerWidth = intervalMap(data[6] * 10, 0, 100, 40.0, 40.0);
+		playerSpeed = intervalMap(data[7] * 10, 0, 100, 5.0, 10.0);
 
-		enemyHeight = data[1] * 10;
-		enemyWidth = data[2] * 40; 
-		enemySpeed = data[3] * 2; 
-		enemySpawnRate = data[4] * 10; 
-		playerHeight = data[5] * 1000; 
-		playerWidth = data[6] * 40; 
-		playerSpeed = data[7] * 50; 
+		// enemyHeight = data[1] * 10;
+		// enemyWidth = data[2] * 40; 
+		// enemySpeed = data[3] * 2; 
+		// enemySpawnRate = data[4] * 10; 
+		// playerHeight = data[5] * 1000; 
+		// playerWidth = data[6] * 40; 
+		// playerSpeed = data[7] * 50; 
 
 		paramCost = data[8];
 
