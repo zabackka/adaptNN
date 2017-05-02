@@ -58,7 +58,7 @@ io.sockets.on("connection", function(socket) {
 		
 
 		writeStream.write("hello?" + date.getTime() + "," + data[0] + "," + data[1] + "\n" + "fish\n");
-		console.log(data.getTime());
+		console.log(date.getTime());
 		// retrieve params & performance
 
 		/** PRINT check statements */
