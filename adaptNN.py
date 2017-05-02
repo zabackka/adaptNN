@@ -31,7 +31,7 @@ def main():
 	
 	output_layer = FullyConnectedLayer(num_params, 1, activation=nnet.sigmoid)
 	layers.append(output_layer)
-	net = Network(layers, performance_goal=0.00)
+	net = Network(layers, performance_goal=0.50)
 
 
 	# continously listen for new data from server
@@ -154,7 +154,7 @@ class FullyConnectedLayer(object):
 		)
 	# define the cost of these input (environment) params
 	def input_cost(self, net):
-		return T.mean(T.pow((self.output - net.performance_goal), 2))
+		return T.mean(T.pow((self.output - net.performance_goal), 2) * 100)
 
 	# define the cost of this layer
 	def network_cost(self, net):
