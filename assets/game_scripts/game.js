@@ -120,11 +120,11 @@ function updateParams() {
 		
 		enemyHeight = intervalMap(data[1] * 1000000000000, 0, 10000000000000, 50, 100);
 		enemyWidth = intervalMap(data[2] * 1000000000000, 0, 100000000000000, 40, 80.0);
-		enemySpeed = intervalMap(data[3] * 10, 0, 100, 2.0, 10.0);
-		enemySpawnRate = intervalMap(data[4] * 10, 0, 100, 1000.0, 5000.0);
-		playerHeight = intervalMap(data[5] * 10, 0, 100, 40.0, 80.0);
-		playerWidth = intervalMap(data[6] * 10, 0, 100, 40.0, 80.0);
-		playerSpeed = intervalMap(data[7] * 10, 0, 100, 5.0, 10.0);
+		enemySpeed = intervalMap(data[3] * 1000000000000, 0, 1000000000000, 2.0, 10.0);
+		enemySpawnRate = intervalMap(data[4] * 1000000000000, 0, 1000000000000, 1000.0, 5000.0);
+		playerHeight = intervalMap(data[5] * 1000000000000, 0, 1000000000000, 40.0, 80.0);
+		playerWidth = intervalMap(data[6] * 1000000000000, 0, 1000000000000, 40.0, 80.0);
+		playerSpeed = intervalMap(data[7] * 1000000000000, 0, 1000000000000, 5.0, 10.0);
 
 		console.log("enemy height mod BEFORE: " + data[1]);
 		console.log("AFTER: " + (data[1] * 1000000000000));
