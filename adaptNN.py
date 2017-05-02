@@ -154,7 +154,7 @@ class FullyConnectedLayer(object):
 		)
 	# define the cost of these input (environment) params
 	def input_cost(self, net):
-		return T.pow((self.output - net.performance_goal), 2)
+		return T.mean(T.pow((self.output - net.performance_goal), 2))
 
 	# define the cost of this layer
 	def network_cost(self, net):
@@ -211,7 +211,7 @@ class Network(object):
 		input_cost = self.layers[-1].input_cost(self)
 
 		input_gradients = T.grad(input_cost, self.x)
-		environment_updates = [(train_x, train_x-input_gradients)]
+		environment_updates = [(train_x, learning_rate2*train_x-input_gradients)]
 
 		# holds a dummy variable for input
 		i = T.lscalar()
