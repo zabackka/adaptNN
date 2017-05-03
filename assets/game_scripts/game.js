@@ -21,11 +21,11 @@ var PLAYER_PERFORMANCE = 0.0;
 var NNprediction = 0.0;
 var paramCost = 0.0;
 var i = 0;
+var modify = i % 5; 
 
 
 var GAME_TIMER = setInterval(updateTime, 1000);
 var LEARNING_LOOP = setInterval(updateParams, 1000);
-var MODIFICATION_LOOP = setInterval(modifyParams, 5000);
 var HIGH_SCORE = 0;
 
 function intervalMap(value, fromLow, fromHigh, toLow, toHigh) {
@@ -96,6 +96,8 @@ function updateTime() {
 
 // LEARN
 function updateParams(modify) {
+	i++; 
+
 	// map environment params to the same interval
 	p1 = intervalMap(enemySpawnRate, 500, 5000, 0, 1);
 
@@ -107,7 +109,7 @@ function updateParams(modify) {
 	var performance = PLAYER_PERFORMANCE; 
 
 	// package data to send to server
-	if (modify = true) {
+	if (modify = 0) {
 		data = [0, params, performance];
 	} else {
 		data = [1, params, performance];
