@@ -254,7 +254,7 @@ class Network(object):
 		train(0)
 		if mod == 0:
 			param_cost = modify_environment(0)
-		else 
+		else: 
 			param_cost = input_cost
 		prediction = predict(0)
 
