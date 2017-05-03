@@ -127,7 +127,7 @@ function updateParams() {
 		// playerWidth = intervalMap(data[6] * 1000000000000, 0, 1000000000000, 40.0, 80.0);
 		// playerSpeed = intervalMap(data[7] * 1000000000000, 0, 1000000000000, 10.0, 20.0);
 		console.log("raw data: " + data[1]);
-		console.log("modified data: " + intervalMap(data[1] * 1000000000000, 0, 1000000000000, 1000.0, 5000.0));
+		console.log("modified data: " + (data[1] * 1000000000000));
 		// enemyHeight = data[1] * 10;
 		// enemyWidth = data[2] * 40; 
 		// enemySpeed = data[3] * 2; 
