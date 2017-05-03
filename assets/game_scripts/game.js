@@ -24,7 +24,7 @@ var i = 0;
 
 
 var GAME_TIMER = setInterval(updateTime, 1000);
-var LEARNING_LOOP = setInterval(updateParams, 1000);
+var LEARNING_LOOP = setInterval(updateParams, 5000);
 var HIGH_SCORE = 0;
 
 function intervalMap(value, fromLow, fromHigh, toLow, toHigh) {
