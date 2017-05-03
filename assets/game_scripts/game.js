@@ -24,7 +24,8 @@ var i = 0;
 
 
 var GAME_TIMER = setInterval(updateTime, 1000);
-var LEARNING_LOOP = setInterval(updateParams, 5000);
+var LEARNING_LOOP = setInterval(updateParams, 1000);
+var MODIFICATION_LOOP = setInterval(modifyParams, 5000);
 var HIGH_SCORE = 0;
 
 function intervalMap(value, fromLow, fromHigh, toLow, toHigh) {
@@ -94,15 +95,9 @@ function updateTime() {
 }
 
 // LEARN
-function updateParams() {
+function updateParams(modify) {
 	// map environment params to the same interval
 	p1 = intervalMap(enemySpawnRate, 500, 5000, 0, 1);
-	p2 = intervalMap(enemyWidth, 40, 80, 0, 10);
-	p3 = intervalMap(enemySpeed, 2, 10, 0, 10);
-	p4 = intervalMap(enemyHeight, 10, 50, 0, 10);
-	p5 = intervalMap(playerHeight, 40, 80, 0, 10);
-	p6 = intervalMap(playerWidth, 40, 80, 0, 10);
-	p7 = intervalMap(playerSpeed, 5, 10, 0, 10);
 
 	console.log("sending: " + intervalMap(enemySpawnRate, 500, 5000, 0, 1));
 	// all params stored in array to be sent to server
@@ -111,8 +106,13 @@ function updateParams() {
 	// store player performance to send to server
 	var performance = PLAYER_PERFORMANCE; 
 
+	// package data to send to server
+	if (modify = true) {
+		data = [0, params, performance];
+	} else {
+		data = [1, params, performance];
+	}
 	// send message to the server
-	var data = [params, performance];
 	socket.send(JSON.stringify(data));
 
 	// triggered when a message is sent from server

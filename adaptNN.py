@@ -47,8 +47,9 @@ def main():
 			msg = json.loads(msg) 
 
 			## PARSE TRAINING DATA ##
-			params = msg[0]
-			performance = msg[1]
+			modify = msg[0]
+			params = msg[1]
+			performance = msg[2]
 			num_params = int(len(params))
 
 			# create new storage vars for training data
@@ -61,7 +62,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=1.5)
+			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=1.5, mod = modify)
 
 			train_x = nnet.sigmoid(train_x)
 			
@@ -192,7 +193,7 @@ class Network(object):
 		# 	the output of the last layer in the net
 		self.output = layers[-1].output
 
-	def train_batch(self, train_data, learning_rate1, learning_rate2):
+	def train_batch(self, train_data, learning_rate1, learning_rate2, mod):
 		# separate training data into x & y
 		train_x, train_y = train_data
 
@@ -251,7 +252,10 @@ class Network(object):
 
 		# train the network, modify the environment params & predict performance
 		train(0)
-		param_cost = modify_environment(0)
+		if mod == 0:
+			param_cost = modify_environment(0)
+		else 
+			param_cost = input_cost
 		prediction = predict(0)
 
 		return [train_x, prediction, param_cost]
