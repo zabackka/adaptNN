@@ -255,7 +255,7 @@ class Network(object):
 		if mod == 0:
 			param_cost = modify_environment(0)
 		else: 
-			param_cost = input_cost
+			param_cost = 0.0
 		prediction = predict(0)
 
 		return [train_x, prediction, param_cost]
