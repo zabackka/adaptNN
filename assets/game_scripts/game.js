@@ -96,7 +96,7 @@ function updateTime() {
 // LEARN
 function updateParams() {
 	// map environment params to the same interval
-	p1 = intervalMap(enemySpawnRate, 500, 1000, 0, 10);
+	p1 = intervalMap(enemySpawnRate, 500, 5000, 0, 1);
 	p2 = intervalMap(enemyWidth, 40, 80, 0, 10);
 	p3 = intervalMap(enemySpeed, 2, 10, 0, 10);
 	p4 = intervalMap(enemyHeight, 10, 50, 0, 10);
