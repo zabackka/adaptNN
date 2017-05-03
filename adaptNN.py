@@ -61,7 +61,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=0.3, learning_rate2=0.03)
+			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=0.5, learning_rate2=0.5)
 
 			train_x = nnet.sigmoid(train_x)
 			
@@ -170,7 +170,7 @@ class Network(object):
 	def __init__(self, layers):
 		# store list of layers for this net & performance goal for this environment
 		self.layers = layers
-		self.performance_goal = 0.8
+		self.performance_goal = 0.5
 
 		# symbolic variables that will be set during SGD
 		self.x = T.matrix("x")
