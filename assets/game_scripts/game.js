@@ -104,7 +104,7 @@ function updateParams() {
 	p6 = intervalMap(playerWidth, 40, 80, 0, 10);
 	p7 = intervalMap(playerSpeed, 5, 10, 0, 10);
 
-	console.log("sending: " + intervalMap(enemySpawnRate, 500, 1000, 0, 10));
+	console.log("sending: " + intervalMap(enemySpawnRate, 500, 5000, 0, 1));
 	// all params stored in array to be sent to server
 	var params = [p1];
 
