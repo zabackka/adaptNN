@@ -127,7 +127,7 @@ function updateParams() {
 			var enemySpawnRateRaw = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
 			var playerHeightRaw = ((data[2] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
 
-			enemySpawnRate = intervalMap(enemySpawnRaw, 0, 100, 20, 50);
+			enemySpawnRate = intervalMap(enemySpawnRateRaw, 0, 100, 20, 50);
 			playerHeight = intervalMap(playerHeightRaw, 0, 100, 60, 200);
 			paramCost = data[3];		
 		}
