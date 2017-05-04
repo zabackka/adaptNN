@@ -103,7 +103,7 @@ function updateParams() {
 
 	console.log("sending: " + intervalMap(enemySpawnRate, 500, 5000, 0, 1));
 	// all params stored in array to be sent to server
-	var params = [p1. p2];
+	var params = [p1, p2];
 
 	// store player performance to send to server
 	var performance = PLAYER_PERFORMANCE; 
