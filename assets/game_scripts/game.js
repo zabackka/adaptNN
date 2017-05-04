@@ -94,7 +94,7 @@ function updateTime() {
 }
 
 // LEARN
-function updateParams(modify) {
+function updateParams() {
 	modify++; 
 
 	// map environment params to the same interval
