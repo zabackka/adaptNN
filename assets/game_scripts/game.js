@@ -95,7 +95,6 @@ function updateTime() {
 
 // LEARN
 function updateParams() {
-	modify++; 
 
 	// map environment params to the same interval
 	p1 = intervalMap(enemySpawnRate, 20, 50, 0, 100);
@@ -116,13 +115,14 @@ function updateParams() {
 	}
 	// send message to the server
 	socket.send(JSON.stringify(data));
+	modify++; 
 
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
 		//console.log("received: " + data);
 		var job_id = data[0];
 		console.log("processing job #" + job_id);
-		
+
 		NNprediction = data[1];
 		
 		if (modify % 5 == 0 || modify == 0) {
