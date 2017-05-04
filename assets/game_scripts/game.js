@@ -107,7 +107,7 @@ function updateParams() {
 	var performance = PLAYER_PERFORMANCE; 
 
 	// package data to send to server
-	if (modify % 5 == 0) {
+	if (modify % 5 == 0 && modify != 0) {
 		data = [0, modify, params, performance];
 	} else {
 		//console.log("modify = " + modify);
