@@ -109,8 +109,10 @@ function updateParams(modify) {
 
 	// package data to send to server
 	if (modify % 5 == 0) {
+		console.log("hell?");
 		data = [0, params, performance];
 	} else {
+		console.log("goodbye");
 		data = [1, params, performance];
 	}
 	// send message to the server
