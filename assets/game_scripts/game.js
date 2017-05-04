@@ -231,6 +231,7 @@ $.playground().registerCallback(function() {
 // start the game
 $.playground().startGame();
 
+console.log("socket status: " + socket.status);
 while( socket.status ) {
 	// triggered when a message is sent from server
 	console.log("in loop");
