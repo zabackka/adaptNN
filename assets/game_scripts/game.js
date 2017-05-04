@@ -38,16 +38,16 @@ function displayTime() {
 function printEnvironmentParams() {
 	$('#environment_params').html
 		("PERFORMANCE: " + PLAYER_PERFORMANCE.toFixed(4) 
-			+ "NN PREDICTION: " + NNprediction.toFixed(4) 
+			+ "   |   NN PREDICTION: " + NNprediction.toFixed(4) 
 			+ "   |   PARAM COST: " + paramCost.toFixed(4) 
-			+ "   |   NUM COLLISIONS: " + numCollisions
-			+ "   |   enemy height: <b>" + enemyHeight.toFixed(4) 
-			+ "</b>   |    enemy width: <b>" + enemyWidth.toFixed(4) 
-			+ "</b>   |    enemy speed: <b>" + enemySpeed.toFixed(4) 
+			//+ "   |   NUM COLLISIONS: " + numCollisions
+			//+ "   |   enemy height: <b>" + enemyHeight.toFixed(4) 
+			//+ "</b>   |    enemy width: <b>" + enemyWidth.toFixed(4) 
+			//+ "</b>   |    enemy speed: <b>" + enemySpeed.toFixed(4) 
 			+ "</b>   |    enemy spawn rate: <b>" + enemySpawnRate.toFixed(4) 
-			+ "</b>   |    player width: <b>" + playerWidth.toFixed(4) 
+			//+ "</b>   |    player width: <b>" + playerWidth.toFixed(4) 
 			+ "</b>   |    player height: <b>" + playerHeight.toFixed(4) 
-			+ "</b>   |    player speed: <b>" + playerSpeed.toFixed(4) 
+			//+ "</b>   |    player speed: <b>" + playerSpeed.toFixed(4) 
 			+ "</b><p></p>");
 }
 
@@ -56,7 +56,7 @@ function printEnvironmentParams() {
 var enemyHeight = 30;
 var enemyWidth = 60;
 var enemySpeed = 5; 
-var enemySpawnRate = 1000; 
+var enemySpawnRate = 50; 
 
 	// enemy constructor
 	function Enemy(node){
