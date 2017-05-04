@@ -7,7 +7,6 @@ import sys
 import json
 
 ## INITIAL THEANO CONFIG ##
-THEANO_FLAGS=device=cuda
 # set verbosity of theano exceptions
 theano.config.exception_verbosity = 'high'
 # change default float type
