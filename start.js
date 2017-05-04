@@ -53,6 +53,7 @@ io.sockets.on("connection", function(socket) {
 	});
 
 	py.stdin.setMaxListeners(Infinity);
+	py.stdout.setMaxListeners(Infinity);
  
 	var writeStream = fs.createWriteStream(SESSION_ID + "-" + clientID + ".csv", {flags: 'a'});
 
