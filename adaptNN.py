@@ -24,13 +24,13 @@ def main():
 	
 	# build NN structure
 	layers = []
-	input_layer = FullyConnectedLayer(num_params, 50, activation=nnet.sigmoid)
+	input_layer = FullyConnectedLayer(num_params, 5, activation=nnet.sigmoid)
 	layers.append(input_layer)
 	for i in range(0, 50):
-		temp = FullyConnectedLayer(50, 50, activation=nnet.sigmoid)
+		temp = FullyConnectedLayer(5, 5, activation=nnet.sigmoid)
 		layers.append(temp)
 	
-	output_layer = FullyConnectedLayer(50, 1, activation=nnet.sigmoid)
+	output_layer = FullyConnectedLayer(5, 1, activation=nnet.sigmoid)
 	layers.append(output_layer)
 	net = Network(layers)
 
