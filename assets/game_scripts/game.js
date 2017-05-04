@@ -119,7 +119,7 @@ function updateParams() {
 	modify++; 
 
 	// triggered when a message is sent from server
-	socket.once("data", function(data) {
+	socket.on("data", function(data) {
 		//console.log("received: " + data);
 		console.log("processing job #" + data[0]);
 
