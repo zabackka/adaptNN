@@ -72,6 +72,7 @@ def main():
 			# intialize message array to send back to server
 			sendBack = []
 			sendBack.append(job_id)
+			
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
 			

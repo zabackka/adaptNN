@@ -117,26 +117,7 @@ function updateParams() {
 	console.log("sending job #" + modify);
 	socket.send(JSON.stringify(data));
 	modify++; 
-
-	// triggered when a message is sent from server
-	socket.on("data", function(data) {
-		//console.log("received: " + data);
-		console.log("processing job #" + data[0]);
-
-		NNprediction = data[1];
-		
-		if (modify % 5 == 0 || modify == 0) {
-			var enemySpawnRateRaw = ((data[2] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
-			var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
-
-			enemySpawnRate = intervalMap(enemySpawnRateRaw, 0, 100, 20, 50);
-			playerHeight = intervalMap(playerHeightRaw, 0, 100, 60, 200);
-			paramCost = data[3];		
-		} 
-
-	});
 	
-
 }
 
 
@@ -249,6 +230,26 @@ $.playground().registerCallback(function() {
 
 // start the game
 $.playground().startGame();
+
+while( true ) {
+	// triggered when a message is sent from server
+	socket.on("data", function(data) {
+		//console.log("received: " + data);
+		console.log("processing job #" + data[0]);
+
+		NNprediction = data[1];
+		
+		if (data[0] % 5 == 0 || modify == 0) {
+			var enemySpawnRateRaw = ((data[2] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
+			var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
+
+			enemySpawnRate = intervalMap(enemySpawnRateRaw, 0, 100, 20, 50);
+			playerHeight = intervalMap(playerHeightRaw, 0, 100, 60, 200);
+			paramCost = data[3];		
+		} 
+
+	});
+}
 
 socket.on('close', function() {
 	console.log("CLIENT: CONNECTION CLOSED");
