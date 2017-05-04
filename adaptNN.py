@@ -260,8 +260,8 @@ class Network(object):
 			param_cost = 0.0
 		prediction = predict(0)
 
-		sys.stderr.write("mod: " + str(mod));
-		sys.stderr.write("train_x" + str(train_x.eval()))
+		sys.stderr.write("mod: " + str(mod) + "\n");
+		sys.stderr.write("train_x" + str(train_x.eval()) + "\n")
 		sys.stderr.flush()
 
 		return [train_x, prediction, param_cost]
