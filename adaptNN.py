@@ -25,7 +25,7 @@ def main():
 	layers = []
 	input_layer = FullyConnectedLayer(num_params, 5, activation=nnet.sigmoid)
 	layers.append(input_layer)
-	for i in range(0, 50):
+	for i in range(0, 10):
 		temp = FullyConnectedLayer(5, 5, activation=nnet.sigmoid)
 		layers.append(temp)
 	
