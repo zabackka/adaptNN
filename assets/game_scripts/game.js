@@ -93,7 +93,7 @@ function updateTime() {
 
 }
 
-// LEARN
+// send gathered data to server for processing
 function updateParams() {
 
 	// map environment params to the same interval
@@ -239,11 +239,11 @@ socket.on("data", function(data) {
 
 		NNprediction = data[1];
 		
-		if (data[0] % 5 == 0 || modify == 0) {
-			console.log("spawn (raw): " + data[2] + "   height (raw): " + data[3]);
+		if (data[0] % 5 == 0) {
+			console.log(data[0] + " spawn (raw): " + data[2] + "   height (raw): " + data[3]);
 			var enemySpawnRateRaw = ((data[2] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
 			var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
-			console.log("spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
+			console.log(data[0] + "spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
 			
 			enemySpawnRate = intervalMap(enemySpawnRateRaw, 0, 100, 20, 50);
 			playerHeight = intervalMap(playerHeightRaw, 0, 100, 60, 200);
