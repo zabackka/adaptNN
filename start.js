@@ -52,9 +52,11 @@ io.sockets.on("connection", function(socket) {
 		stdio: ['pipe', 'pipe', err]
 	});
 
+	// set max listeners for python child process
 	py.stdin.setMaxListeners(Infinity);
 	py.stdout.setMaxListeners(Infinity);
  
+	// create stream to write data to .csv file (for later use)
 	var writeStream = fs.createWriteStream(SESSION_ID + "-" + clientID + ".csv", {flags: 'a'});
 
 	// triggered when client sends a message
@@ -62,42 +64,22 @@ io.sockets.on("connection", function(socket) {
 		// parse message & display to console
 		data = JSON.parse(data);	
 		
+		//log when data was sent, along with the results (i.e. performance) for those specific param values
 		var date = new Date();
 		writeStream.write(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "," + data[0] + "," + data[1] + "\n");
-		//console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + "\n");
-		// retrieve params & performance
-
-		/** PRINT check statements */
-		// var params = data[0];
-		// var performance = data[1];
-		// console.log("params: " + params);
-		// console.log("performance: " + performance);
 
 		// send data from client to python child process
-		py.stdin.write(JSON.stringify(data) + "\n");
-		
+		py.stdin.write(JSON.stringify(data) + "\n");	
 
-
-		// handle end of python child process
-		// should only be triggered in error 
-		// --> [check 'err.txt' for details]
-		// py.stdout.once('end', () => {
-		// 	console.log("end!");
-		// });
 	});
 
-			// receive output from python child process
-		py.stdout.on('data', (data) => {
-			
-			/** PRINT check statement **/
-			//console.log("-->received from server: " + data);
-			
-			// parse data
-			data = JSON.parse(data);
-			// send modified input data back to client
-			console.log("sending: " + data[0]);
-			clients[clientID].emit('data', data);
-		});
+	// process and send output from python child process to client
+	py.stdout.on('data', (data) => {
+		// parse data
+		data = JSON.parse(data);
+		// send modified input data back to client
+		clients[clientID].emit('data', data);
+	});
 
 	// handle CLIENT disconnect
 	socket.on('disconnect', function() {
