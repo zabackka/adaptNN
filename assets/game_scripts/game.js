@@ -99,10 +99,11 @@ function updateParams() {
 
 	// map environment params to the same interval
 	p1 = intervalMap(enemySpawnRate, 500, 5000, 0, 1);
+	p2 = intervalMap(playerHeight, 10, 100, 0, 1);
 
 	console.log("sending: " + intervalMap(enemySpawnRate, 500, 5000, 0, 1));
 	// all params stored in array to be sent to server
-	var params = [p1];
+	var params = [p1. p2];
 
 	// store player performance to send to server
 	var performance = PLAYER_PERFORMANCE; 
@@ -128,7 +129,8 @@ function updateParams() {
 		
 		if (modify % 5 == 0 || modify == 0) {
 			enemySpawnRate = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 1000;
-			paramCost = data[2];		
+			playerHeight = ((data[2] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 1000;
+			paramCost = data[3];		
 		}
 
 		// playerHeight = intervalMap(data[5] * 1000000000000, 0, 1000000000000, 80.0, 150.0);
