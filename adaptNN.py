@@ -72,7 +72,7 @@ def main():
 			# intialize message array to send back to server
 			sendBack = []
 			sendBack.append(job_id)
-			
+
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
 			
@@ -259,6 +259,10 @@ class Network(object):
 		else: 
 			param_cost = 0.0
 		prediction = predict(0)
+
+		sys.stderr.write("mod: " + mod);
+		sys.stderr.write("train_x" + train_x.eval())
+		sys.stderr.flush()
 
 		return [train_x, prediction, param_cost]
 
