@@ -48,8 +48,9 @@ def main():
 
 			## PARSE TRAINING DATA ##
 			modify = msg[0]
-			params = msg[1]
-			performance = msg[2]
+			job_id = msg[1]
+			params = msg[2]
+			performance = msg[3]
 			num_params = int(len(params))
 
 			# create new storage vars for training data
@@ -70,7 +71,7 @@ def main():
 			storeTrain = train_x.eval()
 			# intialize message array to send back to server
 			sendBack = []
-
+			sendBack.append(job_id)
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
 			

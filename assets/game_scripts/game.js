@@ -109,10 +109,10 @@ function updateParams() {
 
 	// package data to send to server
 	if (modify % 5 == 0) {
-		data = [0, params, performance];
+		data = [0, modify, params, performance];
 	} else {
 		//console.log("modify = " + modify);
-		data = [1, params, performance];
+		data = [1, modify, params, performance];
 	}
 	// send message to the server
 	socket.send(JSON.stringify(data));
@@ -120,20 +120,19 @@ function updateParams() {
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
 		//console.log("received: " + data);
-		modify++;
-		console.log("modify = " + modify);
-		NNprediction = data[0];
+		var job_id = data[0];
+		console.log("processing job #" + job_id);
+		
+		NNprediction = data[1];
 		
 		if (modify % 5 == 0 || modify == 0) {
-			var enemySpawnRateRaw = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
-			var playerHeightRaw = ((data[2] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
+			var enemySpawnRateRaw = ((data[2] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
+			var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
 
 			enemySpawnRate = intervalMap(enemySpawnRateRaw, 0, 100, 20, 50);
 			playerHeight = intervalMap(playerHeightRaw, 0, 100, 60, 200);
 			paramCost = data[3];		
-		} else {
-			console.log("not modifying right now: " + paramCost);
-		}
+		} 
 
 	});
 	
