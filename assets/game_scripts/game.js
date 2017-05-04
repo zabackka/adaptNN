@@ -121,8 +121,7 @@ function updateParams() {
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
 		//console.log("received: " + data);
-		var job_id = data[0];
-		console.log("processing job #" + job_id);
+		console.log("processing job #" + data[0]);
 
 		NNprediction = data[1];
 		
