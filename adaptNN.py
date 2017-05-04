@@ -214,7 +214,7 @@ class Network(object):
 		input_cost = self.layers[-1].input_cost(self)
 
 		input_gradients = T.grad(input_cost, self.x)
-		environment_updates = [(train_x, T.nnet.sigmoid(train_x-learning_rate2*input_gradients))]
+		environment_updates = [(train_x, (train_x-learning_rate2*input_gradients))]
 
 		# holds a dummy variable for input
 		i = T.lscalar()
@@ -254,10 +254,14 @@ class Network(object):
 
 		# train the network, modify the environment params & predict performance
 		train(0)
+		
+		# modify environment parameters
 		if mod == 0:
 			param_cost = modify_environment(0)
 		else: 
 			param_cost = 0.0
+		
+		# make a prediction about the performance
 		prediction = predict(0)
 
 		sys.stderr.write("mod: " + str(mod) + "\n");
