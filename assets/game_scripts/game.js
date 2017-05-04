@@ -126,9 +126,9 @@ function updateParams() {
 		// enemyWidth = intervalMap(data[2] * 1000000000000, 0, 100000000000000, 40, 80.0);
 		// enemySpeed = intervalMap(data[3] * 1000000000000, 0, 1000000000000, 10.0, 20.0);
 		
-		if (modify % 5 == 0) {
+		if (modify % 5 == 0 || modify == 0) {
 			enemySpawnRate = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 1000;
-			console.log("updating spawn rate");			
+			paramCost = data[2];		
 		}
 
 		// playerHeight = intervalMap(data[5] * 1000000000000, 0, 1000000000000, 80.0, 150.0);
@@ -146,7 +146,7 @@ function updateParams() {
 		// playerWidth = data[6] * 40; 
 		// playerSpeed = data[7] * 50; 
 
-		paramCost = data[2];
+		
 
 	});
 	
