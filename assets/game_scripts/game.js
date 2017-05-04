@@ -124,8 +124,8 @@ function updateParams() {
 		NNprediction = data[0];
 		
 		if (modify % 5 == 0 || modify == 0) {
-			enemySpawnRateRaw = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
-			playerHeightRaw = ((data[2] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
+			var enemySpawnRateRaw = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
+			var playerHeightRaw = ((data[2] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
 
 			enemySpawnRate = intervalMap(enemySpawnRaw, 0, 100, 20, 50);
 			playerHeight = intervalMap(playerHeightRaw, 0, 100, 60, 200);
