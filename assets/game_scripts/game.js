@@ -124,12 +124,18 @@ function updateParams(modify) {
 		// enemyHeight = intervalMap(data[1] * 1000000000000, 0, 10000000000000, 80, 200);
 		// enemyWidth = intervalMap(data[2] * 1000000000000, 0, 100000000000000, 40, 80.0);
 		// enemySpeed = intervalMap(data[3] * 1000000000000, 0, 1000000000000, 10.0, 20.0);
-		enemySpawnRate = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 1000;
+		
+		if (modify == 0) {
+			enemySpawnRate = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 1000;			
+		}
+
 		// playerHeight = intervalMap(data[5] * 1000000000000, 0, 1000000000000, 80.0, 150.0);
 		// playerWidth = intervalMap(data[6] * 1000000000000, 0, 1000000000000, 40.0, 80.0);
 		// playerSpeed = intervalMap(data[7] * 1000000000000, 0, 1000000000000, 10.0, 20.0);
-		console.log("raw data: " + data[1]);
-		console.log("modified data: " + ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)));
+		
+		//console.log("raw data: " + data[1]);
+		//console.log("modified data: " + ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)));
+		
 		// enemyHeight = data[1] * 10;
 		// enemyWidth = data[2] * 40; 
 		// enemySpeed = data[3] * 2; 
