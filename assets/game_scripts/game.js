@@ -130,6 +130,8 @@ function updateParams() {
 			enemySpawnRate = intervalMap(enemySpawnRateRaw, 0, 100, 20, 50);
 			playerHeight = intervalMap(playerHeightRaw, 0, 100, 60, 200);
 			paramCost = data[3];		
+		} else {
+			console.log("not modifying right now: " + paramCost);
 		}
 
 	});
