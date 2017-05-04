@@ -85,6 +85,7 @@ io.sockets.on("connection", function(socket) {
 			// parse data
 			data = JSON.parse(data);
 			// send modified input data back to client
+			console.log("sending: " + data[0]);
 			clients[clientID].emit('data', data);
 		});
 
