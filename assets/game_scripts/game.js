@@ -116,6 +116,7 @@ function updateParams() {
 	// send message to the server
 	// console.log("sending job #" + modify);
 	socket.send(JSON.stringify(data));
+	console.log("sending [" + modify + "]: " + data[2]);
 	modify++; 
 	
 }
