@@ -23,13 +23,13 @@ def main():
 	
 	# build NN structure
 	layers = []
-	input_layer = FullyConnectedLayer(num_params, 5, activation=nnet.sigmoid)
+	input_layer = FullyConnectedLayer(num_params, 5, activation=T.nnet.sigmoid)
 	layers.append(input_layer)
 	for i in range(0, 10):
-		temp = FullyConnectedLayer(5, 5, activation=nnet.sigmoid)
+		temp = FullyConnectedLayer(5, 5, activation=T.nnet.sigmoid)
 		layers.append(temp)
 	
-	output_layer = FullyConnectedLayer(5, 1, activation=nnet.sigmoid)
+	output_layer = FullyConnectedLayer(5, 1, activation=T.nnet.sigmoid)
 	layers.append(output_layer)
 	net = Network(layers)
 
@@ -214,7 +214,7 @@ class Network(object):
 		input_cost = self.layers[-1].input_cost(self)
 
 		input_gradients = T.grad(input_cost, self.x)
-		environment_updates = [(train_x, nnet.sigmoid(train_x-learning_rate2*input_gradients))]
+		environment_updates = [(train_x, T.nnet.sigmoid(train_x-learning_rate2*input_gradients))]
 
 		# holds a dummy variable for input
 		i = T.lscalar()
