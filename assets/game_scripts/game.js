@@ -120,7 +120,7 @@ function updateParams() {
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
 		//console.log("received: " + data);
-
+		console.log("modify = " + modify);
 		NNprediction = data[0];
 		
 		if (modify % 5 == 0 || modify == 0) {
