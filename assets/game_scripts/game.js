@@ -248,8 +248,7 @@ socket.on("data", function(data) {
 			paramCost = data[3];		
 		} 
 
-	});
-}
+});
 
 socket.on('close', function() {
 	console.log("CLIENT: CONNECTION CLOSED");
