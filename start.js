@@ -76,7 +76,17 @@ io.sockets.on("connection", function(socket) {
 		// send data from client to python child process
 		py.stdin.write(JSON.stringify(data) + "\n");
 		
-		// receive output from python child process
+
+
+		// handle end of python child process
+		// should only be triggered in error 
+		// --> [check 'err.txt' for details]
+		// py.stdout.once('end', () => {
+		// 	console.log("end!");
+		// });
+	});
+
+			// receive output from python child process
 		py.stdout.once('data', (data) => {
 			
 			/** PRINT check statement **/
@@ -88,14 +98,6 @@ io.sockets.on("connection", function(socket) {
 			console.log("sending: " + data[0]);
 			clients[clientID].emit('data', data);
 		});
-
-		// handle end of python child process
-		// should only be triggered in error 
-		// --> [check 'err.txt' for details]
-		// py.stdout.once('end', () => {
-		// 	console.log("end!");
-		// });
-	});
 
 	// handle CLIENT disconnect
 	socket.on('disconnect', function() {
