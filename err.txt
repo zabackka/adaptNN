@@ -2298,3 +2298,389 @@ Traceback (most recent call last):
   File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 992, in __hash__
     def __hash__(self):
 KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 64, in main
+    train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=0.3, learning_rate2=0.03)
+  File "adaptNN.py", line 226, in train_batch
+    on_unused_input='ignore')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function.py", line 320, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 442, in pfunc
+    no_default_updates=no_default_updates)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 257, in rebuild_collect_shared
+    copy_inputs_over)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 92, in clone_v_get_shared_updates
+    clone_v_get_shared_updates(i, copy_inputs_over)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 92, in clone_v_get_shared_updates
+    clone_v_get_shared_updates(i, copy_inputs_over)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 95, in clone_v_get_shared_updates
+    [clone_d[i] for i in owner.inputs], strict=rebuild_strict)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/graph.py", line 238, in clone_with_new_inputs
+    for i, (curr, new) in enumerate(zip(self.inputs, new_inputs)):
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 64, in main
+    train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=0.3, learning_rate2=0.03)
+  File "adaptNN.py", line 226, in train_batch
+    on_unused_input='ignore')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function.py", line 320, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 479, in pfunc
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1776, in orig_function
+    output_keys=output_keys).create(
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1456, in __init__
+    optimizer_profile = optimizer(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 101, in __call__
+    return self.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 230, in apply
+    sub_prof = optimizer.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/opt.py", line 381, in inplace_elemwise_optimizer
+    for i, o in enumerate(node.outputs)]))
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/scalar/basic.py", line 3471, in make_new_inplace
+    out = self.__class__(**d)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/scalar/basic.py", line 3642, in __init__
+    self.init_c_code()    # self._c_code and self.nodenames
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/scalar/basic.py", line 3505, in init_c_code
+    for j, n in enumerate(self.fgraph.toposort())]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 719, in toposort
+    ords = self.orderings()
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 743, in orderings
+    orderings = feature.orderings(self)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/toolbox.py", line 111, in orderings
+    return OrderedDict()
+  File "/usr/lib64/python2.7/collections.py", line 64, in __init__
+    self.__root
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 64, in main
+    train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=0.5, learning_rate2=0.5)
+  File "adaptNN.py", line 242, in train_batch
+    on_unused_input= 'ignore')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function.py", line 320, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 479, in pfunc
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1776, in orig_function
+    output_keys=output_keys).create(
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1456, in __init__
+    optimizer_profile = optimizer(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 101, in __call__
+    return self.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 230, in apply
+    sub_prof = optimizer.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 2144, in apply
+    sub_prof = gopt.apply(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 230, in apply
+    sub_prof = optimizer.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/scan_module/scan_opt.py", line 432, in apply
+    nodelist = [x for x in fgraph.toposort()
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 721, in toposort
+    order = graph.io_toposort(fg.inputs, fg.outputs, ords)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/graph.py", line 1026, in io_toposort
+    return [o for o in topo if isinstance(o, Apply)]
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 64, in main
+    train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=0.5, learning_rate2=0.5)
+  File "adaptNN.py", line 235, in train_batch
+    on_unused_input='ignore')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function.py", line 320, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 479, in pfunc
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1776, in orig_function
+    output_keys=output_keys).create(
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1456, in __init__
+    optimizer_profile = optimizer(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 101, in __call__
+    return self.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 230, in apply
+    sub_prof = optimizer.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/opt.py", line 381, in inplace_elemwise_optimizer
+    for i, o in enumerate(node.outputs)]))
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/scalar/basic.py", line 3471, in make_new_inplace
+    out = self.__class__(**d)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/scalar/basic.py", line 3640, in __init__
+    self.init_fgraph()       # self.fgraph
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/scalar/basic.py", line 3586, in init_fgraph
+    fgraph = FunctionGraph(self.inputs, self.outputs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 133, in __init__
+    inputs, outputs = graph.clone(inputs, outputs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/graph.py", line 812, in clone
+    equiv = clone_get_equiv(i, o, copy_inputs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/graph.py", line 853, in clone_get_equiv
+    for apply in io_toposort(inputs, outputs):
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/graph.py", line 1025, in io_toposort
+    deps_cache=deps_cache, clients=clients)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/graph.py", line 932, in general_toposort
+    'dfs', True)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/graph.py", line 644, in stack_search
+    expand_l = expand(l)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/graph.py", line 999, in compute_deps_cache
+    if not isinstance(rval, (list, OrderedSet)):
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 64, in main
+    train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=1.5)
+  File "adaptNN.py", line 235, in train_batch
+    on_unused_input='ignore')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function.py", line 320, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 479, in pfunc
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1776, in orig_function
+    output_keys=output_keys).create(
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1456, in __init__
+    optimizer_profile = optimizer(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 101, in __call__
+    return self.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 230, in apply
+    sub_prof = optimizer.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/opt.py", line 396, in inplace_elemwise_optimizer
+    fgraph.validate()
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/toolbox.py", line 232, in validate_
+    ret = fgraph.execute_callbacks('validate')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 673, in execute_callbacks
+    fn(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/destroyhandler.py", line 904, in validate
+    ords = self.orderings(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/destroyhandler.py", line 1019, in orderings
+    root_clients.update([a for a, c in self.clients[r].items() if c])
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/misc/ordered_set.py", line 85, in update
+    self |= iterable
+  File "/usr/lib64/python2.7/_abcoll.py", line 330, in __ior__
+    self.add(value)
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 64, in main
+    train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=1.5)
+  File "adaptNN.py", line 235, in train_batch
+    on_unused_input='ignore')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function.py", line 320, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 479, in pfunc
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1776, in orig_function
+    output_keys=output_keys).create(
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1456, in __init__
+    optimizer_profile = optimizer(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 101, in __call__
+    return self.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 230, in apply
+    sub_prof = optimizer.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 2196, in apply
+    lopt_change = self.process_node(fgraph, node, lopt)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 1807, in process_node
+    fgraph.replace_all_validate(repl_pairs, reason=lopt)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/toolbox.py", line 309, in replace_all_validate
+    fgraph.replace(r, new_r, reason=reason, verbose=False)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 589, in replace
+    self.change_input(node, i, new_r, reason=reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 527, in change_input
+    self.__import_r__(new_r, reason=reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 360, in __import_r__
+    self.__import__(variable.owner, reason=reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 489, in __import__
+    self.execute_callbacks('on_import', node, reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 673, in execute_callbacks
+    fn(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/opt.py", line 1315, in on_import
+    self.set_shape(r, s)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/opt.py", line 1122, in set_shape
+    for i in xrange(r.ndim)])
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/var.py", line 896, in equals
+    self.signature() == other.signature())
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/var.py", line 788, in __eq__
+    self.no_nan  # Ensure has_nan is computed.
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/var.py", line 849, in _get_no_nan
+    except AttributeError:
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 262, in <module>
+    main()
+  File "adaptNN.py", line 64, in main
+    train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=1.5)
+  File "adaptNN.py", line 226, in train_batch
+    on_unused_input='ignore')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function.py", line 320, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 479, in pfunc
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1776, in orig_function
+    output_keys=output_keys).create(
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1456, in __init__
+    optimizer_profile = optimizer(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 101, in __call__
+    return self.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 230, in apply
+    sub_prof = optimizer.optimize(fgraph)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 89, in optimize
+    ret = self.apply(fgraph, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/mode.py", line 135, in apply
+    reason='output_guard')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/toolbox.py", line 300, in replace_validate
+    self.replace_all_validate(fgraph, [(r, new_r)], reason=reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/toolbox.py", line 309, in replace_all_validate
+    fgraph.replace(r, new_r, reason=reason, verbose=False)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 589, in replace
+    self.change_input(node, i, new_r, reason=reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 527, in change_input
+    self.__import_r__(new_r, reason=reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 360, in __import_r__
+    self.__import__(variable.owner, reason=reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 489, in __import__
+    self.execute_callbacks('on_import', node, reason)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 673, in execute_callbacks
+    fn(self, *args, **kwargs)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/destroyhandler.py", line 806, in on_import
+    self.clients.setdefault(input, OrderedDict()).setdefault(app, 0)
+KeyboardInterrupt
+  File "adaptNN.py", line 257
+    else 
+        ^
+SyntaxError: invalid syntax
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 266, in <module>
+    main()
+  File "adaptNN.py", line 47, in main
+    msg = json.loads(msg) 
+  File "/usr/lib64/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python2.7/json/decoder.py", line 382, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 266, in <module>
+    main()
+  File "adaptNN.py", line 81, in main
+    sendBack.append(float(param_cost))
+TypeError: float() argument must be a string or a number
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 266, in <module>
+    main()
+  File "adaptNN.py", line 45, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
