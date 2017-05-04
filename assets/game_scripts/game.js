@@ -110,10 +110,9 @@ function updateParams() {
 
 	// package data to send to server
 	if (modify % 5 == 0) {
-		console.log("hell?");
 		data = [0, params, performance];
 	} else {
-		console.log("modify = " + modify);
+		//console.log("modify = " + modify);
 		data = [1, params, performance];
 	}
 	// send message to the server
@@ -121,6 +120,8 @@ function updateParams() {
 
 	// triggered when a message is sent from server
 	socket.once("data", function(data) {
+		console.log("received: " + data);
+
 		NNprediction = data[0];
 		
 		// enemyHeight = intervalMap(data[1] * 1000000000000, 0, 10000000000000, 80, 200);
