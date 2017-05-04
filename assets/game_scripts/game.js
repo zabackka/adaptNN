@@ -112,7 +112,7 @@ function updateParams(modify) {
 		console.log("hell?");
 		data = [0, params, performance];
 	} else {
-		console.log("goodbye");
+		console.log("modify = " + modify);
 		data = [1, params, performance];
 	}
 	// send message to the server
