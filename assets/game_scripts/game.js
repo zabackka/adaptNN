@@ -20,8 +20,7 @@ var numCollisions = 0;
 var PLAYER_PERFORMANCE = 0.0;
 var NNprediction = 0.0;
 var paramCost = 0.0;
-var i = 0;
-var modify = i % 5; 
+var modify = 0;
 
 
 var GAME_TIMER = setInterval(updateTime, 1000);
@@ -96,7 +95,7 @@ function updateTime() {
 
 // LEARN
 function updateParams(modify) {
-	i++; 
+	modify++; 
 
 	// map environment params to the same interval
 	p1 = intervalMap(enemySpawnRate, 500, 5000, 0, 1);
@@ -109,7 +108,7 @@ function updateParams(modify) {
 	var performance = PLAYER_PERFORMANCE; 
 
 	// package data to send to server
-	if (modify = 0) {
+	if (modify % 5 == 0) {
 		data = [0, params, performance];
 	} else {
 		data = [1, params, performance];
@@ -125,7 +124,7 @@ function updateParams(modify) {
 		// enemyWidth = intervalMap(data[2] * 1000000000000, 0, 100000000000000, 40, 80.0);
 		// enemySpeed = intervalMap(data[3] * 1000000000000, 0, 1000000000000, 10.0, 20.0);
 		
-		if (modify == 0) {
+		if (modify % 5 == 0) {
 			enemySpawnRate = ((data[1] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 1000;
 			console.log("updating spawn rate");			
 		}
