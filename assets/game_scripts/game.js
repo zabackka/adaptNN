@@ -233,6 +233,7 @@ $.playground().startGame();
 
 while( socket.status ) {
 	// triggered when a message is sent from server
+	console.log("in loop");
 	socket.on("data", function(data) {
 		//console.log("received: " + data);
 		console.log("processing job #" + data[0]);
