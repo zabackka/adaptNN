@@ -56,7 +56,7 @@ function printEnvironmentParams() {
 var enemyHeight = 30;
 var enemyWidth = 60;
 var enemySpeed = 5; 
-var enemySpawnRate = 600; 
+var enemySpawnRate = 600.0; 
 
 	// enemy constructor
 	function Enemy(node){
@@ -69,7 +69,7 @@ var enemySpawnRate = 600;
 
 
 ///// PLAYER /////
-var playerHeight = 200.2354; 
+var playerHeight = 200.0; 
 var playerWidth = 60;
 var playerSpeed = 10;  
 
