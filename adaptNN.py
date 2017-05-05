@@ -12,9 +12,6 @@ theano.config.exception_verbosity = 'high'
 # change default float type
 theano.config.floatX = 'float64'
 
-def interval_map(value, from_low, from_high, to_low, to_high):
-	return (value - from_low)*((to_high - to_low) / (from_high - from_low)) + to_low
-
 
 ## NodeJS PROCESS HANDLING ##
 # main() is called when Node spawns new child
@@ -23,15 +20,23 @@ def main():
 	
 	# build NN structure
 	layers = []
+	# init input_layer
 	input_layer = FullyConnectedLayer(num_params, 5, activation=T.nnet.sigmoid)
 	layers.append(input_layer)
+	
+	# init hidden layers
 	for i in range(0, 10):
 		temp = FullyConnectedLayer(5, 5, activation=T.nnet.sigmoid)
 		layers.append(temp)
 	
+	# init output_layer
 	output_layer = FullyConnectedLayer(5, 1, activation=T.nnet.sigmoid)
 	layers.append(output_layer)
+	
+	# create net object
 	net = Network(layers)
+
+	batch_size = 1
 
 
 	# continously listen for new data from server
@@ -54,12 +59,19 @@ def main():
 			num_params = int(len(params))
 
 			# create new storage vars for training data
-			train_datax = numpy.empty((1, num_params))
-			train_datay = numpy.empty(1)
+			train_datax = numpy.empty((batch_size, num_params))
+			train_datay = numpy.empty(batch_size)
 			train_datay[0] = performance
-		
-			for x in range(0, num_params):
-				train_datax[0][x] = params[x]
+			
+			for x in range(0, batch_size):
+				for y in range(0, num_params):
+					if x == 0:
+						train_datax[x][y] = params[y]
+					else:
+						if (x % 2 == 0): 
+							train_data[x][y] = params[y] + 1
+						else:
+							train_data[x][y] = params[y] - 1
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)

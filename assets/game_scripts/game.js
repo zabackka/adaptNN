@@ -88,6 +88,7 @@ function updateTime() {
 	// update value in html to reflect current score
 	$("#player .value").html($("#player")[0].player.value);
 
+	// update player performance measure
 	PLAYER_PERFORMANCE = (CURRENT_TIME - numCollisions) / CURRENT_TIME;
 
 }
@@ -108,37 +109,13 @@ function sendData() {
 	data = [0, outgoingID, params, performance];
 
 	// send message to the server
-	// console.log("sending job #" + outgoingID);
 	socket.send(JSON.stringify(data));
+	
 	console.log("sending [" + outgoingID + "]: " + data[2] + " " + data[3]);
+	
+	// increment ID counter
 	outgoingID++; 
 }
-
-// send gathered data to server for processing
-// function updateParams() {
-
-// 	// map environment params to the same interval
-// 	p1 = intervalMap(enemySpawnRate, 200.0, 600.0, 0.0, 100.0);
-// 	p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
-
-// 	// all params stored in array to be sent to server
-// 	var params = [p1, p2];
-
-// 	// store player performance to send to server
-// 	var performance = PLAYER_PERFORMANCE; 
-
-// 	// package up message to send to server
-// 	data = [0, outgoingID, params, performance];
-
-// 	// send message to the server
-// 	// console.log("sending job #" + outgoingID);
-// 	socket.send(JSON.stringify(data));
-// 	console.log("sending [" + outgoingID + "]: " + data[2]);
-// 	outgoingID++; 
-	
-// }
-
-
 
 //////////////////////////////
 ///// GAME FUNCTIONALITY /////
@@ -268,7 +245,7 @@ socket.on("data", function(data) {
 		
 		console.log("#" + data[0] + " (interval): " + enemySpawnRate + " (interval): " + playerHeight);
 		
-		// retieve the network's calculated cost for updated params
+		// retrieve the network's calculated cost for updated params
 		paramCost = data[3];		
 
 		// send new data to server after observing to 5 seconds
