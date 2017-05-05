@@ -20,11 +20,10 @@ var numCollisions = 0;
 var PLAYER_PERFORMANCE = 0.0;
 var NNprediction = 0.0;
 var paramCost = 0.0;
-var modify = 0;
+var outgoingID = 0; 
 
 
 var GAME_TIMER = setInterval(updateTime, 1000);
-var LEARNING_LOOP = setInterval(updateParams, 1000);
 var HIGH_SCORE = 0;
 
 function intervalMap(value, fromLow, fromHigh, toLow, toHigh) {
@@ -94,8 +93,7 @@ function updateTime() {
 }
 
 // send gathered data to server for processing
-function updateParams() {
-
+function sendData() {
 	// map environment params to the same interval
 	p1 = intervalMap(enemySpawnRate, 200.0, 600.0, 0.0, 100.0);
 	p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
@@ -106,23 +104,39 @@ function updateParams() {
 	// store player performance to send to server
 	var performance = PLAYER_PERFORMANCE; 
 
-	// package data to send to server
-	// if (sendCount % 5 == 0 && sendCount != 0) {
-	// 	data = [0, modify, params, performance];
-	// } else {
-	// 	//console.log("modify = " + modify);
-	// 	data = [1, modify, params, performance];
-	// }
-
-	data = [0, modify, params, performance];
+	// package up message to send to server
+	data = [0, outgoingID, params, performance];
 
 	// send message to the server
-	// console.log("sending job #" + modify);
+	// console.log("sending job #" + outgoingID);
 	socket.send(JSON.stringify(data));
-	console.log("sending [" + modify + "]: " + data[2]);
-	modify++; 
-	
+	console.log("sending [" + outgoingID + "]: " + data[2]);
+	outgoingID++; 
 }
+
+// send gathered data to server for processing
+// function updateParams() {
+
+// 	// map environment params to the same interval
+// 	p1 = intervalMap(enemySpawnRate, 200.0, 600.0, 0.0, 100.0);
+// 	p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
+
+// 	// all params stored in array to be sent to server
+// 	var params = [p1, p2];
+
+// 	// store player performance to send to server
+// 	var performance = PLAYER_PERFORMANCE; 
+
+// 	// package up message to send to server
+// 	data = [0, outgoingID, params, performance];
+
+// 	// send message to the server
+// 	// console.log("sending job #" + outgoingID);
+// 	socket.send(JSON.stringify(data));
+// 	console.log("sending [" + outgoingID + "]: " + data[2]);
+// 	outgoingID++; 
+	
+// }
 
 
 
@@ -235,24 +249,30 @@ $.playground().registerCallback(function() {
 // start the game
 $.playground().startGame();
 
+//send initial data to server
+sendData();
 
+// LISTEN continually for server messages // 
 // triggered when a message is sent from server
 socket.on("data", function(data) {
 		// console.log("processing job #" + data[0]);
 
+		// retrive the network's prediciton for performance
 		NNprediction = data[1];
 		
-		//if (data[0] % 5 == 0 && data[0] != 0) {
-			console.log(data[0] + "(raw): " + data[2] + " (raw): " + data[3]);
-			// var enemySpawnRateRaw = ((data[2] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
-			// var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
-			// console.log(data[0] + "spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
-			
-			enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
-			playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
-			console.log("(interval): " + enemySpawnRate + " (interval): " + playerHeight);
-			paramCost = data[3];		
-		//}
+		console.log(data[0] + "(raw): " + data[2] + " (raw): " + data[3]);
+		
+		// calculate the new param values based on network's updates
+		enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
+		playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
+		
+		console.log("(interval): " + enemySpawnRate + " (interval): " + playerHeight);
+		
+		// retieve the network's calculated cost for updated params
+		paramCost = data[3];		
+
+		// send new data to server after observing to 5 seconds
+		setTimeout(function() { sendData(); }, 5000); 
 
 });
 
