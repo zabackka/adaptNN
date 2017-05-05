@@ -36,7 +36,7 @@ def main():
 	# create net object
 	net = Network(layers)
 
-	batch_size = 1
+	batch_size = 10
 
 
 	# continously listen for new data from server
@@ -65,7 +65,7 @@ def main():
 			for x in range(0, batch_size):
 				train_datay[x] = performance
 			
-			sys.stderr.write(str(train_datay))
+			sys.stderr.write("train y: " + str(train_datay) + "\n")
 
 			for x in range(0, batch_size):
 				for y in range(0, num_params):
@@ -94,16 +94,16 @@ def main():
 			# intialize message array to send back to server
 			sendBack = []
 			sendBack.append(job_id)
-			sys.stderr.write("JOB ID #" + str(job_id))
+			# sys.stderr.write("JOB ID #" + str(job_id))
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
 			
 			# append all modified enviroment params to message array
 			for x in storeTrain[0]:
 				sendBack.append(x)
-				sys.stderr.write(str(x) + "  ")
+				# sys.stderr.write(str(x) + "  ")
 
-			sys.stderr.write("\n\n")
+			# sys.stderr.write("\n\n")
 
 			sendBack.append(float(param_cost))
 			
