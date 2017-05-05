@@ -119,7 +119,7 @@ function updateParams() {
 	// send message to the server
 	// console.log("sending job #" + modify);
 	socket.send(JSON.stringify(data));
-	//console.log("sending [" + modify + "]: " + data[2]);
+	console.log("sending [" + modify + "]: " + data[2]);
 	modify++; 
 	
 }
@@ -243,14 +243,14 @@ socket.on("data", function(data) {
 		NNprediction = data[1];
 		
 		//if (data[0] % 5 == 0 && data[0] != 0) {
-			console.log(data[0] + " spawn (raw): " + data[2] + "   height (raw): " + data[3]);
+			console.log(data[0] + "(raw): " + data[2] + " (raw): " + data[3]);
 			// var enemySpawnRateRaw = ((data[2] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
 			// var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
 			// console.log(data[0] + "spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
 			
 			enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
 			playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
-			console.log("spawn (interval): " + enemySpawnRate + "   height (interval): " + playerHeight);
+			console.log("(interval): " + enemySpawnRate + " (interval): " + playerHeight);
 			paramCost = data[3];		
 		//}
 
