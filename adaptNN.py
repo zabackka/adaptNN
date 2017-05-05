@@ -238,11 +238,11 @@ class Network(object):
 
 		# define the train() function, which completes one "pass" through the network & updates weights
 		# this passes one batch of test data through the net
-		train = theano.function([i], 
+		train = theano.function([index], 
 			[network_cost], 
 			updates=network_updates,
-			givens={self.x: train_x,
-					self.y: train_y},
+			givens={self.x: train_x[index * batch_size: (index + 1) * batch_size],
+					self.y: train_y[index * batch_size: (index + 1) * batch_size]},
 			on_unused_input='ignore')
 		
 		# update the input params based on their effect on network output
@@ -257,8 +257,8 @@ class Network(object):
 		pred = self.output
 		predict = theano.function([i],
 			pred,
-			givens={self.x: train_x,
-					self.y: train_y},
+			givens={self.x: train_x[index * batch_size: (index + 1) * batch_size],
+					self.y: train_y[index * batch_size: (index + 1) * batch_size]},
 			on_unused_input= 'ignore')
 
 		#** PRINT CHECK STATEMENTS **#
