@@ -70,10 +70,10 @@ def main():
 						sys.stderr.write(" " + str(train_datax[x][y]))
 					else:
 						if (x % 2 == 0): 
-							train_data[x][y] = params[y] + 1
+							train_datax[x][y] = params[y] + 1
 							sys.stderr.write(" " + str(train_datax[x][y]))
 						else:
-							train_data[x][y] = params[y] - 1
+							train_datax[x][y] = params[y] - 1
 							sys.stderr.write(" " + str(train_datax[x][y]))
 				sys.stderr.write("\n")
 			sys.stderr.write("\n")
