@@ -56,7 +56,7 @@ function printEnvironmentParams() {
 var enemyHeight = 30;
 var enemyWidth = 60;
 var enemySpeed = 5; 
-var enemySpawnRate = 600.0; 
+var enemySpawnRate = 350.0; 
 
 	// enemy constructor
 	function Enemy(node){
@@ -69,7 +69,7 @@ var enemySpawnRate = 600.0;
 
 
 ///// PLAYER /////
-var playerHeight = 200.0; 
+var playerHeight = 130.0; 
 var playerWidth = 60;
 var playerSpeed = 10;  
 
@@ -97,7 +97,7 @@ function updateTime() {
 function updateParams() {
 
 	// map environment params to the same interval
-	p1 = intervalMap(enemySpawnRate, 100.0, 500.0, 0.0, 100.0);
+	p1 = intervalMap(enemySpawnRate, 200.0, 600.0, 0.0, 100.0);
 	p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
 
 	// all params stored in array to be sent to server
@@ -245,7 +245,7 @@ socket.on("data", function(data) {
 			// var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
 			// console.log(data[0] + "spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
 			
-			enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 100.0, 500.0);
+			enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
 			playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
 			paramCost = data[3];		
 		} else {
