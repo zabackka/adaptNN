@@ -97,8 +97,8 @@ function updateTime() {
 function updateParams() {
 
 	// map environment params to the same interval
-	p1 = intervalMap(enemySpawnRate, 20, 50, 0, 100);
-	p2 = intervalMap(playerHeight, 60, 200, 0, 100);
+	p1 = intervalMap(enemySpawnRate, 20.0, 50.0, 0.0, 100.0);
+	p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
 
 	// all params stored in array to be sent to server
 	var params = [p1, p2];
