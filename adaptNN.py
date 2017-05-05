@@ -67,11 +67,17 @@ def main():
 				for y in range(0, num_params):
 					if x == 0:
 						train_datax[x][y] = params[y]
+						sys.stderr.write(" " + str(train_datax[x][y]))
 					else:
 						if (x % 2 == 0): 
 							train_data[x][y] = params[y] + 1
+							sys.stderr.write(" " + str(train_datax[x][y]))
 						else:
 							train_data[x][y] = params[y] - 1
+							sys.stderr.write(" " + str(train_datax[x][y]))
+				sys.stderr.write("\n")
+			sys.stderr.write("\n")
+
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
