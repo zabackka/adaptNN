@@ -72,13 +72,16 @@ def main():
 			# intialize message array to send back to server
 			sendBack = []
 			sendBack.append(job_id)
-
+			sys.stderr.write("JOB ID #" + str(job_id))
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
 			
 			# append all modified enviroment params to message array
 			for x in storeTrain[0]:
 				sendBack.append(x)
+				sys.stderr.write(str(x) + "  ")
+
+			sys.stderr.write("\n\n")
 
 			sendBack.append(float(param_cost))
 			
