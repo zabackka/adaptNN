@@ -260,13 +260,13 @@ socket.on("data", function(data) {
 		// retrive the network's prediciton for performance
 		NNprediction = data[1];
 		
-		console.log(data[0] + "(raw): " + data[2] + " (raw): " + data[3]);
+		console.log("#" + data[0] + " (raw): " + data[2] + " (raw): " + data[3]);
 		
 		// calculate the new param values based on network's updates
 		enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
 		playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
 		
-		console.log("(interval): " + enemySpawnRate + " (interval): " + playerHeight);
+		console.log("#" + data[0] + " (interval): " + enemySpawnRate + " (interval): " + playerHeight);
 		
 		// retieve the network's calculated cost for updated params
 		paramCost = data[3];		
