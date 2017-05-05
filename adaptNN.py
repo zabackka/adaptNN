@@ -266,9 +266,9 @@ class Network(object):
 		# make a prediction about the performance
 		prediction = predict(0)
 
-		sys.stderr.write("mod: " + str(mod) + "\n");
-		sys.stderr.write("train_x" + str(train_x.eval()) + "\n")
-		sys.stderr.flush()
+		# sys.stderr.write("mod: " + str(mod) + "\n");
+		# sys.stderr.write("train_x" + str(train_x.eval()) + "\n")
+		# sys.stderr.flush()
 
 		return [train_x, prediction, param_cost]
 
