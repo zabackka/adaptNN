@@ -246,7 +246,8 @@ socket.on("data", function(data) {
 			// console.log(data[0] + "spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
 			
 			enemySpawnRate = intervalMap(data[2], 0, 1, 20, 50);
-			playerHeight = intervalMap(data[3], 0, 1, 60, 200);
+			//playerHeight = intervalMap(data[3], 0, 1, 60, 200);
+			playerHeight = playerHeight + 10;
 			paramCost = data[3];		
 		} else {
 			console.log("cur spawn: " + enemySpawnRate + "   cur height: " + playerHeight + "   cost:" + paramCost);
