@@ -110,7 +110,7 @@ function sendData() {
 	// send message to the server
 	// console.log("sending job #" + outgoingID);
 	socket.send(JSON.stringify(data));
-	console.log("sending [" + outgoingID + "]: " + data[2]);
+	console.log("sending [" + outgoingID + "]: " + data[2] + " " + data[3]);
 	outgoingID++; 
 }
 
