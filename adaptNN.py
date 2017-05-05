@@ -247,15 +247,15 @@ class Network(object):
 		
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
-		modify_environment = theano.function([i],
+		modify_environment = theano.function([index],
 			input_cost,
 			updates=environment_updates,
-			givens={self.x: train_x,
-				   self.y: train_y},
+			givens={self.x: train_x[index * batch_size: (index + 1) * batch_size],
+					self.y: train_y[index * batch_size: (index + 1) * batch_size]},
 			on_unused_input='ignore')
 
 		pred = self.output
-		predict = theano.function([i],
+		predict = theano.function([index],
 			pred,
 			givens={self.x: train_x[index * batch_size: (index + 1) * batch_size],
 					self.y: train_y[index * batch_size: (index + 1) * batch_size]},
