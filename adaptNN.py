@@ -234,7 +234,7 @@ class Network(object):
 
 
 		# holds a dummy variable for input
-		i = T.lscalar()
+		index = T.lscalar()
 
 		# define the train() function, which completes one "pass" through the network & updates weights
 		# this passes one batch of test data through the net
