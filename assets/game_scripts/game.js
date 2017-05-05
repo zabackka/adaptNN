@@ -97,7 +97,7 @@ function updateTime() {
 function updateParams() {
 
 	// map environment params to the same interval
-	p1 = intervalMap(enemySpawnRate, 20.0, 50.0, 0.0, 100.0);
+	p1 = intervalMap(enemySpawnRate, 20.0, 100.0, 0.0, 100.0);
 	p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
 
 	// all params stored in array to be sent to server
@@ -245,9 +245,8 @@ socket.on("data", function(data) {
 			// var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
 			// console.log(data[0] + "spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
 			
-			enemySpawnRate = intervalMap(data[2], 0, 1, 20, 50);
-			//playerHeight = intervalMap(data[3], 0, 1, 60, 200);
-			playerHeight = playerHeight + 10;
+			enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 20.0, 100.0);
+			playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
 			paramCost = data[3];		
 		} else {
 			console.log("cur spawn: " + enemySpawnRate + "   cur height: " + playerHeight + "   cost:" + paramCost);
