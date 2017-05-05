@@ -75,7 +75,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=1.5, mod = modify)
+			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=1.5, mod = modify, batch_size)
 
 			train_x = nnet.sigmoid(train_x)
 			
@@ -210,7 +210,7 @@ class Network(object):
 		# 	the output of the last layer in the net
 		self.output = layers[-1].output
 
-	def train_batch(self, train_data, learning_rate1, learning_rate2, mod):
+	def train_batch(self, train_data, learning_rate1, learning_rate2, mod, batch_size):
 		# separate training data into x & y
 		train_x, train_y = train_data
 
