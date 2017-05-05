@@ -116,7 +116,7 @@ function updateParams() {
 	// send message to the server
 	// console.log("sending job #" + modify);
 	socket.send(JSON.stringify(data));
-	console.log("sending [" + modify + "]: " + data[2]);
+	//console.log("sending [" + modify + "]: " + data[2]);
 	modify++; 
 	
 }
@@ -247,9 +247,10 @@ socket.on("data", function(data) {
 			
 			enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
 			playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
+			console.log("spawn (interval): " + enemySpawnRate + "   height (interval): " + playerHeight);
 			paramCost = data[3];		
 		} else {
-			console.log("cur spawn: " + enemySpawnRate + "   cur height: " + playerHeight + "   cost:" + paramCost);
+			//console.log("cur spawn: " + enemySpawnRate + "   cur height: " + playerHeight + "   cost:" + paramCost);
 		}
 
 });
