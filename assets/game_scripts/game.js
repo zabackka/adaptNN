@@ -241,12 +241,12 @@ socket.on("data", function(data) {
 		
 		if (data[0] % 5 == 0 && data[0] != 0) {
 			console.log(data[0] + " spawn (raw): " + data[2] + "   height (raw): " + data[3]);
-			var enemySpawnRateRaw = ((data[2] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
-			var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
-			console.log(data[0] + "spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
+			// var enemySpawnRateRaw = ((data[2] * 1000000000000) - Math.floor(data[1]*1000000000000)) * 10;
+			// var playerHeightRaw = ((data[3] * 1000000000000) - Math.floor(data[2]*1000000000000)) * 10;
+			// console.log(data[0] + "spawn (mod): " + enemySpawnRateRaw + "   height (mod): " + playerHeightRaw);
 			
-			enemySpawnRate = intervalMap(enemySpawnRateRaw, 0, 100, 20, 50);
-			playerHeight = intervalMap(playerHeightRaw, 0, 100, 60, 200);
+			enemySpawnRate = intervalMap(data[2], 0, 1, 20, 50);
+			playerHeight = intervalMap(data[3], 0, 1, 60, 200);
 			paramCost = data[3];		
 		} else {
 			console.log("cur spawn: " + enemySpawnRate + "   cur height: " + playerHeight + "   cost:" + paramCost);
