@@ -69,7 +69,7 @@ var enemySpawnRate = 50;
 
 
 ///// PLAYER /////
-var playerHeight = 200; 
+var playerHeight = 100; 
 var playerWidth = 60;
 var playerSpeed = 10;  
 
