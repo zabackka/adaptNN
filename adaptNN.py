@@ -259,7 +259,7 @@ class Network(object):
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
 		modify_environment = theano.function([index],
-			[network_cost],
+			[input_cost],
 			updates=environment_updates,
 			givens={self.x: train_x,
 					self.y: train_y},
