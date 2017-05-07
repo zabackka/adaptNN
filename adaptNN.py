@@ -21,16 +21,18 @@ def main():
 	# build NN structure
 	layers = []
 	# init input_layer
-	input_layer = FullyConnectedLayer(num_params, 5, activation=T.nnet.sigmoid)
+	input_layer = FullyConnectedLayer(num_params, 7, activation=T.nnet.sigmoid)
+	first_layer = FullyConnectedLayer(5, 7, activation=T.nnet.sigmoid)
 	layers.append(input_layer)
+	layers.append(first_layer)
 	
 	# init hidden layers
 	for i in range(0, 10):
-		temp = FullyConnectedLayer(5, 5, activation=T.nnet.sigmoid)
+		temp = FullyConnectedLayer(7, 7, activation=T.nnet.sigmoid)
 		layers.append(temp)
 	
 	# init output_layer
-	output_layer = FullyConnectedLayer(5, 1, activation=T.nnet.sigmoid)
+	output_layer = FullyConnectedLayer(7, 1, activation=T.nnet.sigmoid)
 	layers.append(output_layer)
 	
 	# create net object
