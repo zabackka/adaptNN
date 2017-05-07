@@ -25,7 +25,7 @@ def main():
 	layers.append(input_layer)
 	
 	# init hidden layers
-	for i in range(0, 20):
+	for i in range(0, 10):
 		temp = FullyConnectedLayer(5, 5, activation=T.nnet.sigmoid)
 		layers.append(temp)
 	
@@ -36,7 +36,7 @@ def main():
 	# create net object
 	net = Network(layers)
 
-	batch_size = 100
+	batch_size = 500
 
 
 	# continously listen for new data from server
