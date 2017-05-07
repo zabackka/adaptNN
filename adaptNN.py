@@ -54,7 +54,7 @@ def main():
 			## PARSE TRAINING DATA ##
 			modify = msg[0]
 			job_id = msg[1]
-bg			performance = msg[3]bg
+			performance = msg[3]
 			num_params = int(len(params))
 
 			# create new storage vars for training data
