@@ -90,8 +90,9 @@ function updateTime() {
 	$("#player .value").html($("#player")[0].player.value);
 
 	// update player performance measure
-	PLAYER_PERFORMANCE = (CURRENT_TIME - numCollisions) / CURRENT_TIME;
+	
 	if (performance_timer == 20) {
+		PLAYER_PERFORMANCE = (CURRENT_TIME - numCollisions) / CURRENT_TIME;
 		performance_timer = 0;
 	}
 	performance_timer++;
