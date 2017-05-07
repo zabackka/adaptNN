@@ -269,8 +269,8 @@ class Network(object):
 		pred = self.output
 		predict = theano.function([index],
 			pred,
-			givens={self.x: train_x,
-					self.y: train_y},
+			givens={self.x: train_x[0][0:2],
+					self.y: train_y[0][0]},
 			on_unused_input= 'ignore')
 
 		#** PRINT CHECK STATEMENTS **#
@@ -284,13 +284,11 @@ class Network(object):
 		# train the network, modify the environment params & predict performance
 		train(0)
 		
-		# modify environment parameters
-		# if mod == 0:
-		# 	param_cost = modify_environment(0)
-		# else: 
-		# 	param_cost = 0.
-
-		param_cost = modify_environment(0)
+		modify environment parameters
+		if mod == 0:
+			param_cost = modify_environment(0)
+		else: 
+			param_cost = 0.0
 		
 		# make a prediction about the performance
 		prediction = predict(0)
