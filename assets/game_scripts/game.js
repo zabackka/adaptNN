@@ -95,6 +95,7 @@ function updateTime() {
 	//reset performance timer
 	if (performance_timer == 5) {
 		performance_timer = 1;
+		numCollisions = 0;
 	}
 	performance_timer++;
 
