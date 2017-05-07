@@ -44,3 +44,11 @@ train_x: [ 37.5  50. ]train_Y:0.01train_x: [ 4.8828125  4.8828125]train_Y:0.05tr
   File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/elemwise.py", line 603, in __eq__
     other_items = list(other.inplace_pattern.items())
 KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+train_x: [ 37.5  50. ]train_Y:0.0train_x: [ 4.8828125  4.8828125]train_Y:0.09train_x: [ 1.66015625  1.66015625]train_Y:0.05train_x: [ 77.1484375  77.1484375]train_Y:0.05train_x: [ 4.8828125  4.8828125]train_Y:0.07train_x: [ 1.66015625  1.66015625]train_Y:0.04train_x: [ 77.1484375  77.1484375]train_Y:0.04train_x: [ 4.8828125  4.8828125]train_Y:0.05train_x: [ 1.66015625  1.66015625]train_Y:0.03train_x: [ 77.1484375  77.1484375]train_Y:0.07train_x: [ 4.8828125  4.8828125]train_Y:0.05train_x: [ 1.66015625  1.66015625]train_Y:0.07train_x: [ 77.1484375  77.1484375]train_Y:0.03train_x: [ 4.8828125  4.8828125]train_Y:0.04train_x: [ 1.66015625  1.66015625]train_Y:0.02train_x: [ 77.1484375  77.1484375]train_Y:0.03train_x: [ 4.8828125  4.8828125]train_Y:0.04train_x: [ 1.66015625  1.66015625]train_Y:0.08train_x: [ 77.1484375  77.1484375]train_Y:0.07train_x: [ 4.8828125  4.8828125]train_Y:0.06train_x: [ 1.66015625  1.66015625]train_Y:0.04train_x: [ 77.1484375  77.1484375]train_Y:0.05train_x: [ 4.8828125  4.8828125]train_Y:0.02Traceback (most recent call last):
+  File "adaptNN.py", line 304, in <module>
+    main()
+  File "adaptNN.py", line 51, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
