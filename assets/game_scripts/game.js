@@ -89,17 +89,6 @@ function updateTime() {
 	// update value in html to reflect current score
 	$("#player .value").html($("#player")[0].player.value);
 
-	// update player performance measure
-	PLAYER_PERFORMANCE = 1 - (numCollisions / performance_timer);
-
-	//reset performance timer
-	if (performance_timer == 30) {
-		performance_timer = 1;
-		numCollisions = 0;
-	}
-	performance_timer++;
-
-
 }
 
 // send gathered data to server for processing
@@ -112,6 +101,9 @@ function sendData() {
 	var params = [p1, p2];
 
 	// store player performance to send to server
+	// update player performance measure
+	PLAYER_PERFORMANCE = 1 - (numCollisions / 5);
+	numCollisions = 0;
 	var performance = PLAYER_PERFORMANCE; 
 
 	// package up message to send to server
