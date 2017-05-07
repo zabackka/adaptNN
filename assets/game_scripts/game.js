@@ -17,7 +17,7 @@ var REFRESH_RATE = 10;
 var CURRENT_TIME = 0;
 
 var numCollisions = 0; 
-var PLAYER_PERFORMANCE = 0.0;
+var PLAYER_PERFORMANCE = 100.0;
 var performance_timer = 0;
 var NNprediction = 0.0;
 var paramCost = 0.0;
@@ -91,7 +91,7 @@ function updateTime() {
 
 	// update player performance measure
 	
-	if (performance_timer == 20) {
+	if (performance_timer == 5) {
 		PLAYER_PERFORMANCE = (CURRENT_TIME - numCollisions) / CURRENT_TIME;
 		performance_timer = 0;
 	}
