@@ -259,7 +259,7 @@ socket.on("data", function(data) {
 		// retrieve the network's calculated cost for updated params
 		paramCost = data[3];
 
-		sendData();		
+		setTimeout(function() {  sendData();  }, 5000);		
 
 });
 
