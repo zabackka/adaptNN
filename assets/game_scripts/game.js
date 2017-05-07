@@ -17,7 +17,7 @@ var REFRESH_RATE = 10;
 var CURRENT_TIME = 0;
 
 var numCollisions = 0; 
-var PLAYER_PERFORMANCE = 1.0;
+var PLAYER_PERFORMANCE = 0.0;
 var performance_timer = 1;
 var NNprediction = 0.0;
 var paramCost = 0.0;
