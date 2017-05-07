@@ -18,6 +18,7 @@ var CURRENT_TIME = 0;
 
 var numCollisions = 0; 
 var PLAYER_PERFORMANCE = 0.0;
+var performance_timer = 0;
 var NNprediction = 0.0;
 var paramCost = 0.0;
 var outgoingID = 0; 
@@ -90,6 +91,11 @@ function updateTime() {
 
 	// update player performance measure
 	PLAYER_PERFORMANCE = (CURRENT_TIME - numCollisions) / CURRENT_TIME;
+	if (performance_timer == 20) {
+		performance_timer = 0;
+	}
+	performance_timer++;
+
 
 }
 
