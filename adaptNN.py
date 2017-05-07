@@ -64,8 +64,6 @@ def main():
 
 			for x in range(0, batch_size):
 				train_datay[x][0] = performance + 0.5
-
-			numpy.transpose(train_datay)
 			
 			sys.stderr.write("train y: " + str(train_datay) + "\n")
 
@@ -125,6 +123,7 @@ def load_data(train_datax, train_datay):
 	def shared(data):
 		shared_x = theano.shared(numpy.asarray(data[0], dtype=theano.config.floatX), borrow=True)
 		shared_y = theano.shared(numpy.asarray(data[1], dtype=theano.config.floatX), borrow=True)
+		shared_y = T.shared_y
 		return shared_x, shared_y
 	
 	# return training data
