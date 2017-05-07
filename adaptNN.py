@@ -73,12 +73,8 @@ def main():
 						train_datax[x][y] = params[y]
 						# sys.stderr.write(" " + str(train_datax[x][y]))
 					else:
-						if (x % 2 == 0): 
-							train_datax[x][y] = params[y] + 1
-							# sys.stderr.write(" " + str(train_datax[x][y]))
-						else:
-							train_datax[x][y] = params[y] - 1
-							# sys.stderr.write(" " + str(train_datax[x][y]))
+						train_datax[x][y] = random(params[y] - 5, params + 5)
+						# sys.stderr.write(" " + str(train_datax[x][y]))
 			# 	sys.stderr.write("\n")
 			# sys.stderr.write("\n")
 
