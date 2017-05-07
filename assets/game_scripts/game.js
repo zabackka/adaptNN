@@ -18,7 +18,7 @@ var CURRENT_TIME = 0;
 
 var numCollisions = 0; 
 var PLAYER_PERFORMANCE = 100.0;
-var performance_timer = 0;
+var performance_timer = 1;
 var NNprediction = 0.0;
 var paramCost = 0.0;
 var outgoingID = 0; 
@@ -94,7 +94,7 @@ function updateTime() {
 
 	//reset performance timer
 	if (performance_timer == 5) {
-		performance_timer = 0;
+		performance_timer = 1;
 	}
 	performance_timer++;
 
