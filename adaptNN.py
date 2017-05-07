@@ -251,8 +251,8 @@ class Network(object):
 		train = theano.function([index], 
 			[network_cost], 
 			updates=network_updates,
-			givens={self.x: train_x[index * batch_size: (index + 1) * batch_size],
-					self.y: train_y[index * batch_size: (index + 1) * batch_size]},
+			givens={self.x: train_x,
+					self.y: train_y},
 			on_unused_input='ignore')
 		
 		# update the input params based on their effect on network output
@@ -260,15 +260,15 @@ class Network(object):
 		modify_environment = theano.function([index],
 			[network_cost],
 			updates=environment_updates,
-			givens={self.x: train_x[index * batch_size: (index + 1) * batch_size],
-					self.y: train_y[index * batch_size: (index + 1) * batch_size]},
+			givens={self.x: train_x,
+					self.y: train_y},
 			on_unused_input='ignore')
 
 		pred = self.output
 		predict = theano.function([index],
 			pred,
-			givens={self.x: train_x[index * batch_size: (index + 1) * batch_size],
-					self.y: train_y[index * batch_size: (index + 1) * batch_size]},
+			givens={self.x: train_x,
+					self.y: train_y},
 			on_unused_input= 'ignore')
 
 		#** PRINT CHECK STATEMENTS **#
