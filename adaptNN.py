@@ -60,10 +60,12 @@ def main():
 
 			# create new storage vars for training data
 			train_datax = numpy.empty((batch_size, num_params))
-			train_datay = numpy.empty((batch_size, 1))
+			train_datay = numpy.empty(batch_size)
 
 			for x in range(0, batch_size):
 				train_datay[x][0] = performance + 0.5
+
+			numpy.transpose(train_datay)
 			
 			sys.stderr.write("train y: " + str(train_datay) + "\n")
 
