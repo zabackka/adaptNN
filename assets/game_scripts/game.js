@@ -102,7 +102,7 @@ function sendData() {
 
 	// store player performance to send to server
 	// update player performance measure
-	PLAYER_PERFORMANCE = 1 - (numCollisions / 5);
+	PLAYER_PERFORMANCE = numCollisions;
 	numCollisions = 0;
 	var performance = PLAYER_PERFORMANCE; 
 
