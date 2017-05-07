@@ -17,7 +17,7 @@ var REFRESH_RATE = 10;
 var CURRENT_TIME = 0;
 
 var numCollisions = 0; 
-var PLAYER_PERFORMANCE = 100.0;
+var PLAYER_PERFORMANCE = 1.0;
 var performance_timer = 1;
 var NNprediction = 0.0;
 var paramCost = 0.0;
@@ -37,7 +37,7 @@ function displayTime() {
 
 function printEnvironmentParams() {
 	$('#environment_params').html
-		("PERFORMANCE: " + PLAYER_PERFORMANCE.toFixed(4) 
+		("PERFORMANCE: " + (PLAYER_PERFORMANCE.toFixed(4) * 100) 
 			+ "   |   NN PREDICTION: " + NNprediction.toFixed(4) 
 			+ "   |   PARAM COST: " + paramCost.toFixed(4) 
 			//+ "   |   NUM COLLISIONS: " + numCollisions
