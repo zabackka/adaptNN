@@ -115,8 +115,8 @@ function sendData() {
 	socket.send(JSON.stringify(data));
 
 	// add new data to package to send next time
-	data_package.push(params[0]);
-	data_package.push(params[1]);
+	data_package.push(enemySpawnRate);
+	data_package.push(playerHeight);
 	data_package.push(performance);
 
 	console.log("sending [" + outgoingID + "]: " + data[2] + " " + data[3]);
@@ -267,7 +267,7 @@ socket.on("data", function(data) {
 		
 		socket.emit("log", JSON.stringify(data_package));
 		data_package = [];
-		
+
 		setTimeout(function() {  sendData();  }, 10000);		
 
 });
