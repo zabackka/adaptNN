@@ -123,7 +123,6 @@ def load_data(train_datax, train_datay):
 	def shared(data):
 		shared_x = theano.shared(numpy.asarray(data[0], dtype=theano.config.floatX), borrow=True)
 		shared_y = theano.shared(numpy.asarray(data[1], dtype=theano.config.floatX), borrow=True)
-		shared_y = T.shared_y
 		return shared_x, shared_y
 	
 	# return training data
@@ -172,7 +171,7 @@ class FullyConnectedLayer(object):
 		# feed forward
 		#	multiply the input values by their corresponding weights (& add bias)
 		output = (T.dot(self.input, self.W) + self.b)
-		# output = output.T
+		output = output.T
 
 		# apply activation function (if applicable)
 		self.output = (
