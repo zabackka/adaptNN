@@ -285,10 +285,12 @@ class Network(object):
 		train(0)
 		
 		# modify environment parameters
-		if mod == 0:
-			param_cost = modify_environment(0)
-		else: 
-			param_cost = 0.0
+		# if mod == 0:
+		# 	param_cost = modify_environment(0)
+		# else: 
+		# 	param_cost = 0.
+
+		param_cost = modify_environment(0)
 		
 		# make a prediction about the performance
 		prediction = predict(0)
