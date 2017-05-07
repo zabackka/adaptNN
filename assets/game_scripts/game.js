@@ -115,7 +115,7 @@ function sendData() {
 	var performance = PLAYER_PERFORMANCE; 
 
 	// package up message to send to server
-	data = [0, outgoingID, params, performance];
+	data = [[enemySpawnRate, p1, playerHeight, p2,  performance], [0, outgoingID, params, performance]];
 
 	// send message to the server
 	socket.send(JSON.stringify(data));
