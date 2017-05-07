@@ -225,7 +225,9 @@ class Network(object):
 	def train_batch(self, train_data, learning_rate1, learning_rate2, mod, batch_size):
 		# separate training data into x & y
 		train_x, train_y = train_data
-
+		sys.stderr.write("train_x: " + train_x[0][0:2])
+		sys.stderr.write("train_Y:" + train_y[0][0])
+		
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
 		network_cost = self.layers[-1].network_cost(self)
@@ -269,8 +271,8 @@ class Network(object):
 		pred = self.output
 		predict = theano.function([index],
 			pred,
-			givens={self.x: train_x[0][0:2],
-					self.y: train_y[0][0]},
+			givens={self.x: train_x,
+					self.y: train_y},
 			on_unused_input= 'ignore')
 
 		#** PRINT CHECK STATEMENTS **#
