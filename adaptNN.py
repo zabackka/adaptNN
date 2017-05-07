@@ -202,7 +202,8 @@ class Network(object):
 
 		# symbolic variables that will be set during SGD
 		self.x = T.matrix("x")
-		self.y = T.dvector("y")
+		# self.y = T.dvector("y")
+		self.y = T.matrix("y")
 
 		# store the parameters of each layer in the network
 		# create a list of all shared variables in the network [all W/b variables]
