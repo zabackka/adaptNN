@@ -69,11 +69,11 @@ io.sockets.on("connection", function(socket) {
 
 	});
 
-	socket.on("log", function(log)) {
+	socket.on("log", function(log) {
 		//log when data was sent, along with the results (i.e. performance) for those specific param values
 		var date = new Date();
 		writeStream.write(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds() + ",");
-	}
+	});
 
 	// process and send output from python child process to client
 	py.stdout.on('data', (data) => {
