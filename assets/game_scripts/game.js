@@ -37,7 +37,7 @@ function displayTime() {
 
 function printEnvironmentParams() {
 	$('#environment_params').html
-		("PERFORMANCE: " + (PLAYER_PERFORMANCE.toFixed(4) * 100) 
+		("PERFORMANCE: " + (PLAYER_PERFORMANCE * 100).toFixed(4) 
 			+ "   |   NN PREDICTION: " + NNprediction.toFixed(4) 
 			+ "   |   PARAM COST: " + paramCost.toFixed(4) 
 			//+ "   |   NUM COLLISIONS: " + numCollisions
