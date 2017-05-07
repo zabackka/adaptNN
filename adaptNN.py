@@ -21,22 +21,22 @@ def main():
 	# build NN structure
 	layers = []
 	# init input_layer
-	input_layer = FullyConnectedLayer(num_params, 1, activation=T.nnet.sigmoid)
+	input_layer = FullyConnectedLayer(num_params, 5, activation=T.nnet.sigmoid)
 	layers.append(input_layer)
 	
 	# init hidden layers
 	for i in range(0, 10):
-		temp = FullyConnectedLayer(1, 1, activation=T.nnet.sigmoid)
+		temp = FullyConnectedLayer(5, 5, activation=T.nnet.sigmoid)
 		layers.append(temp)
 	
 	# init output_layer
-	output_layer = FullyConnectedLayer(1, 1, activation=T.nnet.sigmoid)
+	output_layer = FullyConnectedLayer(5, 1, activation=T.nnet.sigmoid)
 	layers.append(output_layer)
 	
 	# create net object
 	net = Network(layers)
 
-	batch_size = 5
+	batch_size = 10
 
 
 	# continously listen for new data from server
