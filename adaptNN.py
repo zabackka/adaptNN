@@ -5,6 +5,7 @@ import theano.tensor.nnet as nnet
 import numpy
 import sys
 import json
+import random
 
 ## INITIAL THEANO CONFIG ##
 # set verbosity of theano exceptions
