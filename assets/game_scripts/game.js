@@ -93,7 +93,7 @@ function updateTime() {
 	PLAYER_PERFORMANCE = 1 - (numCollisions / performance_timer);
 
 	//reset performance timer
-	if (performance_timer == 5) {
+	if (performance_timer == 30) {
 		performance_timer = 1;
 		numCollisions = 0;
 	}
