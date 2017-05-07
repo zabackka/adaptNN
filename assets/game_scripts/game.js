@@ -248,19 +248,18 @@ socket.on("data", function(data) {
 		
 		data[2] = data[2] * 10000000000000 - Math.floor(data[2] * 10000000000000)
 		data[3] = data[3] * 10000000000000 - Math.floor(data[3] * 10000000000000)
-		console.log("#" + data[0] + " (raw): " + data[2] + " (raw): " + data[3]);
+		// console.log("#" + data[0] + " (raw): " + data[2] + " (raw): " + data[3]);
 		
 		// calculate the new param values based on network's updates
 		enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
 		playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
 		
-		console.log("#" + data[0] + " (interval): " + enemySpawnRate + " (interval): " + playerHeight);
+		// console.log("#" + data[0] + " (interval): " + enemySpawnRate + " (interval): " + playerHeight);
 		
 		// retrieve the network's calculated cost for updated params
-		paramCost = data[3];		
+		paramCost = data[3];
 
-		// send new data to server after observing for 5 seconds
-		setTimeout(function() { sendData(); }, 0); 
+		sendData();		
 
 });
 
