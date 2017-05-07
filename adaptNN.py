@@ -54,13 +54,12 @@ def main():
 			## PARSE TRAINING DATA ##
 			modify = msg[0]
 			job_id = msg[1]
-			params = msg[2]
-			performance = msg[3]
+bg			performance = msg[3]bg
 			num_params = int(len(params))
 
 			# create new storage vars for training data
 			train_datax = numpy.empty((batch_size, num_params))
-			train_datay = numpy.empty(batch_size)
+			train_datay = numpy.empty((batch_size, 1))
 
 			for x in range(0, batch_size):
 				train_datay[x] = performance
@@ -258,7 +257,7 @@ class Network(object):
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
 		modify_environment = theano.function([index],
-			[network_cost],
+			[input_cost],
 			updates=environment_updates,
 			givens={self.x: train_x[index * batch_size: (index + 1) * batch_size],
 					self.y: train_y[index * batch_size: (index + 1) * batch_size]},
