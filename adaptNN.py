@@ -54,6 +54,7 @@ def main():
 			## PARSE TRAINING DATA ##
 			modify = msg[0]
 			job_id = msg[1]
+			params = msg[2]
 			performance = msg[3]
 			num_params = int(len(params))
 
