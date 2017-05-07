@@ -37,7 +37,7 @@ function displayTime() {
 
 function printEnvironmentParams() {
 	$('#environment_params').html
-		("PERFORMANCE: " + (PLAYER_PERFORMANCE * 100).toFixed(4) 
+		("PERFORMANCE: " + PLAYER_PERFORMANCE.toFixed(4) 
 			+ "   |   NN PREDICTION: " + NNprediction.toFixed(4) 
 			+ "   |   PARAM COST: " + paramCost.toFixed(4) 
 			//+ "   |   NUM COLLISIONS: " + numCollisions
@@ -102,7 +102,7 @@ function sendData() {
 
 	// store player performance to send to server
 	// update player performance measure
-	PLAYER_PERFORMANCE = numCollisions;
+	PLAYER_PERFORMANCE = intervalMap(numCollisions, 0.0, 100.0, 0.0, 1.0);
 	numCollisions = 0;
 	var performance = PLAYER_PERFORMANCE; 
 
