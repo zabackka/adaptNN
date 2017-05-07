@@ -36,7 +36,7 @@ def main():
 	# create net object
 	net = Network(layers)
 
-	batch_size = 500
+	batch_size = 10000
 
 
 	# continously listen for new data from server

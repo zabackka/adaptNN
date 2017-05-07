@@ -105,8 +105,8 @@ function updateTime() {
 // send gathered data to server for processing
 function sendData() {
 	// map environment params to the same interval
-	p1 = intervalMap(enemySpawnRate, 200.0, 600.0, 0.0, 100.0);
-	p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
+	var p1 = intervalMap(enemySpawnRate, 200.0, 600.0, 0.0, 100.0);
+	var p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
 
 	// all params stored in array to be sent to server
 	var params = [p1, p2];
@@ -236,7 +236,7 @@ $.playground().registerCallback(function() {
 $.playground().startGame();
 
 //send initial data to server
-sendData();
+setTimeout(function() {  sendData(); }, 5000); 
 
 // LISTEN continually for server messages // 
 // triggered when a message is sent from server
