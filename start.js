@@ -61,7 +61,6 @@ io.sockets.on("connection", function(socket) {
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
-		console.log("MESSAGE");
 		// parse message & display to console
 		data = JSON.parse(data);	
 		
