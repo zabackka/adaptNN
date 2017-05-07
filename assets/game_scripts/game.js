@@ -23,6 +23,8 @@ var NNprediction = 0.0;
 var paramCost = 0.0;
 var outgoingID = 0; 
 
+var data_package = []
+
 
 var GAME_TIMER = setInterval(updateTime, 1000);
 var HIGH_SCORE = 0;
@@ -107,11 +109,16 @@ function sendData() {
 	var performance = PLAYER_PERFORMANCE; 
 
 	// package up message to send to server
-	data = [[enemySpawnRate, p1, playerHeight, p2,  performance], [0, outgoingID, params, performance]];
+	data = [0, outgoingID, params, performance];
 
 	// send message to the server
 	socket.send(JSON.stringify(data));
-	
+
+	// add new data to package to send next time
+	data_package.push(params[0]);
+	data_package.push(params[1]);
+	data_package.push(performance);
+
 	console.log("sending [" + outgoingID + "]: " + data[2] + " " + data[3]);
 	
 	// increment ID counter
@@ -238,6 +245,8 @@ socket.on("data", function(data) {
 		// retrive the network's prediciton for performance
 		NNprediction = data[1];
 		
+		data_package.push(NNprediction);
+
 		data[2] = data[2] * 10000000000000 - Math.floor(data[2] * 10000000000000)
 		data[3] = data[3] * 10000000000000 - Math.floor(data[3] * 10000000000000)
 		// console.log("#" + data[0] + " (raw): " + data[2] + " (raw): " + data[3]);
@@ -246,12 +255,20 @@ socket.on("data", function(data) {
 		enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
 		playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
 		
+		data_package.push(enemySpawnRate);
+		data_package.push(playerHeight);
+
 		// console.log("#" + data[0] + " (interval): " + enemySpawnRate + " (interval): " + playerHeight);
 		
 		// retrieve the network's calculated cost for updated params
 		paramCost = data[3];
 
-		setTimeout(function() {  sendData();  }, 5000);		
+		data_package.push(paramCost);
+		
+		socket.emit("log", JSON.stringify(data_package));
+		data_package = [];
+		
+		setTimeout(function() {  sendData();  }, 10000);		
 
 });
 
