@@ -237,6 +237,8 @@ socket.on("data", function(data) {
 		// retrive the network's prediciton for performance
 		NNprediction = data[1];
 		
+		data[2] = data[2] * 10000000000000 - Math.floor(data[2] * 10000000000000)
+		data[3] = data[3] * 10000000000000 - Math.floor(data[3] * 10000000000000)
 		console.log("#" + data[0] + " (raw): " + data[2] + " (raw): " + data[3]);
 		
 		// calculate the new param values based on network's updates
@@ -248,7 +250,7 @@ socket.on("data", function(data) {
 		// retrieve the network's calculated cost for updated params
 		paramCost = data[3];		
 
-		// send new data to server after observing to 5 seconds
+		// send new data to server after observing for 5 seconds
 		setTimeout(function() { sendData(); }, 5000); 
 
 });
