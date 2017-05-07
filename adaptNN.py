@@ -25,7 +25,7 @@ def main():
 	layers.append(input_layer)
 	
 	# init hidden layers
-	for i in range(0, 10):
+	for i in range(0, 30):
 		temp = FullyConnectedLayer(5, 5, activation=T.nnet.sigmoid)
 		layers.append(temp)
 	
@@ -65,22 +65,22 @@ def main():
 			for x in range(0, batch_size):
 				train_datay[x] = performance
 			
-			sys.stderr.write("train y: " + str(train_datay) + "\n")
+			# sys.stderr.write("train y: " + str(train_datay) + "\n")
 
 			for x in range(0, batch_size):
 				for y in range(0, num_params):
 					if x == 0:
 						train_datax[x][y] = params[y]
-						sys.stderr.write(" " + str(train_datax[x][y]))
+						# sys.stderr.write(" " + str(train_datax[x][y]))
 					else:
 						if (x % 2 == 0): 
 							train_datax[x][y] = params[y] + 1
-							sys.stderr.write(" " + str(train_datax[x][y]))
+							# sys.stderr.write(" " + str(train_datax[x][y]))
 						else:
 							train_datax[x][y] = params[y] - 1
-							sys.stderr.write(" " + str(train_datax[x][y]))
-				sys.stderr.write("\n")
-			sys.stderr.write("\n")
+							# sys.stderr.write(" " + str(train_datax[x][y]))
+			# 	sys.stderr.write("\n")
+			# sys.stderr.write("\n")
 
 
 			## LEARN FROM NEW DATA ##
