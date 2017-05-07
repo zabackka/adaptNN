@@ -62,7 +62,7 @@ bg			performance = msg[3]bg
 			train_datay = numpy.empty((batch_size, 1))
 
 			for x in range(0, batch_size):
-				train_datay[x] = performance
+				train_datay[x][0] = performance
 			
 			sys.stderr.write("train y: " + str(train_datay) + "\n")
 
