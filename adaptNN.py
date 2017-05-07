@@ -75,7 +75,7 @@ def main():
 						# sys.stderr.write(" " + str(train_datax[x][y]))
 					else:
 						# train_datax[x][y] = random(params[y] - 5, params + 5)
-						sys.stderr.write(" " + str(random.randrange(params[y] - 5, params + 5)))
+						sys.stderr.write(" " + str(random.randrange(params[y] - 5, params[y] + 5)))
 			# 	sys.stderr.write("\n")
 			# sys.stderr.write("\n")
 
