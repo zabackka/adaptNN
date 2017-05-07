@@ -284,7 +284,7 @@ class Network(object):
 		# train the network, modify the environment params & predict performance
 		train(0)
 		
-		modify environment parameters
+		# modify environment parameters
 		if mod == 0:
 			param_cost = modify_environment(0)
 		else: 
