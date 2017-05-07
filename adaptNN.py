@@ -271,8 +271,8 @@ class Network(object):
 		pred = self.output
 		predict = theano.function([index],
 			pred,
-			givens={self.x: train_x[0][0:2],
-					self.y: train_y[0][0]},
+			givens={self.x: train_x[0:1][0:2],
+					self.y: train_y[0:1][0]},
 			on_unused_input= 'ignore')
 
 		#** PRINT CHECK STATEMENTS **#
