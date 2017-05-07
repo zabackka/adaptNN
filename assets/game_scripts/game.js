@@ -251,7 +251,7 @@ socket.on("data", function(data) {
 		paramCost = data[3];		
 
 		// send new data to server after observing for 5 seconds
-		setTimeout(function() { sendData(); }, 5000); 
+		// setTimeout(function() { sendData(); }, 5000); 
 
 });
 
