@@ -63,7 +63,7 @@ def main():
 			train_datay = numpy.empty((batch_size, 1))
 
 			for x in range(0, batch_size):
-				train_datay[x][0] = performance + 0.0
+				train_datay[x][0] = performance + 0.5
 			
 			sys.stderr.write("train y: " + str(train_datay) + "\n")
 
