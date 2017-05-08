@@ -304,7 +304,7 @@ class Network(object):
 		prediction = predict(0)
 
 		# return data to be sent back to the server
-		return [train_x, prediction, network_cost[0], param_cost[0]]
+		return [train_x, prediction, network_cost, param_cost[0]]
 
 
 
