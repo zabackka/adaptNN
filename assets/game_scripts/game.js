@@ -268,7 +268,7 @@ socket.on("data", function(data) {
 		// retrieve the network's calculated cost for updated params
 		network_cost = data[4];
 		
-		console.log("new param1: " + data[2]);
+		// console.log("new param1: " + data[2]);
 		
 		// retrieve param cost
 		if (data[5 ] != 0.0) {
@@ -280,6 +280,7 @@ socket.on("data", function(data) {
 		socket.emit("log", JSON.stringify(data_package));
 		data_package = [];
 
+		console.log(data_package[2])
 		var modify = 1;
 		// only modify if NN is within a threshold of prediciton correctness
 		if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
