@@ -85,10 +85,11 @@ def main():
 			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 
-			train_x = nnet.sigmoid(train_x)
+			# train_x = nnet.sigmoid(train_x)
 			
 			# store modified input values and parse
 			storeTrain = train_x.eval()
+			
 			# intialize message array to send back to server
 			sendBack = []
 			sendBack.append(job_id)
@@ -97,9 +98,9 @@ def main():
 			sendBack.append(float(prediction[0][0]))
 			
 			# append all modified enviroment params to message array
-			for x in storeTrain[0]:
-				sendBack.append(x)
-				sys.stderr.write(str(x) + "  ")
+			for x in range(0, num_params):
+				sendBack.append(storeTrain[0][x])
+				sys.stderr.write(str(storeTrain[0][x]) + "  ")
 
 			# sys.stderr.write("\n\n")
 			sendBack.append(float(network_cost[0]))
