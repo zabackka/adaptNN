@@ -281,7 +281,8 @@ socket.on("data", function(data) {
 		data_package = [];
 
 		var modify = 1;
-		if (network_cost < 0.0002) {
+		// only modify if NN is within a threshold of prediciton correctness
+		if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
 			modify = 0;
 			modStatus = 0;
 		}
