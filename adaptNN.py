@@ -280,8 +280,8 @@ class Network(object):
 		
 		# modify environment parameters
 		if mod == 0:
-			param_cost, gradient = modify_environment(0)
-			sys.stderr.write(str(gradient) + "\n")
+			param_cost = modify_environment(0)
+			sys.stderr.write(str(param_cost[1]) + "\n")
 		else: 
 			param_cost= [0.0]
 
@@ -289,7 +289,7 @@ class Network(object):
 		prediction = predict(0)
 
 		# return data to be sent back to the server
-		return [train_x, prediction, network_cost, param_cost]
+		return [train_x, prediction, network_cost, param_cost[0]]
 
 
 
