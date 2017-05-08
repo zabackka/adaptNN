@@ -45,15 +45,15 @@ function printEnvironmentParams() {
 		("PERFORMANCE: " + PLAYER_PERFORMANCE.toFixed(4) 
 			+ "   |   NN PREDICTION: " + NNprediction.toFixed(4) 
 			+ "   |   PARAM COST: " + paramCost.toFixed(4) 
-			+ "   |   NETWORK COST: " + network_cost.toFixed(4)
-			+ "   |   MODIFICATION STATUS (0-T // 1-F): " + modStatus
+			+ "   |   NETWORK COST: " + network_cost.toFixed(7)
+			+ "   |   MOD STATUS (0=T/1=F): " + modStatus
 			//+ "   |   NUM COLLISIONS: " + numCollisions
 			//+ "   |   enemy height: <b>" + enemyHeight.toFixed(4) 
 			//+ "</b>   |    enemy width: <b>" + enemyWidth.toFixed(4) 
 			//+ "</b>   |    enemy speed: <b>" + enemySpeed.toFixed(4) 
-			+ "</b>   |    enemy spawn rate: <b>" + enemySpawnRate.toFixed(4) 
+			+ "</b>   |    SPAWN RATE: <b>" + enemySpawnRate.toFixed(4) 
 			//+ "</b>   |    player width: <b>" + playerWidth.toFixed(4) 
-			+ "</b>   |    player height: <b>" + playerHeight.toFixed(4) 
+			+ "</b>   |    PLAYER HEIGHT: <b>" + playerHeight.toFixed(4) 
 			//+ "</b>   |    player speed: <b>" + playerSpeed.toFixed(4) 
 			+ "</b><p></p>");
 }
@@ -280,7 +280,7 @@ socket.on("data", function(data) {
 		data_package = [];
 
 		var modify = 1;
-		if (network_cost < 0.002) {
+		if (network_cost < 0.00002) {
 			modify = 0;
 			modStatus = 0;
 		}

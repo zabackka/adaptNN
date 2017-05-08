@@ -82,7 +82,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, network_cost, network_output, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=0.03, mod = modify, batch_size=batch_size)
+			train_x, prediction, network_cost, network_output, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 
 			train_x = nnet.sigmoid(train_x)
