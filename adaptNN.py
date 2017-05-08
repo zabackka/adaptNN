@@ -68,6 +68,7 @@ def main():
 			for y in range(0, num_params):
 				mod_datax[0][y] = params[y]
 			mod_datay = numpy.empty((1, 1))
+			sys.stderr.write("modx: " + str(mod_datax))
 			mod_datay[0] = performance
 
 
