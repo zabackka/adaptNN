@@ -284,7 +284,7 @@ socket.on("data", function(data) {
 			modify = 0;
 			modStatus = 0;
 		}
-		setTimeout(function() {  sendData(modify);  }, 10000);		
+		setTimeout(function() {  sendData(modify);  }, 0);		
 
 });
 
