@@ -260,7 +260,7 @@ class Network(object):
 		# define the train() function, which completes one "pass" through the network & updates weights
 		# this passes one batch of test data through the net
 		train = theano.function([index], 
-			[network_cost], 
+			[network_cost, self.output[0]], 
 			updates=network_updates,
 			givens={self.x: train_x,
 					self.y: train_y},
@@ -291,7 +291,7 @@ class Network(object):
 		# print(train_x.eval())	
 
 		# train the network, modify the environment params & predict performance
-		network_cost = train(0)
+		network_cost,  = train(0)
 		
 		# modify environment parameters
 		if mod == 0:
