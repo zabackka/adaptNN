@@ -268,8 +268,6 @@ socket.on("data", function(data) {
 		// retrieve the network's calculated cost for updated params
 		network_cost = data[4];
 		
-		// console.log("new param1: " + data[2]);
-		
 		// retrieve param cost
 		if (data[5 ] != 0.0) {
 			paramCost = data[5];
@@ -277,16 +275,19 @@ socket.on("data", function(data) {
 		
 		data_package.push(paramCost);
 		
+		// send log to server
 		socket.emit("log", JSON.stringify(data_package));
 
-		var modify = 1;
 		// only modify if NN is within a threshold of prediciton correctness
+		var modify = 1;
 		if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
 			modify = 0;
 			modStatus = 0;
 		}
 
+		// clear the data package
 		data_package = [];
+		// send new batch of data to server for processing
 		setTimeout(function() {  sendData(modify);  }, 0);		
 
 });
