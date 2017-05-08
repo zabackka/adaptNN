@@ -280,7 +280,7 @@ class Network(object):
 		# modify environment parameters
 		if mod == 0:
 			param_cost, gradient = modify_environment(0)
-			sys.stderr.write(str(gradient.eval()) + "\n")
+			sys.stderr.write(str(gradient) + "\n")
 		else: 
 			param_cost= [0.0]
 
