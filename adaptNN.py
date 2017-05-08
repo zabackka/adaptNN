@@ -99,7 +99,7 @@ def main():
 			# append all modified enviroment params to message array
 			for x in storeTrain[0]:
 				sendBack.append(x)
-				# sys.stderr.write(str(x) + "  ")
+				sys.stderr.write(str(x) + "  ")
 
 			# sys.stderr.write("\n\n")
 			sendBack.append(float(network_cost))
@@ -223,8 +223,6 @@ class Network(object):
 	def train_batch(self, train_data, learning_rate1, learning_rate2, mod, batch_size):
 		# separate training data into x & y
 		train_x, train_y = train_data
-		sys.stderr.write("train_x: " + str(train_x[0][0:2].eval()))
-		sys.stderr.write("train_Y:" + str(train_y[0][0].eval()))
 
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
@@ -284,7 +282,7 @@ class Network(object):
 
 		# train the network, modify the environment params & predict performance
 		network_cost, network_output = train(0)
-		sys.stderr.write("net cost: " + str(network_cost) + "\n")
+		# sys.stderr.write("net cost: " + str(network_cost) + "\n")
 		
 		# modify environment parameters
 		if mod == 0:
