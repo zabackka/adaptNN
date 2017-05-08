@@ -246,6 +246,7 @@ setTimeout(function() {  sendData(); }, 5000);
 // triggered when a message is sent from server
 socket.on("data", function(data) {
 		// console.log("processing job #" + data[0]);
+		console.log(data.length);
 
 		// retrive the network's prediciton for performance
 		NNprediction = data[1];
