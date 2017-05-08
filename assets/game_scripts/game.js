@@ -22,7 +22,9 @@ var performance_timer = 1;
 var NNprediction = 0.0;
 var paramCost = 0.0;
 var outgoingID = 0;
-var network_cost;  
+var network_cost= 1.0;  
+
+var modStatus = 1; 
 
 var data_package = []
 
@@ -44,6 +46,7 @@ function printEnvironmentParams() {
 			+ "   |   NN PREDICTION: " + NNprediction.toFixed(4) 
 			+ "   |   PARAM COST: " + paramCost.toFixed(4) 
 			+ "   |   NETWORK COST: " + network_cost.toFixed(4)
+			+ "   |   MODIFICATION STATUS (0-T // 1-F): " + modStatus
 			//+ "   |   NUM COLLISIONS: " + numCollisions
 			//+ "   |   enemy height: <b>" + enemyHeight.toFixed(4) 
 			//+ "</b>   |    enemy width: <b>" + enemyWidth.toFixed(4) 
@@ -272,7 +275,9 @@ socket.on("data", function(data) {
 		data_package = [];
 
 		var modify = 0;
-		// if (network_cost >  )
+		if (network_cost > 0.2) {
+			modify = 1;
+		}
 		setTimeout(function() {  sendData(modify);  }, 10000);		
 
 });
