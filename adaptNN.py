@@ -243,7 +243,7 @@ class Network(object):
 
 		input_gradients = T.grad(input_cost, self.x)
 		# environment_updates = [(train_x, T.nnet.sigmoid(train_x-learning_rate2*input_gradients))]
-		environment_updates = [(train_x, T.nnet.sigmoid(train_x-learning_rate2*input_gradients))]
+		environment_updates = [(train_x, (train_x-learning_rate2*input_gradients))]
 
 
 		# holds a dummy variable for input

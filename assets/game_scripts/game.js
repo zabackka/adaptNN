@@ -280,7 +280,7 @@ socket.on("data", function(data) {
 		data_package = [];
 
 		var modify = 1;
-		if (network_cost < 0.00002) {
+		if (network_cost < 0.0002) {
 			modify = 0;
 			modStatus = 0;
 		}
