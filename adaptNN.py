@@ -102,7 +102,7 @@ def main():
 				sys.stderr.write(str(x) + "  ")
 
 			# sys.stderr.write("\n\n")
-			sendBack.append(float(network_cost))
+			sendBack.append(float(network_cost[0]))
 			sendBack.append(float(network_output[0]))
 			sendBack.append(float(param_cost[0]))
 			
