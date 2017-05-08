@@ -57,7 +57,7 @@ io.sockets.on("connection", function(socket) {
 	py.stdout.setMaxListeners(Infinity);
  
 	// create stream to write data to .csv file (for later use)
-	var writeStream = fs.createWriteStream(SESSION_ID + "-" + clientID + ".csv", {flags: 'a'});
+	var writeStream = fs.createWriteStream("assets/" + SESSION_ID + "-" + clientID + ".csv", {flags: 'a'});
 
 	// triggered when client sends a message
 	socket.on("message", function(data) {
