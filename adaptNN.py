@@ -97,7 +97,8 @@ def main():
 
 			# append network & param cost to message array
 			sendBack.append(float(network_cost[0]))
-			sendBack.append(float(param_cost[0]))
+			# sendBack.append(float(param_cost[0]))
+			sendBack.append(float(param_cost))
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
 			# send modified input values back to server
