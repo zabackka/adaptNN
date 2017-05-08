@@ -281,9 +281,10 @@ class Network(object):
 		if mod == 0:
 			param_cost, gradient = modify_environment(0)
 		else: 
-			param_cost = [0.0]
+			param_cost= [0.0]
+			gradient = [0.0]
 
-		sys.stderr.write(str(gradient.eval()))
+		sys.stderr.write(str(gradient.eval()) + "\n")
 		
 		# make a prediction about the performance
 		prediction = predict(0)
