@@ -65,10 +65,11 @@ def main():
 			train_datay = numpy.empty((batch_size, 1))
 
 			mod_datax = numpy.empty((1, num_params))
+			mod_datay = numpy.empty((1, 1))
+
 			for y in range(0, num_params):
 				mod_datax[0][y] = params[y]
-			mod_datay = numpy.empty((1, 1))
-			sys.stderr.write("modx: " + str(mod_datax))
+
 			mod_datay[0] = performance
 
 
@@ -90,6 +91,8 @@ def main():
 			mod_x = theano.shared(numpy.asarray(mod_datax, dtype=theano.config.floatX), borrow=True)
 			mod_y = theano.shared(numpy.asarray(mod_datay, dtype=theano.config.floatX), borrow=True)
 			mod_data = [mod_x, mod_y]
+
+			sys.stderr.write(str(type(train_data)) + "  " str(type(mod_data)))
 			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 			# store modified input values and parse
