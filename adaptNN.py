@@ -281,7 +281,7 @@ class Network(object):
 		# modify environment parameters
 		if mod == 0:
 			param_cost = modify_environment(0)
-			sys.stderr.write(str(train_x.eval()) + "  |  " + str(param_cost[1]) + "\n")
+			sys.stderr.write("trainx: " + str(train_x.eval()) + "  |  " + str(param_cost[1]) + "\n")
 		else: 
 			param_cost= [0.0]
 
