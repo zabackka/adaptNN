@@ -291,7 +291,7 @@ class Network(object):
 		# print(train_x.eval())	
 
 		# train the network, modify the environment params & predict performance
-		network_cost,  = train(0)
+		network_cost  = train(0)
 		
 		# modify environment parameters
 		if mod == 0:
@@ -304,7 +304,7 @@ class Network(object):
 		prediction = predict(0)
 
 		# return data to be sent back to the server
-		return [train_x, prediction, network_cost, param_cost[0]]
+		return [train_x, prediction, network_cost[0], param_cost[0]]
 
 
 
