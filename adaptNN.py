@@ -37,6 +37,7 @@ def main():
 	# create net object
 	net = Network(layers)
 
+	# set batch size (to artifically create data)
 	batch_size = 10000
 
 
@@ -63,54 +64,46 @@ def main():
 			train_datax = numpy.empty((batch_size, num_params))
 			train_datay = numpy.empty((batch_size, 1))
 
+			# set the correct label for each training sample
 			for x in range(0, batch_size):
 				train_datay[x] = performance
-			
-			# sys.stderr.write("train y: " + str(train_datay) + "\n")
 
+			# artifically create samples from server data
 			for x in range(0, batch_size):
 				for y in range(0, num_params):
 					if x == 0:
 						train_datax[x][y] = params[y]
-						# sys.stderr.write(" " + str(train_datax[x][y]))
 					else:
 						train_datax[x][y] = random.uniform(params[y] - 5, params[y] + 5)
-						# sys.stderr.write(" " + str(random.uniform(params[y] - 5, params[y] + 5)))
-			# 	sys.stderr.write("\n")
-			# sys.stderr.write("\n")
 
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
 			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
-
-			# train_x = nnet.sigmoid(train_x)
-			
 			# store modified input values and parse
 			storeTrain = train_x.eval()
 			
 			# intialize message array to send back to server
 			sendBack = []
 			sendBack.append(job_id)
-			# sys.stderr.write("JOB ID #" + str(job_id))
+
 			# append the net's predicted output to message array
 			sendBack.append(float(prediction[0][0]))
 			
 			# append all modified enviroment params to message array
 			for x in range(0, num_params):
 				sendBack.append(storeTrain[0][x])
-				sys.stderr.write(str(storeTrain[0][x]) + "  ")
 
-			# sys.stderr.write("\n\n")
+			# append network & param cost to message array
 			sendBack.append(float(network_cost[0]))
 			sendBack.append(float(param_cost[0]))
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
-			sys.stderr.flush()
 			# send modified input values back to server
 			sys.stdout.write(json.dumps(sendBack) + "\n")
 			sys.stdout.flush()
+			sys.stderr.flush()
 
 
 # structure data into a format usable for NN
@@ -282,7 +275,6 @@ class Network(object):
 
 		# train the network, modify the environment params & predict performance
 		network_cost = train(0)
-		# sys.stderr.write("net cost: " + str(network_cost) + "\n")
 		
 		# modify environment parameters
 		if mod == 0:
@@ -293,10 +285,7 @@ class Network(object):
 		# make a prediction about the performance
 		prediction = predict(0)
 
-		# sys.stderr.write("mod: " + str(mod) + "\n");
-		# sys.stderr.write("train_x" + str(train_x.eval()) + "\n")
-		# sys.stderr.flush()
-
+		# return data to be sent back to the server
 		return [train_x, prediction, network_cost, param_cost]
 
 
