@@ -69,6 +69,8 @@ def main():
 				mod_datax[0][y] = params[y]
 			mod_datay = performance
 
+			sys.stderr.write("lengths: " + str(len(mod_datax)) + "  " + str(len(mod_datay)) + "\n")
+
 
 			# set the correct label for each training sample
 			for x in range(0, batch_size):
