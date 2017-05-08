@@ -260,7 +260,7 @@ class Network(object):
 		# define the train() function, which completes one "pass" through the network & updates weights
 		# this passes one batch of test data through the net
 		train = theano.function([index], 
-			[network_cost, self.output[0]], 
+			[network_cost, network_output[0]], 
 			updates=network_updates,
 			givens={self.x: train_x,
 					self.y: train_y},
@@ -304,7 +304,7 @@ class Network(object):
 		prediction = predict(0)
 
 		# return data to be sent back to the server
-		return [train_x, prediction, network_cost[0], param_cost[0]]
+		return [train_x, prediction, network_cost, param_cost[0]]
 
 
 
