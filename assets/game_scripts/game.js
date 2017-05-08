@@ -94,7 +94,7 @@ function updateTime() {
 }
 
 // send gathered data to server for processing
-function sendData() {
+function sendData(modify) {
 	// map environment params to the same interval
 	var p1 = intervalMap(enemySpawnRate, 200.0, 600.0, 0.0, 100.0);
 	var p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
@@ -109,7 +109,7 @@ function sendData() {
 	var performance = PLAYER_PERFORMANCE; 
 
 	// package up message to send to server
-	data = [0, outgoingID, params, performance];
+	data = [modify, outgoingID, params, performance];
 
 	// send message to the server
 	socket.send(JSON.stringify(data));
@@ -261,14 +261,16 @@ socket.on("data", function(data) {
 		// console.log("#" + data[0] + " (interval): " + enemySpawnRate + " (interval): " + playerHeight);
 		
 		// retrieve the network's calculated cost for updated params
-		paramCost = data[3];
+		network_cost = data[3]
+		paramCost = data[4];
 
 		data_package.push(paramCost);
 		
 		socket.emit("log", JSON.stringify(data_package));
 		data_package = [];
 
-		setTimeout(function() {  sendData();  }, 10000);		
+		var modify = 0;
+		setTimeout(function() {  sendData(modify);  }, 10000);		
 
 });
 

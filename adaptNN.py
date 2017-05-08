@@ -82,7 +82,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=5.5, mod = modify, batch_size=batch_size)
+			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, learning_rate1=1.5, learning_rate2=5.5, mod = modify, batch_size=batch_size)
 
 
 			train_x = nnet.sigmoid(train_x)
@@ -102,8 +102,8 @@ def main():
 				# sys.stderr.write(str(x) + "  ")
 
 			# sys.stderr.write("\n\n")
-
-			sendBack.append(float(param_cost[0]))
+			sendBack.append(network_cost)
+			sendBack.append(param_cost)
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
 			sys.stderr.flush()
@@ -281,7 +281,7 @@ class Network(object):
 		# print(train_x.eval())	
 
 		# train the network, modify the environment params & predict performance
-		train(0)
+		network_cost = train(0)
 		
 		# modify environment parameters
 		if mod == 0:
@@ -296,7 +296,7 @@ class Network(object):
 		# sys.stderr.write("train_x" + str(train_x.eval()) + "\n")
 		# sys.stderr.flush()
 
-		return [train_x, prediction, param_cost]
+		return [train_x, prediction, network_cost, param_cost]
 
 
 
