@@ -272,7 +272,7 @@ socket.on("data", function(data) {
 		
 		// retrieve param cost
 		if (data[6] != 0.0) {
-			paramCost = data[6];
+			paramCost = data[5];
 		}
 		
 		data_package.push(paramCost);

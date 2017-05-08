@@ -82,7 +82,7 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, network_cost, network_output, param_cost = net.train_batch(train_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
+			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 
 			train_x = nnet.sigmoid(train_x)
@@ -250,7 +250,7 @@ class Network(object):
 		# define the train() function, which completes one "pass" through the network & updates weights
 		# this passes one batch of test data through the net
 		train = theano.function([index], 
-			[network_cost, network_output], 
+			[network_cost], 
 			updates=network_updates,
 			givens={self.x: train_x,
 					self.y: train_y},
@@ -281,7 +281,7 @@ class Network(object):
 		# print(train_x.eval())	
 
 		# train the network, modify the environment params & predict performance
-		network_cost, network_output = train(0)
+		network_cost = train(0)
 		# sys.stderr.write("net cost: " + str(network_cost) + "\n")
 		
 		# modify environment parameters
@@ -297,7 +297,7 @@ class Network(object):
 		# sys.stderr.write("train_x" + str(train_x.eval()) + "\n")
 		# sys.stderr.flush()
 
-		return [train_x, prediction, network_cost, network_output, param_cost]
+		return [train_x, prediction, network_cost, param_cost]
 
 
 
