@@ -274,9 +274,10 @@ socket.on("data", function(data) {
 		socket.emit("log", JSON.stringify(data_package));
 		data_package = [];
 
-		var modify = 0;
-		if (network_cost > 0.2) {
-			modify = 1;
+		var modify = 1;
+		if (network_cost < 0.2) {
+			modify = 0;
+			modStatus = 0;
 		}
 		setTimeout(function() {  sendData(modify);  }, 10000);		
 
