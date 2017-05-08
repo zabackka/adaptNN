@@ -282,6 +282,7 @@ class Network(object):
 
 		# train the network, modify the environment params & predict performance
 		network_cost = train(0)
+		sys.stderr.write("net cost: " + str(network_cost) + "\n")
 		
 		# modify environment parameters
 		if mod == 0:
