@@ -246,7 +246,6 @@ setTimeout(function() {  sendData(); }, 5000);
 // triggered when a message is sent from server
 socket.on("data", function(data) {
 		// console.log("processing job #" + data[0]);
-		console.log(data.length);
 
 		// retrive the network's prediciton for performance
 		NNprediction = data[1];
@@ -269,7 +268,9 @@ socket.on("data", function(data) {
 		// retrieve the network's calculated cost for updated params
 		network_cost = data[4];
 		
-		console.log("network output: " + data[5]);
+		console.log("new param1: " + data[2]);
+		
+		// retrieve param cost
 		if (data[6] != 0.0) {
 			paramCost = data[6];
 		}
