@@ -102,7 +102,8 @@ def main():
 				# sys.stderr.write(str(x) + "  ")
 
 			# sys.stderr.write("\n\n")
-			# sendBack.append()
+			sendBack.append(float(network_cost[0]))
+			sendBack.append(float(network_output))
 			sendBack.append(float(param_cost[0]))
 			
 			## RESPOND TO SERVER WITH NEW DATA ##
@@ -228,6 +229,7 @@ class Network(object):
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
 		network_cost = self.layers[-1].network_cost(self)
+		network_output = self.output
 
 		# all values in self.params are shared variables
 		# calculate the gradients for each param (W/b) in the network
@@ -250,7 +252,7 @@ class Network(object):
 		# define the train() function, which completes one "pass" through the network & updates weights
 		# this passes one batch of test data through the net
 		train = theano.function([index], 
-			[network_cost], 
+			[network_cost, network_output], 
 			updates=network_updates,
 			givens={self.x: train_x,
 					self.y: train_y},
@@ -281,7 +283,7 @@ class Network(object):
 		# print(train_x.eval())	
 
 		# train the network, modify the environment params & predict performance
-		network_cost = train(0)
+		network_cost, network_output = train(0)
 		sys.stderr.write("net cost: " + str(network_cost) + "\n")
 		
 		# modify environment parameters
@@ -297,7 +299,7 @@ class Network(object):
 		# sys.stderr.write("train_x" + str(train_x.eval()) + "\n")
 		# sys.stderr.flush()
 
-		return [train_x, prediction, network_cost, param_cost]
+		return [train_x, prediction, network_cost, network_output, param_cost]
 
 
 
