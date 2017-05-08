@@ -193,7 +193,7 @@ class FullyConnectedLayer(object):
 
 	# define the cost of this layer
 	def network_cost(self, net):
-		return T.mean(T.pow((self.output - net.y), 2))
+		return T.mean(T.pow((self.output[0][0] - net.y), 2))
 
 	# compute the average error of a training batch
 	def accuracy(self, net):
@@ -260,7 +260,7 @@ class Network(object):
 		# define the train() function, which completes one "pass" through the network & updates weights
 		# this passes one batch of test data through the net
 		train = theano.function([index], 
-			[network_cost, network_output[0]], 
+			[network_cost], 
 			updates=network_updates,
 			givens={self.x: train_x,
 					self.y: train_y},
@@ -292,7 +292,7 @@ class Network(object):
 
 		# train the network, modify the environment params & predict performance
 		network_cost = train(0)
-		sys.stderr.write(str(network_cost[1]))
+
 		# modify environment parameters
 		if mod == 0:
 			param_cost = modify_environment(0)
