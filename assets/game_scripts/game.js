@@ -271,7 +271,7 @@ socket.on("data", function(data) {
 		console.log("new param1: " + data[2]);
 		
 		// retrieve param cost
-		if (data[6] != 0.0) {
+		if (data[5] != 0.0) {
 			paramCost = data[5];
 		}
 		
