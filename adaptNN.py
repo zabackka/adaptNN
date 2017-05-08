@@ -233,8 +233,6 @@ class Network(object):
 		input_cost = self.layers[-1].input_cost(self)
 
 		input_gradients = T.grad(input_cost, self.x)
-		
-		sys.stderr.write(str(input_gradients.eval()))
 
 		# environment_updates = [(train_x, T.nnet.sigmoid(train_x-learning_rate2*input_gradients))]
 		# environment_updates = [(train_x, (train_x-learning_rate2*input_gradients))]
@@ -255,7 +253,7 @@ class Network(object):
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
 		modify_environment = theano.function([index],
-			[input_cost],
+			[input_cost, input_gradients],
 			updates=environment_updates,
 			givens={self.x: train_x,
 					self.y: train_y},
@@ -281,9 +279,11 @@ class Network(object):
 		
 		# modify environment parameters
 		if mod == 0:
-			param_cost = modify_environment(0)
+			param_cost, gradient = modify_environment(0)
 		else: 
 			param_cost = [0.0]
+
+		sys.stderr.write(str(gradient.eval()))
 		
 		# make a prediction about the performance
 		prediction = predict(0)
