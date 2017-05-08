@@ -109,7 +109,7 @@ function sendData(modify) {
 
 	// store player performance to send to server
 	// update player performance measure
-	PLAYER_PERFORMANCE = intervalMap(numCollisions, 0.0, 100.0, 0.0, 1.0);
+	PLAYER_PERFORMANCE = intervalMap(numCollisions, 0.0, 50.0, 0.0, 1.0);
 	numCollisions = 0;
 	var performance = PLAYER_PERFORMANCE; 
 
@@ -271,7 +271,7 @@ socket.on("data", function(data) {
 		console.log("new param1: " + data[2]);
 		
 		// retrieve param cost
-		if (data[5] != 0.0) {
+		if (data[5 ] != 0.0) {
 			paramCost = data[5];
 		}
 		
