@@ -267,10 +267,11 @@ socket.on("data", function(data) {
 		// console.log("#" + data[0] + " (interval): " + enemySpawnRate + " (interval): " + playerHeight);
 		
 		// retrieve the network's calculated cost for updated params
-		network_cost = data[3];
-		console.log(data[3]);
-		if (data[4] != 0.0) {
-			paramCost = data[4];
+		network_cost = data[4];
+		
+		console.log("network output: " + data[5]);
+		if (data[6] != 0.0) {
+			paramCost = data[6];
 		}
 		
 		data_package.push(paramCost);
