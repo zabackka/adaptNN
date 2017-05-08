@@ -233,6 +233,9 @@ class Network(object):
 		input_cost = self.layers[-1].input_cost(self)
 
 		input_gradients = T.grad(input_cost, self.x)
+		
+		sys.stderr.write(str(input_gradients.eval()))
+
 		# environment_updates = [(train_x, T.nnet.sigmoid(train_x-learning_rate2*input_gradients))]
 		# environment_updates = [(train_x, (train_x-learning_rate2*input_gradients))]
 		environment_updates = [(train_x, (train_x-input_gradients))]
