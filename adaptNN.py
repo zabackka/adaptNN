@@ -92,7 +92,7 @@ def main():
 			mod_y = theano.shared(numpy.asarray(mod_datay, dtype=theano.config.floatX), borrow=True)
 			mod_data = [mod_x, mod_y]
 
-			sys.stderr.write(type(train_data) + "  " + type(mod_data))
+			sys.stderr.write(str(type(train_data)) + "  " + str(type(mod_data)))
 			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 			# store modified input values and parse
