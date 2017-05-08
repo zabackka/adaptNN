@@ -67,7 +67,8 @@ def main():
 			mod_datax = numpy.empty((1, num_params))
 			for y in range(0, num_params):
 				mod_datax[0][y] = params[y]
-			mod_datay = performance
+			mod_datay = numpy.empty(1, 1)
+			mod_datay[0] = performance
 
 			sys.stderr.write("lengths: " + str(len(mod_datax)) + "  " + str(len(mod_datay)) + "\n")
 
