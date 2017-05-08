@@ -197,7 +197,7 @@ class Network(object):
 	def __init__(self, layers):
 		# store list of layers for this net & performance goal for this environment
 		self.layers = layers
-		self.performance_goal = 0.01
+		self.performance_goal = 0.08
 
 		# symbolic variables that will be set during SGD
 		self.x = T.matrix("x")
