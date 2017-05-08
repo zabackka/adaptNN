@@ -280,7 +280,7 @@ socket.on("data", function(data) {
 		socket.emit("log", JSON.stringify(data_package));
 		data_package = [];
 
-		console.log(data_package[2])
+		console.log(data_package.length);
 		var modify = 1;
 		// only modify if NN is within a threshold of prediciton correctness
 		if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
