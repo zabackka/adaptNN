@@ -267,8 +267,10 @@ socket.on("data", function(data) {
 		
 		// retrieve the network's calculated cost for updated params
 		network_cost = data[3]
-		paramCost = data[4];
-
+		if (data[4] != 0.0) {
+			paramCost = data[4];
+		}
+		
 		data_package.push(paramCost);
 		
 		socket.emit("log", JSON.stringify(data_package));
