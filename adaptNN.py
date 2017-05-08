@@ -64,6 +64,12 @@ def main():
 			train_datax = numpy.empty((batch_size, num_params))
 			train_datay = numpy.empty((batch_size, 1))
 
+			mod_datax = numpy.empty((1, num_params))
+			for y in range(0, num_params):
+				mod_datax = [0][y] = params[y]
+			mod_datay = performance
+
+
 			# set the correct label for each training sample
 			for x in range(0, batch_size):
 				train_datay[x] = performance
@@ -79,7 +85,8 @@ def main():
 
 			## LEARN FROM NEW DATA ##
 			train_data = load_data(train_datax, train_datay)
-			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
+			mod_data = load_data(mod_datax, mod_datay)
+			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
@@ -214,9 +221,10 @@ class Network(object):
 		# 	the output of the last layer in the net
 		self.output = layers[-1].output
 
-	def train_batch(self, train_data, learning_rate1, learning_rate2, mod, batch_size):
+	def train_batch(self, train_data, mod_data, learning_rate1, learning_rate2, mod, batch_size):
 		# separate training data into x & y
 		train_x, train_y = train_data
+		mod_x, mod_y = mod_data
 
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
@@ -256,8 +264,8 @@ class Network(object):
 		modify_environment = theano.function([index],
 			[input_cost, input_gradients],
 			updates=environment_updates,
-			givens={self.x: train_x[0][0:2],
-					self.y: train_y[0][0]},
+			givens={self.x: mod_x,
+					self.y: mod_y},
 			on_unused_input='ignore')
 
 		pred = self.output
