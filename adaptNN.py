@@ -275,7 +275,7 @@ class Network(object):
 		modify_environment = theano.function([index],
 			[input_cost, input_gradients],
 			updates=environment_updates,
-			givens={self.x: mod_x,
+			givens={self.x: train_x,
 					self.y: mod_y},
 			on_unused_input='ignore')
 
