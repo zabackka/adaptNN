@@ -96,6 +96,7 @@ function updateTime() {
 	// update value in html to reflect current score
 	$("#player .value").html($("#player")[0].player.value);
 	playerHeight += 10; 
+	enemySpawnRate -= 100;
 	$("#player").h(playerHeight, false);
 
 }
