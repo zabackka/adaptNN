@@ -78,7 +78,7 @@ var enemySpawnRate = 600.0;
 ///// PLAYER /////
 var playerHeight = 60.0; 
 var playerWidth = 60;
-var playerSpeed = 10;  
+var playerSpeed = 50;  
 
 	// player constructor
 	function Player(){
