@@ -89,13 +89,16 @@ def main():
 
 
 			## LEARN FROM NEW DATA ##
-			train_data = load_data(train_datax, train_datay)
+			# train_data = load_data(train_datax, train_datay)
+			shared_x = shared_x = theano.shared(numpy.asarray(train_datax, dtype=theano.config.floatX), borrow=True)
+			shared_y = theano.shared(numpy.asarray(train_datay, dtype=theano.config.floatX), borrow=True)
+			train_data = (shared_x, shared_y)
 			mod_x = theano.shared(numpy.asarray(mod_datax, dtype=theano.config.floatX), borrow=True)
 			mod_y = theano.shared(numpy.asarray(mod_datay, dtype=theano.config.floatX), borrow=True)
 			mod_data = (mod_x, mod_y)
 
 			# sys.stderr.write(str(type(train_data)) + "  " + str(type(mod_data)))
-			train_x, prediction, network_cost, param_cost = net.train_batch(mod_data, mod_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
+			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
