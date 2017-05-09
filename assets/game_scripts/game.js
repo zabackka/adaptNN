@@ -76,7 +76,7 @@ var enemySpawnRate = 600.0;
 
 
 ///// PLAYER /////
-var playerHeight = 200.0; 
+var playerHeight = 60.0; 
 var playerWidth = 60;
 var playerSpeed = 10;  
 
@@ -95,6 +95,7 @@ function updateTime() {
     $("#player")[0].player.value += 1;
 	// update value in html to reflect current score
 	$("#player .value").html($("#player")[0].player.value);
+	playerHeight += 10; 
 
 }
 
@@ -258,8 +259,8 @@ socket.on("data", function(data) {
 		// console.log("#" + data[0] + " (raw): " + data[2] + " (raw): " + data[3]);
 		
 		// calculate the new param values based on network's updates
-		enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
-		playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
+		// enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
+		// playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
 		
 		data_package.push(enemySpawnRate);
 		data_package.push(playerHeight);
