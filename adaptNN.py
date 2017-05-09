@@ -189,12 +189,11 @@ class FullyConnectedLayer(object):
 		)
 	# define the cost of these input (environment) params
 	def input_cost(self, net):
-		return T.abs_(T.mean((net.performance_goal - self.output)))
+		return T.abs_(T.mean((net.performance_goal - self.output[0][0])))
 
 	# define the cost of this layer
 	def network_cost(self, net):
-		sys.stderr.write(str(self.output[0][0]))
-		return T.mean(T.pow((self.output[0][0] - net.y), 2))
+		return T.mean(T.pow((self.output - net.y), 2))
 
 	# compute the average error of a training batch
 	def accuracy(self, net):
