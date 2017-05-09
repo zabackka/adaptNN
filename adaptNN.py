@@ -271,7 +271,7 @@ class Network(object):
 					self.y: train_y},
 			on_unused_input='ignore')
 		
-		sys.stderr.write("modx: " + str(mod_x.eval()) + "mody " + str(mod_y.eval()) + "\n")
+
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
 		modify_environment = theano.function([index],
