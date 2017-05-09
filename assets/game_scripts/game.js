@@ -255,7 +255,6 @@ socket.on("data", function(data) {
 		
 		data_package.push(NNprediction);
 
-		console.log("p1:" + data[2] + "   p2:" + data[3]);
 		data[2] = data[2] * 10000000000000 - Math.floor(data[2] * 10000000000000);
 		data[3] = data[3] * 10000000000000 - Math.floor(data[3] * 10000000000000);
 		// console.log("#" + data[0] + " (raw): " + data[2] + " (raw): " + data[3]);
