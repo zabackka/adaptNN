@@ -191,7 +191,7 @@ class FullyConnectedLayer(object):
 		)
 
 	# define the cost of these input (environment) params
-	def input_cost(self, net):
+	def input_cost(self, net, output):
 		return T.abs_(T.mean((net.performance_goal - self.output[0][0])))
 
 	# define the cost of this layer
@@ -236,8 +236,6 @@ class Network(object):
 		train_x, train_y = train_data
 		mod_x, mod_y = mod_data
 
-		sys.stderr.write("original: " + str(mod_x))
-
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
 		network_cost = self.layers[-1].network_cost(self)
@@ -251,7 +249,7 @@ class Network(object):
 		network_updates = [(param, param-learning_rate1*grad) for param, grad in zip(self.params, layer_gradients)]
 
 		### INPUT updates ###
-		input_cost = self.layers[-1].input_cost(self)
+		input_cost = self.layers[-1].input_cost(self, [50.0])
 
 		input_gradients = T.grad(input_cost, self.x)
 
