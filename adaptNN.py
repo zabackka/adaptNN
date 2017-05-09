@@ -64,13 +64,15 @@ def main():
 			train_datax = numpy.empty((batch_size, num_params))
 			train_datay = numpy.empty((batch_size, 1))
 
-			mod_datax = numpy.empty((1, num_params))
-			mod_datay = numpy.empty((1, 1))
+			mod_datax = numpy.empty((2, num_params))
+			mod_datay = numpy.empty((2, 1))
 
 			for y in range(0, num_params):
 				mod_datax[0][y] = params[y]
-
+				mod_datax[1][y] = params[y]
+ 
 			mod_datay[0] = performance
+			mod_datay[1] = performance
 
 
 			# set the correct label for each training sample
@@ -187,6 +189,7 @@ class FullyConnectedLayer(object):
 			# apply activation function and store values in self.output
 			else self.activation(output)
 		)
+
 	# define the cost of these input (environment) params
 	def input_cost(self, net):
 		return T.abs_(T.mean((net.performance_goal - self.output[0][0])))
@@ -266,6 +269,7 @@ class Network(object):
 					self.y: train_y},
 			on_unused_input='ignore')
 		
+		sys.stderr.write("modx: " + str(mod_x.eval()) + "mody " + str(mod_y.eval()) + "\n")
 		# update the input params based on their effect on network output
 		# does one input update based on a batch of data
 		modify_environment = theano.function([index],
