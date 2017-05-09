@@ -100,7 +100,7 @@ def main():
 			perf_goal = theano.shared(numpy.asarray(goal, dtype=theano.config.floatX), borrow=True)
 
 			# sys.stderr.write(str(type(train_data)) + "  " + str(type(mod_data)))
-			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, perf_goal, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
+			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, perf_goal, learning_rate1=4.5, learning_rate2=1.5, mod = modify, batch_size=batch_size)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
