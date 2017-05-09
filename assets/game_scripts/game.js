@@ -236,7 +236,6 @@ $.playground().registerCallback(function() {
 				$("#player").y(nextpos);
 			}
 		}
-	return playerSpeed;	
 }, REFRESH_RATE); 
 
 
