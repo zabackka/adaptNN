@@ -64,28 +64,24 @@ def main():
 			train_datax = numpy.empty((batch_size, num_params))
 			train_datay = numpy.empty((batch_size, 1))
 
-			mod_datax = numpy.empty((2, num_params))
-			mod_datay = numpy.empty((2, 1))
-
-			for y in range(0, num_params):
-				mod_datax[0][y] = params[y]
-				mod_datax[1][y] = params[y]
- 
-			mod_datay[0] = 50.0
-			mod_datay[1] = 50.0
+			mod_x = numpy.empty((batch_size, num_params))
+			mod_y = numpy.empty((batch_size, 1))
 
 
 			# set the correct label for each training sample
 			for x in range(0, batch_size):
 				train_datay[x] = performance
+				mod_y[x] = performance
 
 			# artifically create samples from server data
 			for x in range(0, batch_size):
 				for y in range(0, num_params):
 					if x == 0:
 						train_datax[x][y] = params[y]
+						mod_x[x][y] = params[y]
 					else:
 						train_datax[x][y] = random.uniform(params[y] - 5, params[y] + 5)
+						mod_x[x][y] = params[y]
 
 
 			## LEARN FROM NEW DATA ##
@@ -195,7 +191,7 @@ class FullyConnectedLayer(object):
 
 	# define the cost of these input (environment) params
 	def input_cost(self, net, output):
-		return T.abs_(T.mean((net.performance_goal - self.output[0])))
+		return T.abs_(T.mean((net.performance_goal - self.output)))
 
 	# define the cost of this layer
 	def network_cost(self, net):
