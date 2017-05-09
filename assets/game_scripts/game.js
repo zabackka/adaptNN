@@ -95,10 +95,7 @@ function updateTime() {
     $("#player")[0].player.value += 1;
 	// update value in html to reflect current score
 	$("#player .value").html($("#player")[0].player.value);
-	playerHeight += 10; 
-	enemySpawnRate -= 100;
-	$("#player").h(playerHeight, false);
-
+	
 }
 
 // send gathered data to server for processing
@@ -200,6 +197,8 @@ $.playground().registerCallback(function() {
 	enemyElement.addClass("enemy");
 	// spawn new enemy off enemy node
 	enemyElement[0].enemy = new Enemy(enemyElement);
+
+	// change callback interval to new spawn rate
 	return enemySpawnRate;
 }, enemySpawnRate); 
 
@@ -262,9 +261,10 @@ socket.on("data", function(data) {
 		// console.log("#" + data[0] + " (raw): " + data[2] + " (raw): " + data[3]);
 		
 		// calculate the new param values based on network's updates
-		// enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
-		// playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
-		
+		enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
+		playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
+		$("#player").h(playerHeight, false);
+
 		data_package.push(enemySpawnRate);
 		data_package.push(playerHeight);
 
