@@ -264,6 +264,7 @@ socket.on("data", function(data) {
 		enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
 		playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
 		$("#player").h(playerHeight, false);
+		$("#playerBody").h(playerHeight, false);
 
 		data_package.push(enemySpawnRate);
 		data_package.push(playerHeight);
