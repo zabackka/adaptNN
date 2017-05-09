@@ -24,7 +24,7 @@ var paramCost = 0.0;
 var outgoingID = 0;
 var network_cost= 1.0;  
 
-var modStatus = 1; 
+var modify = 0;
 
 var data_package = []
 
@@ -46,7 +46,7 @@ function printEnvironmentParams() {
 			+ "   |   NN PREDICTION: " + NNprediction.toFixed(4) 
 			+ "   |   PARAM COST: " + paramCost.toFixed(4) 
 			+ "   |   NETWORK COST: " + network_cost.toFixed(7)
-			+ "   |   MOD STATUS (0=T/1=F): " + modStatus
+			+ "   |   MOD STATUS (0=T/1=F): " + modify
 			//+ "   |   NUM COLLISIONS: " + numCollisions
 			//+ "   |   enemy height: <b>" + enemyHeight.toFixed(4) 
 			//+ "</b>   |    enemy width: <b>" + enemyWidth.toFixed(4) 
@@ -283,7 +283,6 @@ socket.on("data", function(data) {
 		var modify = 0;
 		if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
 			modify = 0;
-			modStatus = 0;
 		}
 
 		// clear the data package
