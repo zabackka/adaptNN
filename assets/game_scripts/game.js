@@ -24,7 +24,7 @@ var paramCost = 0.0;
 var outgoingID = 0;
 var network_cost= 1.0;  
 
-var modify = 0;
+var modify = 1;
 
 var data_package = []
 
@@ -280,7 +280,7 @@ socket.on("data", function(data) {
 		socket.emit("log", JSON.stringify(data_package));
 
 		// only modify if NN is within a threshold of prediciton correctness
-		var modify = 0;
+		modify = 1;
 		if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
 			modify = 0;
 		}
