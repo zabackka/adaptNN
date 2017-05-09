@@ -236,7 +236,7 @@ class Network(object):
 		train_x, train_y = train_data
 		mod_x, mod_y = mod_data
 
-		sys.stderr.write("original: " + str(modx))
+		sys.stderr.write("original: " + str(mod_x))
 
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
