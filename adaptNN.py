@@ -94,7 +94,7 @@ def main():
 			mod_data = (mod_datax, mod_datay)
 
 			# sys.stderr.write(str(type(train_data)) + "  " + str(type(mod_data)))
-			train_x, prediction, network_cost, param_cost = net.train_batch(train_data,learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
+			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
@@ -230,9 +230,10 @@ class Network(object):
 		# 	the output of the last layer in the net
 		self.output = layers[-1].output
 
-	def train_batch(self, train_data, learning_rate1, learning_rate2, mod, batch_size):
+	def train_batch(self, train_data, mod_data, learning_rate1, learning_rate2, mod, batch_size):
 		# separate training data into x & y
 		train_x, train_y = train_data
+		mod_x, mod_y = mod_data
 
 		### LAYER updates ###
 		# calculate the cost of the net's prediction
