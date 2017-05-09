@@ -270,9 +270,10 @@ socket.on("data", function(data) {
 		network_cost = data[4];
 		
 		// retrieve param cost
-		if (data[5 ] != 0.0) {
-			paramCost = data[5];
-		}
+		paramCost = data[5]
+		// if (data[5 ] != 0.0) {
+		// 	paramCost = data[5];
+		// }
 		
 		data_package.push(paramCost);
 		
