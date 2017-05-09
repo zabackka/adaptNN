@@ -71,8 +71,8 @@ def main():
 				mod_datax[0][y] = params[y]
 				mod_datax[1][y] = params[y]
  
-			mod_datay[0] = performance
-			mod_datay[1] = performance
+			mod_datay[0] = 50.0
+			mod_datay[1] = 50.0
 
 
 			# set the correct label for each training sample
