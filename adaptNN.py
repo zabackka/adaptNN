@@ -193,7 +193,7 @@ class FullyConnectedLayer(object):
 
 	# define the cost of this layer
 	def network_cost(self, net):
-		sys.stderr.write(self.output[0][0])
+		sys.stderr.write(str(self.output[0][0]))
 		return T.mean(T.pow((self.output[0][0] - net.y), 2))
 
 	# compute the average error of a training batch
