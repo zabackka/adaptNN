@@ -53,8 +53,8 @@ function printEnvironmentParams() {
 			//+ "</b>   |    enemy speed: <b>" + enemySpeed.toFixed(4) 
 			+ "</b>   |    SPAWN RATE: <b>" + enemySpawnRate.toFixed(4) 
 			//+ "</b>   |    player width: <b>" + playerWidth.toFixed(4) 
-			+ "</b>   |    PLAYER HEIGHT: <b>" + playerHeight.toFixed(4) 
-			//+ "</b>   |    player speed: <b>" + playerSpeed.toFixed(4) 
+			// + "</b>   |    PLAYER HEIGHT: <b>" + playerHeight.toFixed(4) 
+			+ "</b>   |    PLAYER SPEED: <b>" + playerSpeed.toFixed(4) 
 			+ "</b><p></p>");
 }
 
@@ -95,7 +95,6 @@ function updateTime() {
     $("#player")[0].player.value += 1;
 	// update value in html to reflect current score
 	$("#player .value").html($("#player")[0].player.value);
-	playerSpeed -= 5;
 	
 }
 
@@ -103,7 +102,7 @@ function updateTime() {
 function sendData(modify) {
 	// map environment params to the same interval
 	var p1 = intervalMap(enemySpawnRate, 200.0, 600.0, 0.0, 100.0);
-	var p2 = intervalMap(playerHeight, 60.0, 200.0, 0.0, 100.0);
+	var p2 = intervalMap(playerSpeed, 10.0, 50.0, 0.0, 100.0);
 
 	// all params stored in array to be sent to server
 	var params = [p1, p2];
@@ -122,7 +121,7 @@ function sendData(modify) {
 
 	// add new data to package to send next time
 	data_package.push(enemySpawnRate);
-	data_package.push(playerHeight);
+	data_package.push(playerSpeed);
 	data_package.push(performance);
 
 	// console.log("sending [" + outgoingID + "]: " + data[2] + " " + data[3]);
@@ -263,14 +262,10 @@ socket.on("data", function(data) {
 		
 		// calculate the new param values based on network's updates
 		enemySpawnRate = intervalMap(data[2], 0.0, 1.0, 200.0, 600.0);
-		playerHeight = intervalMap(data[3], 0.0, 1.0, 60.0, 200.0);
-		$("#player").h(playerHeight, false);
-		$("#playerBody").h(playerHeight, false);
+		playerSpeed = intervalMap(data[3], 0.0, 1.0, 10.0, 50.0);
 
 		data_package.push(enemySpawnRate);
-		data_package.push(playerHeight);
-
-		// console.log("#" + data[0] + " (interval): " + enemySpawnRate + " (interval): " + playerHeight);
+		data_package.push(playerSpeed);
 		
 		// retrieve the network's calculated cost for updated params
 		network_cost = data[4];
