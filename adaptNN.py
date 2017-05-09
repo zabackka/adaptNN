@@ -67,11 +67,15 @@ def main():
 			mod_x = numpy.empty((batch_size, num_params))
 			mod_y = numpy.empty((batch_size, 1))
 
+			PERFORMANCE_GOAL = 0.001
+			goal = numpy.empty((batch_size, 1))
+
 
 			# set the correct label for each training sample
 			for x in range(0, batch_size):
 				train_datay[x] = performance
 				mod_y[x] = performance
+				goal[x] = PERFORMANCE_GOAL
 
 			# artifically create samples from server data
 			for x in range(0, batch_size):
@@ -93,8 +97,10 @@ def main():
 			mod_datay = theano.shared(numpy.asarray(mod_y, dtype=theano.config.floatX), borrow=True)
 			mod_data = (mod_datax, mod_datay)
 
+			perf_goal = theano.shared(numpy.asarray(goal, dtype=theano.config.floatX), borrow=True)
+
 			# sys.stderr.write(str(type(train_data)) + "  " + str(type(mod_data)))
-			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
+			train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, perf_goal, learning_rate1=4.5, learning_rate2=0.003, mod = modify, batch_size=batch_size)
 
 			# store modified input values and parse
 			storeTrain = train_x.eval()
@@ -191,7 +197,7 @@ class FullyConnectedLayer(object):
 
 	# define the cost of these input (environment) params
 	def input_cost(self, net, output):
-		return T.abs_(T.mean((self.output - self.output)))
+		return T.abs_(T.mean((self.goal - self.output)))
 
 	# define the cost of this layer
 	def network_cost(self, net):
@@ -213,6 +219,7 @@ class Network(object):
 		self.x = T.matrix("x")
 		# self.y = T.dvector("y")
 		self.y = T.matrix("y")
+		self.goal = T.matrix("goal")
 
 		# store the parameters of each layer in the network
 		# create a list of all shared variables in the network [all W/b variables]
@@ -230,7 +237,7 @@ class Network(object):
 		# 	the output of the last layer in the net
 		self.output = layers[-1].output
 
-	def train_batch(self, train_data, mod_data, learning_rate1, learning_rate2, mod, batch_size):
+	def train_batch(self, train_data, mod_data, perf_goal, learning_rate1, learning_rate2, mod, batch_size):
 		# separate training data into x & y
 		train_x, train_y = train_data
 		mod_x, mod_y = mod_data
@@ -265,7 +272,8 @@ class Network(object):
 			[network_cost], 
 			updates=network_updates,
 			givens={self.x: train_x,
-					self.y: train_y},
+					self.y: train_y, 
+					self.goal: perf_goal},
 			on_unused_input='ignore')
 		
 
@@ -275,14 +283,16 @@ class Network(object):
 			[input_cost, input_gradients],
 			updates=environment_updates,
 			givens={self.x: mod_x,
-					self.y: mod_y},
+					self.y: mod_y,
+					self.goal: perf_goal},
 			on_unused_input='ignore')
 
 		pred = self.output
 		predict = theano.function([index],
 			pred,
 			givens={self.x: train_x[0:1][0:2],
-					self.y: train_y[0:1][0]},
+					self.y: train_y[0:1][0],
+					self.goal: perf_goal},
 			on_unused_input= 'ignore')
 
 		#** PRINT CHECK STATEMENTS **#
