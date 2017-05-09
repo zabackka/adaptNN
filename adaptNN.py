@@ -67,7 +67,7 @@ def main():
 			mod_x = numpy.empty((batch_size, num_params))
 			mod_y = numpy.empty((batch_size, 1))
 
-			PERFORMANCE_GOAL = 0.001
+			PERFORMANCE_GOAL = 0.1
 			goal = numpy.empty((batch_size, 1))
 
 
