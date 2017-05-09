@@ -265,8 +265,8 @@ class Network(object):
 		train = theano.function([index], 
 			[network_cost], 
 			updates=network_updates,
-			givens={self.x: train_x,
-					self.y: train_y},
+			givens={self.x: mod_x,
+					self.y: mod_y},
 			on_unused_input='ignore')
 		
 		sys.stderr.write("modx: " + str(mod_x.eval()) + "mody " + str(mod_y.eval()) + "\n")
@@ -275,7 +275,7 @@ class Network(object):
 		modify_environment = theano.function([index],
 			[input_cost, input_gradients],
 			updates=environment_updates,
-			givens={self.x: train_x,
+			givens={self.x: mod_x,
 					self.y: mod_y},
 			on_unused_input='ignore')
 
