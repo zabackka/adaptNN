@@ -95,6 +95,7 @@ function updateTime() {
     $("#player")[0].player.value += 1;
 	// update value in html to reflect current score
 	$("#player .value").html($("#player")[0].player.value);
+	playerSpeed -= 5;
 	
 }
 
@@ -235,7 +236,8 @@ $.playground().registerCallback(function() {
 			if(nextpos < PLAYGROUND_HEIGHT - playerHeight){
 				$("#player").y(nextpos);
 			}
-		}	
+		}
+	return playerSpeed;	
 }, REFRESH_RATE); 
 
 
