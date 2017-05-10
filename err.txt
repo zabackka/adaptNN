@@ -1638,3 +1638,25 @@ Traceback (most recent call last):
   File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/fg.py", line 307, in __remove_clients__
     r.clients.remove(entry)
 KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 324, in <module>
+    main()
+  File "adaptNN.py", line 54, in main
+    msg = json.loads(msg) 
+  File "/usr/lib64/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python2.7/json/decoder.py", line 382, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 324, in <module>
+    main()
+  File "adaptNN.py", line 52, in main
+    msg = sys.stdin.readline()
+KeyboardInterrupt
