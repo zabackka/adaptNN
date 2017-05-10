@@ -113,6 +113,7 @@ function sendData(modify) {
 	// PLAYER_PERFORMANCE = intervalMap(numCollisions, 0.0, 50.0, 0.0, 1.0);
 	PLAYER_PERFORMANCE = (timeLapse - numCollisions) / timeLapse;
 	numCollisions = 0;
+	console.log("timelapse: " + timeLapse);
 	timeLapse = 0; 
 	var performance = PLAYER_PERFORMANCE; 
 
