@@ -23,7 +23,7 @@ var NNprediction = 0.0;
 var paramCost = 0.0;
 var outgoingID = 0;
 var network_cost= 1.0;  
-
+var timeLapse = 0; 
 var modify = 1;
 
 var data_package = []
@@ -90,7 +90,8 @@ var playerSpeed = 10;
 	};
 
 function updateTime() {
-	CURRENT_TIME++; 
+	CURRENT_TIME++;
+	timeLapse++;  
 	// increment player value
     $("#player")[0].player.value += 1;
 	// update value in html to reflect current score
@@ -109,8 +110,10 @@ function sendData(modify) {
 
 	// store player performance to send to server
 	// update player performance measure
-	PLAYER_PERFORMANCE = intervalMap(numCollisions, 0.0, 50.0, 0.0, 1.0);
+	// PLAYER_PERFORMANCE = intervalMap(numCollisions, 0.0, 50.0, 0.0, 1.0);
+	PLAYER_PERFORMANCE = (timeLapse - numCollisions) / timeLapse;
 	numCollisions = 0;
+	timeLapse = 0; 
 	var performance = PLAYER_PERFORMANCE; 
 
 	// package up message to send to server
