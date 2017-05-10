@@ -111,7 +111,7 @@ function sendData(modify) {
 	// store player performance to send to server
 	// update player performance measure
 	// PLAYER_PERFORMANCE = intervalMap(numCollisions, 0.0, 50.0, 0.0, 1.0);
-	PLAYER_PERFORMANCE = (timeLapse - numCollisions) / timeLapse;
+	PLAYER_PERFORMANCE = numCollisions / timeLapse;
 	numCollisions = 0;
 	console.log("timelapse: " + timeLapse);
 	timeLapse = 0; 
