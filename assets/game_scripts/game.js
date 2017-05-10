@@ -119,7 +119,6 @@ function sendData(modify) {
 	perf = numCollisions / timeLapse;
 	PLAYER_PERFORMANCE = sigmoid(perf);
 	numCollisions = 0;
-	console.log("timelapse: " + timeLapse);
 	timeLapse = 0; 
 	var performance = PLAYER_PERFORMANCE; 
 
@@ -292,9 +291,9 @@ socket.on("data", function(data) {
 
 		// only modify if NN is within a threshold of prediciton correctness
 		modify = 1;
-		if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
-			modify = 0;
-		}
+		// if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
+		// 	modify = 0;
+		// }
 
 		// clear the data package
 		data_package = [];
