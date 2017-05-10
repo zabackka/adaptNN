@@ -32,6 +32,11 @@ var data_package = []
 var GAME_TIMER = setInterval(updateTime, 1000);
 var HIGH_SCORE = 0;
 
+
+function sigmoid(t) {
+    return 1/(1+Math.pow(Math.E, -t));
+}
+
 function intervalMap(value, fromLow, fromHigh, toLow, toHigh) {
 	return (value - fromLow)*((toHigh - toLow) / (fromHigh - fromLow)) + toLow
 }
@@ -111,7 +116,8 @@ function sendData(modify) {
 	// store player performance to send to server
 	// update player performance measure
 	// PLAYER_PERFORMANCE = intervalMap(numCollisions, 0.0, 50.0, 0.0, 1.0);
-	PLAYER_PERFORMANCE = numCollisions / timeLapse;
+	perf = numCollisions / timeLapse;
+	PLAYER_PERFORMANCE = sigmoid(perf);
 	numCollisions = 0;
 	console.log("timelapse: " + timeLapse);
 	timeLapse = 0; 
