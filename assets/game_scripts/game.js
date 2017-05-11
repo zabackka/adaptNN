@@ -290,10 +290,10 @@ socket.on("data", function(data) {
 		socket.emit("log", JSON.stringify(data_package));
 
 		// only modify if NN is within a threshold of prediciton correctness
-		modify = 0;
-		// if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
-		// 	modify = 0;
-		// }
+		modify = 1;
+		if (Math.abs(data_package[2] - NNprediction) < 0.0100) {
+			modify = 0;
+		}
 
 		// clear the data package
 		data_package = [];
