@@ -398,3 +398,33 @@ Traceback (most recent call last):
   File "/usr/lib64/python2.7/linecache.py", line 13, in getline
     def getline(filename, lineno, module_globals=None):
 KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 324, in <module>
+    main()
+  File "adaptNN.py", line 103, in main
+    train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, perf_goal, learning_rate1=4.3, learning_rate2=1.5, mod = modify, batch_size=batch_size)
+  File "adaptNN.py", line 288, in train_batch
+    on_unused_input='ignore')
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function.py", line 320, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/pfunc.py", line 479, in pfunc
+    output_keys=output_keys)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1776, in orig_function
+    output_keys=output_keys).create(
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/function_module.py", line 1439, in __init__
+    optimizer, linker = mode.optimizer, copy.copy(mode.linker)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/compile/mode.py", line 297, in __get_optimizer
+    return optdb.query(self._optimizer)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/optdb.py", line 325, in query
+    opts = super(SequenceDB, self).query(*tags, **kwtags)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/optdb.py", line 128, in query
+    return self.__query__(tags[0])
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/optdb.py", line 114, in __query__
+    replacement = obj.query(sq)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/optdb.py", line 286, in query
+    cleanup_optimizers=cleanup_opts)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gof/opt.py", line 2044, in __init__
+    for c in opt.tracks():
+KeyboardInterrupt
