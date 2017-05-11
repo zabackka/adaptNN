@@ -462,3 +462,207 @@ Traceback (most recent call last):
   File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/elemwise.py", line 602, in __eq__
     items = list(self.inplace_pattern.items())
 KeyboardInterrupt
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 324, in <module>
+    main()
+  File "adaptNN.py", line 54, in main
+    msg = json.loads(msg) 
+  File "/usr/lib64/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python2.7/json/decoder.py", line 382, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 324, in <module>
+    main()
+  File "adaptNN.py", line 54, in main
+    msg = json.loads(msg) 
+  File "/usr/lib64/python2.7/json/__init__.py", line 339, in loads
+    return _default_decoder.decode(s)
+  File "/usr/lib64/python2.7/json/decoder.py", line 364, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/usr/lib64/python2.7/json/decoder.py", line 382, in raw_decode
+    raise ValueError("No JSON object could be decoded")
+ValueError: No JSON object could be decoded
+NVIDIA: no NVIDIA devices found
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Traceback (most recent call last):
+  File "adaptNN.py", line 324, in <module>
+    main()
+  File "adaptNN.py", line 103, in main
+    train_x, prediction, network_cost, param_cost = net.train_batch(train_data, mod_data, perf_goal, learning_rate1=4.3, learning_rate2=1.5, mod = modify, batch_size=batch_size)
+  File "adaptNN.py", line 252, in train_batch
+    layer_gradients = T.grad(network_cost, self.params)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 561, in grad
+    grad_dict, wrt, cost_name)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1324, in _populate_grad_dict
+    rval = [access_grad_cache(elem) for elem in wrt]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 973, in access_term_cache
+    output_grads = [access_grad_cache(var) for var in node.outputs]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1279, in access_grad_cache
+    term = access_term_cache(node)[idx]
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/gradient.py", line 1113, in access_term_cache
+    input_grads = node.op.grad(inputs, new_output_grads)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/elemwise.py", line 679, in grad
+    rval = self._bgrad(inputs, ograds)
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/elemwise.py", line 792, in _bgrad
+    ret.append(transform(scalar_igrad))
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/elemwise.py", line 784, in transform
+    *[transform(ipt) for ipt in node.inputs])
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/elemwise.py", line 783, in transform
+    new_r = Elemwise(node.op, {})(
+  File "/usr/local/lib/python2.7/site-packages/Theano-0.8.2-py2.7.egg/theano/tensor/elemwise.py", line 511, in __init__
+    self.nfunc = getattr(numpy, nfunc_spec[0])
+KeyboardInterrupt
