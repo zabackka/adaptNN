@@ -23,4 +23,4 @@ AWS Communication
 In order to get this code up and running, using an AWS EC2 instance was necessary. Running the code in the cloud allowed for enough memory to execute the learning algorithm quickly (which was very important, given that the problem space existed in real time) and efficiently. 
 The testing site is hosted using NodeJS running on an EC2 instance, and all the code is run on a remote linux server (specifically, the Deep Learning Linux AMI via the AWS Marketplace). 
 ​
-​
+For a more in-depth explanation of the model and how it works, please refer to the "Getting Started" pdf. 
